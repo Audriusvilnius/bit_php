@@ -134,7 +134,7 @@ reikšmes nuo 0 iki 2. Suskaičiuokite kiek yra nulių, vienetų ir dvejetų. (s
     $s2 = rand(-10, 10);
     $s3 = rand(-10, 10);
     if ($s1 < 0){
-        <style></style>
+    //     <style></style>
     }
     
     echo '<hr>';
