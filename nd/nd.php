@@ -228,52 +228,48 @@ reikšmes nuo 0 iki 2. Suskaičiuokite kiek yra nulių, vienetų ir dvejetų. (s
     echo '<hr>';
     echo '<p>10.	Padarykite skaitmeninį laikrodį, rodantį valandas, minutes ir sekundes. Valandom, minutėm ir sekundėm sugeneruoti panaudokite funkciją rand(). Sugeneruokite skaičių nuo 0 iki 300. Tai papildomos sekundės. Skaičių pridėkite prie jau sugeneruoto laiko. Atspausdinkite laikrodį prieš ir po sekundžių pridėjimo ir pridedamų sekundžių skaičių.</p>';
     $val = rand(0, 23);
-    $min = 59;//rand(0, 59);
-    $s = 58;//rand(0, 59);
+    $min = rand(0, 59);
+    $s = rand(0, 59);
     $prid = rand(0, 300);
-    echo "$val val. $min min. $s s.";
+    echo "<h2 style=\"color: blue;\">$val val. $min min. $s s.</h2>";
     echo '<br>';
     echo "Papildomos sekundes: $prid s.";
     echo '<br>';
-    $pridmin = round((($min * 60 + $prid + $s)/60), 2);
-    echo "Minutes: $pridmin min. su liekana";
-    $pridmin_liek = ($prid)%10;
     echo '<br>';
-    echo "Prid minutes: $pridmin_liek min. be liekana";
-    $newsec = ($pridmin - $pridmin_liek)*100 + $s;
+    $pridmin = (($prid + $s)/60)%10;
+    echo "Papildomos min: $pridmin min.";
     echo '<br>';
-    echo "Sekundes: $realsec s.";
-    $newMin = (($newsec / 60)%10) + $pridmin_liek;
+    $news = (($prid + $s) - $pridmin*60 );
     echo '<br>';
-    echo $newMin;
-
-
-    // if($newsec > 59){
-    //     $pridmin_liek++;
-    //     $newsec = $newsec - 60 + $s;
-    //     if ($newsec > 59){
-    //         $pridmin_liek++;
-           
-    //     }
-    
-    // }  
-        
-
-
-    
-   
+    echo "Sekundes: $news s.";
+    $newMin = $pridmin + $min;
     echo '<br>';
-
-    
+    echo "Min: $newMin .";
+    if($news > 59){
+        $newMin++;
+        $news = $news - 60;
+        if($newMin > 59){
+            $val++;
+            $newMin = $newMin - 60;
+            if ($val > 24){
+                $val = $val - 24;  
+            }
+        }
+    }else if($newMin > 59){
+        $val++;
+        $newMin = $newMin - 60;
+        if ($val > 24) {
+            $val = $val - 24;
+        }
+    } 
+    $news = round($news, 0);
     echo '<br>';
-
-
     echo '<br>';
-    echo " $val valandu. $min min. $realsec s.";
-        
+    echo "<h2 style=\"color: darkblue;\">$val valandu. $newMin min. $news s.</h2>";
     echo '<hr>';
+    
     ?>
-
+    <style style="color: skyblue;"></style>
 </body>
 
 </html>
