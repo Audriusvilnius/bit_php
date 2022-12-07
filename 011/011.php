@@ -54,9 +54,108 @@
 
     // Indexas masyve gali but stringas, metodai neperindexuoja situ reiksmiu
     
-    
-    
     print_r($mas1);   // masyva negalima is echo inti
+
+    echo '<hr>';
+    echo 'Indexuoja bet nerikiuoja ';
+    $mas1 = [1, 2, 3];
+    $mas1[147] = 'Jonas';
+    $mas1[88] = 'Jonas';
+    $mas1[] = 'Antanas';
+    
+
+    print_r($mas1);
+
+    echo '<hr>';
+
+    $mas1 = ['a'=>1,'add'=>2,3];
+    $mas1[false] = 'Bebras';
+    $mas1[true] = 'Bebras';
+    $mas1['5.88'] = 'Zita';
+    $mas1[''] = 'tuscias stringas indexe';
+
+    print_r($mas1);
+
+
+    echo '<hr>';
+
+  
+
+    $mas1 = ['a' => 1, 'add' => 2, 3];
+    $mas1[false] = 'Bebras';
+    $mas1[true] = 'Bebras';
+    $mas1['5.88'] = 'Zita';
+    $mas1[''] = 'tuscias stringas indexe';
+
+    foreach($mas as  $value){
+        echo"<h2> $value </h2>";
+    }
+
+    foreach ($mas as $index => $value) {
+        echo "<h2>$index: <i>$value</i> </h2>";
+    }
+    echo "<h2>$index: <i>$value</i> </h2>";
+
+    print_r($mas1);
+
+    echo '<hr>';
+
+    print_r($mas1);
+
+    arsort($mas1);
+
+    $mas1['777'] = [777, 999];
+
+    // arsort($mas1);
+
+    print_r($mas1);
+
+    foreach ($mas1 as $index => $value) {
+        if (!is_array($value)) {
+            echo "<h2>$index: <i>$value</i></h2>";
+        } else {
+            foreach ($value as $index2 => $value2) {
+                echo "<h2>$index2: <i>$value2</i></h2>";
+            }
+        }
+    }
+
+
+    print_r(range(1,5));
+    foreach (range(1, 5) as $go){
+        echo 'Reiksme: '. $go. '<br>';
+    }
+    echo '<hr>';
+
+    foreach (range('a', 'A') as $go) {
+        echo 'Reiksme: ' . $go . '<br>';
+    }
+    echo '<hr>';
+
+    $mas1 = ['a' => 1, 'ddd' => 2, 3];
+    $mas1['5.8888'] = 'Bebras';
+
+
+    print_r($mas1);
+
+    arsort($mas1);
+
+    $mas1['777'] = [777, 999];
+
+    // arsort($mas1);
+
+    print_r($mas1);
+
+    foreach ($mas1 as $index => $value) {
+        if (!is_array($value)) {
+            echo "<h2>$index: <i>$value</i></h2>";
+        } else {
+            foreach ($value as $index2 => $value2) {
+                echo "<h2>$index2: <i>$value2</i></h2>";
+            }
+        }
+    }
+    echo '<hr>';
     ?>
 </body>
 
