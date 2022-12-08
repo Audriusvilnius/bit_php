@@ -45,7 +45,7 @@ print_r($arr);
 
 
 $j = json_encode($arr);
-$s = serialize($arr);
+$s = serialize($arr); // naudot sita ivedimui
 
 file_put_contents(__DIR__ . '/labas.json', $j);
 file_put_contents(__DIR__ . '/labas2.txt', $s);
@@ -55,7 +55,7 @@ $jf = file_get_contents(__DIR__ . '/labas.json');
 $sf = file_get_contents(__DIR__ . '/labas2.txt');
 
 $backArr = json_decode($jf, 1);
-$backArr2 = unserialize($sf);
+$backArr2 = unserialize($sf); // isvedimui
 
 print_r($backArr);
 print_r($backArr2);
