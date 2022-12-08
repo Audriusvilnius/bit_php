@@ -132,14 +132,31 @@ $strl = explode(" ",$string1);
     
 echo '<hr>';
 echo '<p>10.	Parašyti kodą, kuris generuotų atsitiktinį stringą iš lotyniškų mažųjų raidžių. Stringo ilgis 3 simboliai.</p>';
+ 
+function random_string($length) {
+    $random_string = '';
+    for($i = 0; $i < $length; $i++) {
+        $number = random_int(9, 36);
+        $character = base_convert($number, 10, 36);
+        $random_string .= $character;
+    }
+    return $random_string;
+}
+echo random_string(3);
+ 
 
-    
-    
-    echo '<pre>';
+ 
+
+ 
+
+
+    echo '
+    <pre>';
     echo '</pre>';
 
 
-    echo '<hr>';
+    echo '
+    <hr>';
     echo '<br>';
 
     ?>
