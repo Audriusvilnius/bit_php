@@ -21,7 +21,7 @@ $arr = ['Bebras', 'Zebras', 'Avinas', [1, 'Jo' => 2, 3]];
 
 define('BEBRAS', 'Bebrai jėga!');
 
-@define('BEBRAS', '444444444444444');
+//@define('BEBRAS', '444444444444444');
 
 
 define('KITA', [1, 2, 3]);
@@ -54,8 +54,8 @@ file_put_contents(__DIR__ . '/labas2.txt', $s);
 $jf = file_get_contents(__DIR__ . '/labas.json');
 $sf = file_get_contents(__DIR__ . '/labas2.txt');
 
-$backArr = json_decode($jf, 1);
-$backArr2 = unserialize($sf); // isvedimui
+$backArr = json_decode($jf, 1); // visiem 
+$backArr2 = unserialize($sf); // isvedimui tarp php
 
 print_r($backArr);
 print_r($backArr2);
