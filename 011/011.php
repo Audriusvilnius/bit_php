@@ -31,15 +31,15 @@
 
     echo '<hr>';
     
-    for ($a = 1; $a<=5; $a++){
-        echo 'Didisys ciklas : '. $a ;
-        echo'<br>';
-        for ($b = 1; $b<=5; $b++){
-            echo 'Mazasis ciklas : '. $b;
-            echo '<br>';
-            break 2; // nutruakia ir didyji cikla jei 2
-        }
-    }
+    // for ($a = 1; $a<=5; $a++){
+    //     echo 'Didisys ciklas : '. $a ;
+    //     echo'<br>';
+    //     for ($b = 1; $b<=5; $b++){
+    //         echo 'Mazasis ciklas : '. $b;
+    //         echo '<br>';
+    //         break 2; // nutruakia ir didyji cikla jei 2
+    //     }
+    // }
     
     echo '<hr>';
     $mas1 =[1,2,3];
