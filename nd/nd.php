@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
     <title>Document</title>
+
 </head>
 
-<body>
+
+<body style="background-color: withe">
     <?php
     echo '<pre>';
     echo '<p>1. Sukurkite 4 kintamuosius, kurie saugotų jūsų vardą, pavardę, gimimo metus ir šiuos metus (nebūtinai tikrus). Parašykite kodą, kuris pagal gimimo metus paskaičiuotų jūsų amžių ir naudodamas vardo ir pavardės kintamuosius atspausdintų tokį sakinį :"Aš esu Vardenis Pavardenis. Man yra XX metai(ų)"</p>';
@@ -203,73 +206,77 @@ reikšmes nuo 0 iki 2. Suskaičiuokite kiek yra nulių, vienetų ir dvejetų. (s
     echo '<br>';
     echo $s3 = rand(0, 100);
 
-    $vid = round(($s1+ $s2+ $s3)/3,0);
+    $vid = round(($s1 + $s2 + $s3) / 3, 0);
     echo '<br>';
     echo "Aritmetinis vidurkis : $vid";
 
-    if( $s1 > 90 || $s1 < 10 && ($s2 < 90 || $s2 > 10 )&&( $s3 < 90 || $s3 > 10)) {
-        $vid = (($vid*3)-$s1)/2;}
+    if ($s1 > 90 || $s1 < 10 && ($s2 < 90 || $s2 > 10) && ($s3 < 90 || $s3 > 10)) {
+        $vid = (($vid * 3) - $s1) / 2;
+    }
     if ($s2 > 90 || $s2 < 10 && ($s1 < 90 || $s1 > 10) && ($s3 < 90 || $s3 > 10)) {
-        $vid = (($vid * 3) - $s2) / 2;}
-    if ($s3 > 90 || $s3 <10 && ($s2 < 90 || $s2 > 10 )&&( $s1 < 90 || $s1 > 10)) {
-        $vid = (($vid * 3) - $s3) / 2;}
-        
-    if ($s1 > 90 || $s1 < 10 && ($s2 > 90 || $s2 < 10 )&& ($s3 < 90 || $s3 > 10)) {
+        $vid = (($vid * 3) - $s2) / 2;
+    }
+    if ($s3 > 90 || $s3 < 10 && ($s2 < 90 || $s2 > 10) && ($s1 < 90 || $s1 > 10)) {
+        $vid = (($vid * 3) - $s3) / 2;
+    }
+
+    if ($s1 > 90 || $s1 < 10 && ($s2 > 90 || $s2 < 10) && ($s3 < 90 || $s3 > 10)) {
         $vid = $s3;
     }
-    if ($s3 > 90 || $s3 < 10 && ($s1 > 90 || $s1 < 10 )&&( $s2 < 90 || $s2 > 10)) {
+    if ($s3 > 90 || $s3 < 10 && ($s1 > 90 || $s1 < 10) && ($s2 < 90 || $s2 > 10)) {
         $vid = $s2;
     }
-    if ($s3 > 90 || $s3 < 10 && ($s2 >90 || $s2 < 10 )&& ($s1 < 90 || $s1 > 10)) {
+    if ($s3 > 90 || $s3 < 10 && ($s2 > 90 || $s2 < 10) && ($s1 < 90 || $s1 > 10)) {
         $vid = $s1;
     }
     echo '<br>';
-    echo 'Aritmetinis vidurkis : '.round($vid,0);
+    echo 'Aritmetinis vidurkis : ' . round($vid, 0);
     echo '<hr>';
     echo '<p>10.	Padarykite skaitmeninį laikrodį, rodantį valandas, minutes ir sekundes. Valandom, minutėm ir sekundėm sugeneruoti panaudokite funkciją rand(). Sugeneruokite skaičių nuo 0 iki 300. Tai papildomos sekundės. Skaičių pridėkite prie jau sugeneruoto laiko. Atspausdinkite laikrodį prieš ir po sekundžių pridėjimo ir pridedamų sekundžių skaičių.</p>';
+
     $val = rand(0, 23);
     $min = rand(0, 59);
     $s = rand(0, 59);
     $prid = rand(0, 300);
+
     echo "<h2 style=\"color: blue;\">$val val. $min min. $s s.</h2>";
-    echo '<br>';
+
     echo "Papildomos sekundes: $prid s.";
     echo '<br>';
     echo '<br>';
-    $pridmin = (($prid + $s)/60)%10;
+    $pridmin = (($prid + $s) / 60) % 10;
     echo "Papildomos min: $pridmin min.";
     echo '<br>';
-    $news = (($prid + $s) - $pridmin*60 );
+    $news = (($prid + $s) - $pridmin * 60);
     echo '<br>';
     echo "Sekundes: $news s.";
     $newMin = $pridmin + $min;
     echo '<br>';
     echo "Min: $newMin .";
-    if($news > 59){
+    if ($news > 59) {
         $newMin++;
         $news = $news - 60;
-        if($newMin > 59){
+        if ($newMin > 59) {
             $val++;
             $newMin = $newMin - 60;
-            if ($val > 24){
-                $val = $val - 24;  
+            if ($val > 24) {
+                $val = $val - 24;
             }
         }
-    }else if($newMin > 59){
+    } else if ($newMin > 59) {
         $val++;
         $newMin = $newMin - 60;
         if ($val > 24) {
             $val = $val - 24;
         }
-    } 
+    }
     $news = round($news, 0);
-    echo '<br>';
-    echo '<br>';
+
     echo "<h2 style=\"color: darkblue;\">$val valandu. $newMin min. $news s.</h2>";
     echo '<hr>';
-    
+
     ?>
-    <style style="color: skyblue;"></style>
+
 </body>
 
 </html>
