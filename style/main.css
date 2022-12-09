@@ -1,0 +1,22 @@
+.zvaigz{
+background-color: skyblue;
+height: 30px;
+width: 30px;
+text-align: center;
+display: inline-block;
+line-height: 30px;
+margin: 0px;
+}
+.conteiner{
+    /* background-color: royalblue; */
+    border: 5px solid black;
+    display: inline;
+    padding: 10px;
+
+}
+.skaicius {
+    background-color: skyblue;
+ 
+    line-height: 30px;
+    margin: 0px;
+}
