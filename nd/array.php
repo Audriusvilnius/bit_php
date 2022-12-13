@@ -269,7 +269,9 @@
         echo '<br>';
             array_push($RetArr, $first);
             array_push($RetArr, $second);
-            foreach(range(1,$ilgis-2) as $i=>$NewA){
+            foreach(range(3,$ilgis) as $i=>$_){
+            $first = $RetArr[$i];
+            $second = $RetArr[$i+1];
                 $aftSec = $first + $second;
                 array_push($RetArr, $aftSec);   
             }
