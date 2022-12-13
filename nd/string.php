@@ -131,7 +131,11 @@ $strl = explode(" ",$string1);
 
     
 echo '<hr>';
-echo '<p>10.	Parašyti kodą, kuris generuotų atsitiktinį stringą iš lotyniškų mažųjų raidžių. Stringo ilgis 3 simboliai.</p>';
+echo '<p>10.	Parašyti kodą, kuris generuotų atsitiktinį stringą iš lotyniškų mažųjų raidžių. Stringo ilgis 3 simboliai.
+
+https://forum.tutorials7.com/images/ascii-table.gif
+
+</p>';
  
 function random_string($length) {
     $random_string = '';
