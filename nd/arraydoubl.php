@@ -62,6 +62,47 @@
 
     echo '<pre>';
 
+    echo '<hr>';
+    echo '<p>
+1.	Sugeneruokite masyvą iš 10 elementų, kurio elementai būtų masyvai iš 5 elementų su reikšmėmis nuo 5 iki 25.
+    </p>';
+
+        function randArr(int $p, int $a , int $b, int $e):array
+        {
+        $Arr = [];
+        $Arr1 = [];
+            foreach(range(1, $p) as $_){
+                foreach(range(1, $a) as $i2=>$_){
+                    $Arr1[$i2] = rand($b, $e);
+                }
+            array_push($Arr, $Arr1);
+            }
+        return $Arr;
+        }
+    $ArrRand=[];
+    $pirmas = 10;
+    $antras = 5;
+    $elemenBeg = 5;
+    $elemenEnd = 25;
+
+    $ArrRand = randArr($pirmas, $antras, $elemenBeg, $elemenEnd);
+    print_r($ArrRand);
+
+    echo '<hr>';
+    echo '<p>
+2.	Naudodamiesi 1 uždavinio masyvu:
+a)	Suskaičiuokite kiek masyve yra elementų didesnių už 10;
+b)	Raskite didžiausio elemento reikšmę;
+c)	Suskaičiuokite kiekvieno antro lygio masyvų su vienodais indeksais sumas (t.y. suma reikšmių turinčių indeksą 0, 1 ir t.t.)
+d)	Visus antro lygio masyvus “pailginkite” iki 7 elementų
+e)	Suskaičiuokite kiekvieno iš antro lygio masyvų elementų sumą atskirai ir sumas panaudokite kaip reikšmes sukuriant naują masyvą. T.y. pirma naujo masyvo reikšmė turi būti lygi mažesnio masyvo, turinčio indeksą 0 dideliame masyve, visų elementų sumai 
+    </p>';
+
+
+
+    
+    
+
     ?>
 </body>
 

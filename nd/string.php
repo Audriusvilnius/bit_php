@@ -140,7 +140,7 @@ https://forum.tutorials7.com/images/ascii-table.gif
 function random_string($length) {
     $random_string = '';
     for($i = 0; $i < $length; $i++) {
-        $number = random_int(9, 36);
+        $number = random_int(10, 36);
         $character = base_convert($number, 10, 36);
         $random_string .= $character;
     }

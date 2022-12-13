@@ -83,10 +83,7 @@
 
     echo '<hr>';
     echo '<p>
-    
     3.	Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės.
-    
-    
     </p>';
 
     foreach (range(1, 200) as $index => $char) {
@@ -223,17 +220,18 @@
 
     $Arr3 = (array_diff($Arr2, $Arr1));
     print_r($Arr3);
-
+    $s = 0;
     $r =  count((array_diff($Arr2, $Arr1)));
     echo $r;
-    // while(count($Arr2) != $r ){
-    //     if ($r !== count($Arr2)){
-    //         echo count($Arr2);
-    //         echo'<br>';
-    //         $Arr2 = randArr($begin, $end, $len);
-    //         echo $r=  count((array_diff($Arr2, $Arr1)));
-    // }
-    // }  //echo $r; 
+    while(count($Arr2) != $r ){
+        if ($r !== count($Arr2)){
+            echo count($Arr2);
+            echo'<br>';
+            $Arr2 = randArr($begin, $end, $len);
+            echo $r=  count((array_diff($Arr2, $Arr1)));
+            $s++;
+    }
+    }  echo 'Sugeneruotas unikalus masyvas be pasikartojanciu pirmo masyvo reiksmiu is: '.$s; 
 
     echo '<hr>';
 
