@@ -98,10 +98,46 @@ d)	Visus antro lygio masyvus “pailginkite” iki 7 elementų
 e)	Suskaičiuokite kiekvieno iš antro lygio masyvų elementų sumą atskirai ir sumas panaudokite kaip reikšmes sukuriant naują masyvą. T.y. pirma naujo masyvo reikšmė turi būti lygi mažesnio masyvo, turinčio indeksą 0 dideliame masyve, visų elementų sumai 
     </p>';
 
+    echo '<p>
+    a)	Suskaičiuokite kiek masyve yra elementų didesnių už 10;</p>';
+    
+    $did = 0;
+    foreach ($ArrRand as $i => $_) {
+        foreach ($ArrRand as $y => $_) {
+            if (10 < $ArrRand[$i][$y]) {
+                $did++;
+            }
+        }
+    }
+    echo "\tDaugiau uz 10 yra : $did reiksmiu.";
+
+    echo '<p>
+b)	Raskite didžiausio elemento reikšmę ;</p>';
+        $max=[0][0];
+        foreach($ArrRand as $i=>$_){
+            foreach($ArrRand as $y=>$_){
+                if($max < $ArrRand[$i][$y]){
+                $max = $ArrRand[$i][$y];
+                }
+            }
+        }
+
+    echo "\tMakimali masyvu elemento reiksme = $max";
+
+    echo '<p>
+c)	Suskaičiuokite kiekvieno antro lygio masyvų su vienodais indeksais sumas (t.y. suma reikšmių turinčių indeksą 0, 1 ir t.t.)</p>';
+
+    $sum =[0];
+    foreach ($ArrRand as $i => $_) {
+        foreach ($ArrRand as $y => $_) {
+            $sum[$y] += $ArrRand[$y][$i];
+            
+  
+            }
+        }
+    print_r($sum);
 
 
-    
-    
 
     ?>
 </body>
