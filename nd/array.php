@@ -246,10 +246,42 @@
     $Arr3 = (array_intersect($Arr2, $Arr1));
     print_r($Arr3);
 
+    echo '<hr><p>
+9.	Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 6 uždavinio masyvo reikšmės, o jo reikšmės iš būtų antrojo masyvo.
+    </p>';
 
 
 
 
+
+    echo '<hr><p>
+10.	Sugeneruokite 10 skaičių masyvą pagal taisyklę: Du pirmi skaičiai- atsitiktiniai nuo 5 iki 25. Trečias, pirmo ir antro suma. Ketvirtas- antro ir trečio suma. Penktas trečio ir ketvirto suma ir t.t.
+    </p>';
+
+        function ArrC(int $pirmas, int $antras, int $ilgis):array
+        {
+            $RetArr = [];
+            $first = rand($pirmas, $antras);
+            $second = rand($pirmas, $antras);
+        echo "Pirmas skaicius: $first";
+        echo '<br>';
+        echo "Antas skaicius: $second";
+        echo '<br>';
+            array_push($RetArr, $first);
+            array_push($RetArr, $second);
+            foreach(range(1,$ilgis-2) as $i=>$NewA){
+                $aftSec = $first + $second;
+                array_push($RetArr, $aftSec);   
+            }
+            return $RetArr;
+        }
+        $ArrRez=[];
+        $pirm = 5; 
+        $antr = 25;
+        $il = 10;
+        $ArrRez = ArrC($pirm, $antr, $il);
+        
+        print_r($ArrRez);
     ?>
 </body>
 
