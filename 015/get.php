@@ -14,7 +14,7 @@ if (preg_match('/^[0-9a-f]{6}/', $_GET['color'] ?? '')) {
     $color = $_GET['color'];
 } else {
     header('Location: http://localhost/bit_php/015/error.php');
-    // header('Location: http://localhost/015/get.php?color=crimson');
+    // header('Location: http://localhost/bit_php/015/get.php?color=crimson');
     die;
 }
 
