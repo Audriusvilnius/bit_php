@@ -128,11 +128,9 @@ b)	Raskite didžiausio elemento reikšmę ;</p>';
 c)	Suskaičiuokite kiekvieno antro lygio masyvų su vienodais indeksais sumas (t.y. suma reikšmių turinčių indeksą 0, 1 ir t.t.)</p>';
 
     $sum =[0];
-    foreach ($ArrRand as $i => $_) {
-        foreach ($ArrRand as $y => $_) {
-            $sum[$y] += $ArrRand[$y][$i];
-            
-  
+    foreach ($ArrRand as $i => $pirmas) {  
+        foreach ($pirmas as $y => $_) {
+            $sum[$i] += $pirmas[$i];
             }
         }
     print_r($sum);
