@@ -24,16 +24,31 @@ function sveikas(float $num): string
     if ((int)$num != $num) {
         return ats();
     } else {
-        for ($i = 1; $i < $num-1; $i++) {
+        for ($i = 1; $i < $num - 1; $i++) {
             $z = $i + 1;
             $sk = $num / $z;
-            if ($sk-$sk %10  == 0) {
+            if ($sk - $sk % 10  == 0) {
                 $ats++;
-            } 
+            }
         }
     }
     return '<h2>Skaičius dalinasi: ' . $ats . ' kartu iš sveiko skaičiaus</h2>';
 }
+function randSk(int $firs, int $end):array
+{
+    $arrayN = [];
+    $arrayY =[];
+    $sk=0;
+    foreach(range(1, 100) as $i=>$mas){
+        $array[$i] = rand($firs, $end);
+        if()
+        
+    }
+    return $array;
+}
+
+
+
 
 // echo '<pre>';
 // $mas = get_loaded_extensions();
@@ -90,7 +105,11 @@ function sveikas(float $num): string
     <h2>5.</h2>
     <p>
         5. Sugeneruokite masyvą iš 100 elementų, kurio reikšmės atsitiktiniai skaičiai nuo 33 iki 77. Išrūšiuokite masyvą pagal daliklių be liekanos kiekį mažėjimo tvarka, panaudodami ketvirto uždavinio funkciją.
-    </p>
+        <?php
+        echo '<pre>';
+        print_r(randSk(33, 77));
+        echo '</pre>';  
+        ?> </p>
 </body>
 
 </html>
