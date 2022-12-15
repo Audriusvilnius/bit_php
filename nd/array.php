@@ -223,15 +223,16 @@
     $s = 0;
     $r =  count((array_diff($Arr2, $Arr1)));
     echo $r;
-    while(count($Arr2) != $r ){
-        if ($r !== count($Arr2)){
-            echo count($Arr2);
-            echo'<br>';
-            $Arr2 = randArr($begin, $end, $len);
-            echo $r=  count((array_diff($Arr2, $Arr1)));
-            $s++;
-    }
-    }  echo 'Sugeneruotas unikalus masyvas be pasikartojanciu pirmo masyvo reiksmiu is: '.$s; 
+    // while(count($Arr2) != $r ){
+    //     if ($r !== count($Arr2)){
+    //         echo count($Arr2);
+    //         echo'<br>';
+    //         $Arr2 = randArr($begin, $end, $len);
+    //         echo $r=  count((array_diff($Arr2, $Arr1)));
+    //         $s++;
+    // }
+    // } 
+     echo 'Sugeneruotas unikalus masyvas be pasikartojanciu pirmo masyvo reiksmiu is: '.$s; 
 
     echo '<hr>';
 
@@ -248,7 +249,15 @@
 9.	Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 6 uždavinio masyvo reikšmės, o jo reikšmės iš būtų antrojo masyvo.
     </p>';
 
+    $Arrkit = (array_flip($Arr1));
+    //print_r($Arrkit);
+    foreach($Arr2 as $i=>$pir){
+        foreach($Arrkit as $ant){
+           $Arrkit[$i]= $Arr2[$i];
+        }
+    }
 
+    print_r($Arrkit);
 
 
 
