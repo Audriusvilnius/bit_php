@@ -201,9 +201,12 @@ c)	Suskaičiuokite kiekvieno antro lygio masyvų su vienodais indeksais sumas (t
     print_r($darvienas);
     echo '<hr>';
     echo '<p>
-5.	Sukurkite masyvą iš 30 elementų. Kiekvienas masyvo elementas yra masyvas [user_id => xxx, place_in_row => xxx] user_id atsitiktinis unikalus skaičius nuo 1 iki 1000000, place_in_row atsitiktinis skaičius nuo 0 iki 100.  </p>';
-
-    function id(int $id, int $p, int $id_qty): array
+    5.	Sukurkite masyvą iš 30 elementų. Kiekvienas masyvo elementas yra masyvas [user_id => xxx, place_in_row => xxx] user_id atsitiktinis unikalus skaičius nuo 1 iki 1000000, place_in_row atsitiktinis skaičius nuo 0 iki 100. 
+    6.	Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka.  
+    7.	Prie 6 uždavinio masyvo antro lygio masyvų pridėkite dar du elementus: name ir surname. Elementus užpildykite stringais iš atsitiktinai sugeneruotų lotyniškų raidžių, kurių ilgiai nuo 5 iki 15.</p>';
+    
+    //Funkcija id generavimui
+    function id(int $id, int $id_qty): array
     {
         $id_arr = [];
         foreach (range(1, $id_qty) as $key => $id_new) {
@@ -212,20 +215,13 @@ c)	Suskaičiuokite kiekvieno antro lygio masyvų su vienodais indeksais sumas (t
             $count = count($id_arr);
             $id_arr = (array_flip(array_flip($id_arr)));
             if (count($id_arr) !== $count) {
-                id($id, $p, $id_qty);
+                id($id, $id_qty);
             }
             sort($id_arr);
         }
         return $id_arr;
     }
-
-    function place($a)
-    {
-        $z[] = rand(0, 100);
-        return [$a => $z];
-    }
-
-
+    //Funkcija stringo generavimui
     function getName(int $length): string
     {
         // $stringSpace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -237,14 +233,21 @@ c)	Suskaičiuokite kiekvieno antro lygio masyvų su vienodais indeksais sumas (t
         }
         return implode($pieces);
     }
-
-    function na(array $id):array
+    // Place number pridejimas
+    function place($a)
+    {
+        $z[] = rand(0, 100);
+        return [$a => $z];
+    }
+    // Name pridejimas
+    function na(array $id)
     {
         $n = getName(rand(5, 15));
         //$s = getName(rand(5, 15));
         //return [$id, $n, $s];
         return [$id, $n];
     }
+    // Surname pridejimas
     function su(array $a)
     {
         $s = getName(rand(5, 15));
@@ -258,9 +261,9 @@ c)	Suskaičiuokite kiekvieno antro lygio masyvų su vienodais indeksais sumas (t
     $id_name_surname_place_arr = [];
     $id_qty = 30;
     $id_nr_lenth = 1000000;
-    $place_row = 100;
+  
 
-    $user_id = id($id_nr_lenth, $place_row, $id_qty);
+    $user_id = id($id_nr_lenth, $id_qty);
     //print_r($user_id);
     $id_place_arr = array_map('place', $user_id);
 
@@ -286,13 +289,7 @@ c)	Suskaičiuokite kiekvieno antro lygio masyvų su vienodais indeksais sumas (t
 
     // print_r($id_name_surname_place_arr);
 
-
-
-
-
     ?>
 </body>
-
-</html>
 
 </html>
