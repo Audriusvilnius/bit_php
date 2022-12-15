@@ -32,7 +32,8 @@ function sveikas(float $num): string
             }
         }
     }
-    return '<h2>Skaičius dalinasi: ' . $ats . ' kartu iš sveiko skaičiaus</h2>';
+    return $ats;
+    // return '<h2>Skaičius dalinasi: ' . $ats . ' kartu iš sveiko skaičiaus</h2>';
 }
 function randSk(int $firs, int $end):array
 {
@@ -40,11 +41,18 @@ function randSk(int $firs, int $end):array
     $arrayY =[];
     $sk=0;
     foreach(range(1, 100) as $i=>$mas){
-        $array[$i] = rand($firs, $end);
-        if()
-        
+       $sk = rand($firs, $end);
+        if(sveikas($sk) > 0){
+            $arrayY[$i] = $sk;
+        } else {
+            $arrayN[$i] = $sk;}
     }
-    return $array;
+    sort($arrayY);
+    sort($arrayN);
+    rsort($arrayY);
+    //print_r($arrayY);
+    //print_r($arrayN);
+    return [...$arrayY, ...$arrayN];
 }
 
 
@@ -101,7 +109,7 @@ function randSk(int $firs, int $end):array
     <p>
         4. Parašykite funkciją, kuri skaičiuotų, iš kiek sveikų skaičių jos argumentas dalijasi be liekanos (išskyrus vienetą ir patį save) Argumentą užrašykite taip, kad būtų galima įvesti tik sveiką skaičių;
     </p>
-    <?= sveikas(19) ?>
+    <?= sveikas(33) ?>
     <h2>5.</h2>
     <p>
         5. Sugeneruokite masyvą iš 100 elementų, kurio reikšmės atsitiktiniai skaičiai nuo 33 iki 77. Išrūšiuokite masyvą pagal daliklių be liekanos kiekį mažėjimo tvarka, panaudodami ketvirto uždavinio funkciją.
