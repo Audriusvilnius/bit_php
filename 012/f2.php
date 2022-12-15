@@ -7,4 +7,4 @@ echo '<h1>F2</h1>';
 echo T;
 return;
 
-echo '<h2>F2 dar</h2>';
+//echo '<h2>F2 dar</h2>';

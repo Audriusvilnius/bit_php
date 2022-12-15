@@ -1,3 +1,13 @@
+<?php
+
+function h1(string $text): string
+{
+    return '<h1 style="display: inline; color: crimson;">' . $text . '</h1>';
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +19,15 @@
 </head>
 
 <body>
-
-    <?php
-
-
-
-
-    ?>
-
+    <?= preg_replace_callback('/(\d{2})(\d+)/', function ($d) {
+        return h1($d[1]) . $d[2];
+    }, md5(time())) ?>
+    <br>
+    <!-- <?= 'bebras' ?>
+    <?= sha1('123') ?>
+    <br>
+    <?= md5('ačiū') ?>
+    <?= sha1('124') ?> -->
 </body>
+
+</html>
