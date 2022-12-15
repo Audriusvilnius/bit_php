@@ -275,6 +275,36 @@ reikšmes nuo 0 iki 2. Suskaičiuokite kiek yra nulių, vienetų ir dvejetų. (s
     echo "<h2 style=\"color: darkblue;\">$val valandu. $newMin min. $news s.</h2>";
     echo '<hr>';
 
+
+    function sveikas($num): string
+    {
+        $ats = 0;
+        $z = 2;
+        if (($num - $num % 10) < 1) {
+            echo $num - $num % 10;
+            return ats();
+        } else {
+            for ($i = 1; $i < $num; $i++) {
+                $sk = $num / $z;
+                $z = $z + 1;
+                if (($num / $z) % 2 == 0) {
+                    $ats++;
+                }
+            }
+        }
+        return '<h2>Skaičius dalinasi: ' . $ats . ' kartu iš sveiko skaičiaus</h2>';
+    }
+    function ats(): string
+    {
+        return '<h2>Skaičius nera sveikas, iveskite sveika skaičių!</h2>';
+    }
+
+
+
+    echo sveikas(4);
+   $s = 6.4;
+    echo  $s = $s%2;
+    
     ?>
 
 </body>
