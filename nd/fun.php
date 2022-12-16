@@ -35,17 +35,18 @@ function sveikas(float $num): string
     return $ats;
     // return '<h2>Skaičius dalinasi: ' . $ats . ' kartu iš sveiko skaičiaus</h2>';
 }
-function randSk(int $firs, int $end):array
+function randSk(int $firs, int $end): array
 {
     $arrayN = [];
-    $arrayY =[];
-    $sk=0;
-    foreach(range(1, 100) as $i=>$mas){
-       $sk = rand($firs, $end);
-        if(sveikas($sk) > 0){
+    $arrayY = [];
+    $sk = 0;
+    foreach (range(1, 100) as $i => $mas) {
+        $sk = rand($firs, $end);
+        if (sveikas($sk) > 0) {
             $arrayY[$i] = $sk;
         } else {
-            $arrayN[$i] = $sk;}
+            $arrayN[$i] = $sk;
+        }
     }
     sort($arrayY);
     sort($arrayN);
@@ -77,21 +78,20 @@ function randSk(int $firs, int $end):array
 
 
 <body>
-    <h2>1.</h2>
     <p>
-        Parašykite funkciją, kurios argumentas būtų tekstas, kuris yra įterpiamas į h1 tagą;
+        1. Parašykite funkciją, kurios argumentas būtų tekstas, kuris yra įterpiamas į h1 tagą;
     </p>
     <?= h2('bebras') ?>
     <hr>
-    <h2>2.</h2>
+
     <p>
-        Parašykite funkciją su dviem argumentais, pirmas argumentas tekstas, įterpiamas į h tagą, o antrasis tago numeris (1-6). Rašydami šią funkciją remkitės pirmame uždavinyje parašytą funkciją;
+        2. Parašykite funkciją su dviem argumentais, pirmas argumentas tekstas, įterpiamas į h tagą, o antrasis tago numeris (1-6). Rašydami šią funkciją remkitės pirmame uždavinyje parašytą funkciją;
         <?= h3('bebras', 2) ?>
     </p>
     <hr>
-    <h2>3.</h2>
+
     <p>
-        Generuokite atsitiktinį stringą, pasinaudodami kodu md5(time()). Visus skaitmenis stringe įdėkite į h1 tagą. Raides palikite. Jegu iš eilės eina keli skaitmenys, juos į tagą reikią dėti kartu (h1 atsidaro prieš pirmą ir užsidaro po paskutinio) Keitimui naudokite pirmo patobulintą (jeigu reikia) uždavinio funkciją ir preg_replace_callback();
+        3. Generuokite atsitiktinį stringą, pasinaudodami kodu md5(time()). Visus skaitmenis stringe įdėkite į h1 tagą. Raides palikite. Jegu iš eilės eina keli skaitmenys, juos į tagą reikią dėti kartu (h1 atsidaro prieš pirmą ir užsidaro po paskutinio) Keitimui naudokite pirmo patobulintą (jeigu reikia) uždavinio funkciją ir preg_replace_callback();
 
     </p>
     <?= preg_replace_callback('/(\d{2})(\d+)/', function ($d) {
@@ -105,19 +105,26 @@ function randSk(int $firs, int $end):array
     <br>
     <?= sha1('124') ?>
     <hr>
-    <h2>4.</h2>
     <p>
         4. Parašykite funkciją, kuri skaičiuotų, iš kiek sveikų skaičių jos argumentas dalijasi be liekanos (išskyrus vienetą ir patį save) Argumentą užrašykite taip, kad būtų galima įvesti tik sveiką skaičių;
     </p>
     <?= sveikas(33) ?>
-    <h2>5.</h2>
     <p>
         5. Sugeneruokite masyvą iš 100 elementų, kurio reikšmės atsitiktiniai skaičiai nuo 33 iki 77. Išrūšiuokite masyvą pagal daliklių be liekanos kiekį mažėjimo tvarka, panaudodami ketvirto uždavinio funkciją.
         <?php
         echo '<pre>';
         print_r(randSk(33, 77));
-        echo '</pre>';  
-        ?> </p>
+        echo '</pre>';
+        ?>
+    </p>
+    <p>
+        6. Sugeneruokite masyvą iš 100 elementų, kurio reikšmės atsitiktiniai skaičiai nuo 333 iki 777. Naudodami 4 uždavinio funkciją iš masyvo ištrinkite pirminius skaičius.
+    </p>
+    <?php
+    echo '<pre>';
+    //print_r(pirmin_pop(100, 333, 777));
+    echo '</pre>';
+    ?>
 </body>
 
 </html>
