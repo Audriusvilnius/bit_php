@@ -1,4 +1,20 @@
 <?php
+session_start();
+
+//POST scenarijus
+$color = 'black';
+if ($_SERVER['REQUEST_METHOD'] == 'post') {
+    $color = $_POST['yellow'];
+    $_SESSION['yellow'] = $color;
+    header('Location: http://localhost/bit_php/nd/web/pirmas.php?color=yellow');
+    die;
+}
+
+$color = $_SESSION['green'];
+unset($_SESSION['green']);
+
+
+
 define('COLORS', [
     'black',
     'silver',
@@ -165,6 +181,8 @@ define('COLORS', [
     'yellowgreen'
 ]);
 
+
+
 if ($_GET['color'] == 1) {
     $color = 'red';
 } else {
@@ -242,6 +260,42 @@ if ($_GET['color'] == 'ff1260') {
         <a class="a" style="color: orange;" href="http://localhost/bit_php/nd/web/orange.php"> ORANGE.PHP</a>
     </div>
     <hr>
+    <h3>
+        5. Sukurkite du atskirus puslapius blue.php ir red.php Juose sukurkite linkus į pačius save (abu į save ne į kitą puslapį!). Padarykite taip, kad paspaudus ant linko puslapis ne tiesiog persikrautų, o PHP kodas (ne tiesiogiai html tagas!) naršyklę peradresuotų į kitą puslapį (iš raudono į mėlyną ir atvirkščiai).
+    </h3>
+    <div class=" color">
+        <a class="a" style="color:skyblue;" href="http://localhost/bit_php/nd/web/blue.php">BLUE.PHP</a>
+    </div>
+    <div class="color">
+        <a class="a" style="color: crimson;" href="http://localhost/bit_php/nd/web/red.php"> RED.PHP</a>
+    </div>
+    <h3>
+        6. Padarykite puslapį su dviem mygtukais. Mygtukus įdėkite į dvi skairtingas formas- vieną GET ir kitą POST. Nenaudodami jokių konkrečių $_GET ar $_POST reikšmių, nuspalvinkite foną žaliai, kai paspaustas mygtukas iš GET formos ir geltonai- kai iš POST.
+    </h3>
+    <div class="color">
+        <form action="http://localhost/bit_php/nd/web/pirmas.php" method="GET">
+            <input type="hidden" name="want" value="green">
+            <input type="text" name="color" value="green">
+            <button type="submit">GREEN</button>
+        </form>
+    </div>
+    <div class="color">
+        <form action="http://localhost/bit_php/nd/web/pirmas.php" method="post">
+            <input type="hidden" name="want" value="yellow">
+            <input type="text" name="color" value="yellow">
+            <button type="submit">YELLOW</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
 </body>
+
+</html>
 
 </html>

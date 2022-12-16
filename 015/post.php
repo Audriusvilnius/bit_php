@@ -35,6 +35,7 @@ unset($_SESSION['mano_suma']);
 
 <body>
     <form action="http://localhost/bit_php/015/post.php" method="post">
+        <input type="hidden" name="want" value="logout">
         <input type=" text" name="x">+<input type="text" name="y">
         <button type="submit">make sum</button>
     </form>
