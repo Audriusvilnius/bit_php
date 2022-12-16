@@ -1,0 +1,19 @@
+.body{
+    margin: 0;
+    padding: 0;
+    /* background-color: black; */
+}
+.color{
+    margin: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(229, 232, 236);
+    text-decoration: none;
+    text-decoration-color: aliceblue;
+}
+
+.a{
+color: rgb(229, 232, 236);
+    text-decoration: none;
+    text-decoration-color: aliceblue;
+}
