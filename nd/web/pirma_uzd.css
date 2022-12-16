@@ -2,11 +2,19 @@
     margin: 0;
     padding: 0;
 }
-.color{
-    margin: 50px;
-    font-size: 20px;
-    font-weight: 700;
+h1, h2, h3{
+    margin: 20px;
+    font-size: 17px;
     color: rgb(229, 232, 236);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: justify;
+    font-style: italic;
+}
+.color {
+    margin: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(79, 100, 127);
     text-decoration: none;
     text-decoration-color: aliceblue;
 }

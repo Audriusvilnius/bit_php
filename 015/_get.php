@@ -43,7 +43,7 @@ if (preg_match('/^[0-9a-f]{6}/', $_GET['color'] ?? '')) {
     <h2>Bad color code</h2>
     <?php endif ?>
 
-    <form action="http://localhost/bit_php/015/get.php" method="get">
+    <form action="http://localhost/bit_php/015/get.php?color=" method="get">
         <input type="text" name="color">
         <button type="submit">GO!</button>
     </form>
