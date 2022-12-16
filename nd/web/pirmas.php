@@ -22,10 +22,10 @@ if ($_GET['color'] == 1) {
 <body class="body" style="background-color: <?= $color ?>;">
 
     <div class=" color">
-        <a class="a" href="http://localhost/bit_php/nd/web/pirmas.php?">Nuorada i save be kintamojo</a>
+        <a class="a" href="http://localhost/bit_php/nd/web/pirmas.php">Nuorada i save be kintamojo</a>
     </div>
     <div class="color">
-        <a class="a" href="http://localhost/bit_php/nd/web/pirmas.php?color=1">Nuorada i save su GET</a>
+        <a class="a" href="http://localhost/bit_php/nd/web/pirmas.php?color=1">Nuorada i save su GET kintamuoju</a>
     </div>
 
 </body>
