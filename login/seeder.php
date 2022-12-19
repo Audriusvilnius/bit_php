@@ -1,8 +1,8 @@
 <?php
 $users = [
-[ 'name'=> 'Bebras', 'psw' => '123', 'color'=>'crimson'],
-[ 'name'=> 'Briedis', 'psw' => '123', 'color'=>'pink'],
-[ 'name'=> 'Paršas', 'psw' => '123', 'color'=>'skyblue']
+    ['name' => 'Bebras', 'psw' => md5('123'), 'color' => 'crimson'],
+    ['name' => 'Briedis', 'psw' => md5('123'), 'color' => 'pink'],
+    ['name' => 'Paršas', 'psw' => md5('123'), 'color' => 'skyblue']
 ];
 
 
