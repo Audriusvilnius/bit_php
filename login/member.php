@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user'])) {
-    header('Location: http://localhost/pingvinai/login/login.php');
+    header('Location: http://localhost/bit_php/login/login.php');
     die;
 }
 ?>
@@ -21,7 +21,7 @@ if (!isset($_SESSION['user'])) {
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1>Welcome to Member page, <?= $_SESSION['user']['name'] ?></h1>
-                <form action="http://localhost/pingvinai/login/login.php?logout" method="post">
+                <form action="http://localhost/bit_php/login/login.php?logout" method="post">
                     <button type="submit" class="btn btn-outline-info mt-4">Log Out</button>
                 </form>
             </div>

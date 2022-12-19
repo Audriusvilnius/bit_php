@@ -20,12 +20,10 @@ session_start();
             </div>
 
         </div>
-    </div>
-    <div class="col-12">
-        <div class="btn-group">
-            <a href="http://localhost/bit_php/login/login.php" class="btn btn-primary active" aria-current="page">LOG IN</a>
-            <!-- <a href="#" class="btn btn-primary">Link</a>
-            <a href="#" class="btn btn-primary">Link</a> -->
+        <div class="col-1">
+            <div class="btn-group">
+                <a href="http://localhost/bit_php/login/login.php" class="btn btn-primary active" aria-current="page">LOG IN</a>
+            </div>
         </div>
     </div>
 </body>

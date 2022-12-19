@@ -4,7 +4,7 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_GET['logout'])) {
         unset($_SESSION['user']);
-        header('Location: http://localhost/pingvinai/login/login.php');
+        header('Location: http://localhost/bit_php/login/login.php');
         die;
     }
 
@@ -14,12 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($user['name'] == $_POST['name']) {
             if ($user['psw'] == md5($_POST['psw'])) {
                 $_SESSION['user'] = $user;
-                header('Location: http://localhost/pingvinai/login/member.php');
+                header('Location: http://localhost/bit_php/login/member.php');
                 die;
             }
         }
     }
-    header('Location: http://localhost/pingvinai/login/login.php?error');
+    header('Location: http://localhost/bit_php/login/login.php?error');
     die;
 }
 
@@ -45,11 +45,11 @@ if (isset($_GET['error'])) {
     <div class="container">
         <div class="row justify-content-center">
             <?php if (isset($error)) : ?>
-                <div class="col-6">
-                    <div class="alert alert-danger m-4" role="alert">
-                        <?= $error ?>
-                    </div>
+            <div class="col-6">
+                <div class="alert alert-danger m-4" role="alert">
+                    <?= $error ?>
                 </div>
+            </div>
             <?php endif ?>
             <div class="col-7">
                 <div class="card m-4">
@@ -57,7 +57,7 @@ if (isset($_GET['error'])) {
                         Login
                     </div>
                     <div class="card-body">
-                        <form action="http://localhost/pingvinai/login/login.php" method="post">
+                        <form action="http://localhost/bit_php/login/login.php" method="post">
                             <div class="mb-3">
                                 <label class="form-label">Name</label>
                                 <input type="text" name="name" class="form-control" placeholder="name">
