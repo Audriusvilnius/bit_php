@@ -7,7 +7,7 @@ if (!file_exists(__DIR__ . '/data.txt')) {
 }
 
 $data = $_SESSION['data'];
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['name'] != '' && $_POST['personal_id']) {
     $name['name'] = $_POST['name'];
     $surname['surname'] = $_POST['surname'];
     $id['personal_id'] = $_POST['personal_id'];
@@ -45,28 +45,32 @@ if (isset($_GET['read'])) {
 
 <header class="p-3 bg-dark text-white">
     <div class="container">
-        <img style="filter: invert(100%);" src="./img_464486.png" alt="pig" height="157">
-        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-
+        <img class="pb-4 border-bottom" style="filter: invert(100%);" src="./img_464486.png" alt="pig" height="157">
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 float-end">
             <button type="button" class="btn btn-outline-light me-12 mt-5">Log out</button>
-
-        </form> -->
-        <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
+        </form>
+        <h4 class="pb-4 border-bottom"></h4>
     </div>
 </header>
 
-<body class="p-3 bg-dark text-white">
+<body class="p-2 bg-dark text-white">
     <div class="container">
-        <div class="text-begin">
-            <div>
-                <form action="http://localhost/bit_php/bankas_ver_1/new.php?id" method="post">
-                    <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="name" class="form-control" placeholder="Name">
-                    <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="surname" class="form-control" placeholder="Surname">
-                    <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="personal_id" class="form-control" placeholder="Personal ID">
+        <div class="text-begin p-2">
+            <h4>Naujo kliento saskaitos atidarymas:</h4>
+            <form class="text-begin p-5" action="http://localhost/bit_php/bankas_ver_1/new.php?id" method="post">
+                <p class="pt-2">Kliento Vardas:</p>
+                <input class="col-5 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="name" class="form-control" placeholder="Name">
+                <p class="pt-2">Kliento Pavarde:</p>
+                <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="surname" class="form-control" placeholder="Surname">
+                <p class="pt-2">Kliento ID kodas:</p>
+                <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="personal_id" class="form-control" placeholder="Personal ID">
+                <div class="pt-5">
                     <button type="submit" class="btn btn-outline-light ">Add account</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
+        <h2 class="pb-4 border-bottom"></h2>
+
         <div>
             <?php
             foreach ($customer as $user) {
@@ -76,6 +80,7 @@ if (isset($_GET['read'])) {
         </div>
     </div>
     <div class="container">
+        <h2 class="pb-4 border-bottom"></h2>
         <div class="text-begin">
             <div>
                 <a class="btn btn-outline-light " href="http://localhost/bit_php/bankas_ver_1/new.php?read">Customers data</a>
@@ -94,18 +99,6 @@ if (isset($_GET['read'])) {
 
 
 <footer>
-    <div class="container">
-        <div class="row align-items-end">
-
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-
-                <button type="button" class="btn btn-outline-light me-12 mt-5">Log out</button>
-
-            </form>
-        </div>
-
-        <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
-    </div>
     <!--   <h3 class="pb-4 border-bottom">Kontaktai</h3>
         </h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
