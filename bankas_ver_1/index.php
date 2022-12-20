@@ -1,4 +1,8 @@
 <?php
+session_start();
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,8 +56,10 @@
                     reprehenderit assumenda repellat molestias quo voluptatum fuga voluptas. Ipsa vel possimus tempora
                     fugit delectus amet tempore sint enim ratione sed!</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Tapt klientu</button>
-                    <!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> -->
+                    <form action=" http://localhost/bit_php/bankas_ver_1/new.php" method="GET">
+
+                        <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Tapt klientu</button>
+                    </form> <!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> -->
                 </div>
             </div>
         </div>
