@@ -2,7 +2,33 @@
 
 class Bebras
 {
-    public $color = 'Brown';
+    public
+        $color = 'Brown';
+    private $age = 32;
+    private $isLive = true;
+
+
+    public function age(): string //cia realiai geteriai
+    {
+        return $this->age;
+    }
+    public function setAge(int $newAge): void //Seteris su parametrai
+    {
+        if ($newAge > 40) {
+            $this->isLive = false;
+        }
+        $this->age = $newAge;
+    }
+
+
+    public function color(): string
+    {
+        return $this->isLive ? $this->color : 'Black';
+    }
+    public function isLive(): bool
+    {
+        return $this->isLive;
+    }
 }
 
 //
