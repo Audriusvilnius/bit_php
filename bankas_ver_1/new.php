@@ -1,5 +1,11 @@
 <?php
 session_start();
+if (!file_exists(__DIR__ . '/data')) {
+    $data = [];
+} else {
+    $data = unserialize(file_get_contents(__DIR__ . '/data'));
+}
+
 $data = $_SESSION['data'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
@@ -8,9 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $balance = 0;
     $account = 'LT63000000' . rand(1000000, 10000000);
     $data = [$account, $balance, $name, $surname, $id];
-
     $_SESSION['date'] = $data;
     header('Location: http://localhost/bit_php/bankas_ver_1/new.php');
+
+    file_put_contents(__DIR__ . '/data', serialize($data));
+
+
+
     die;
 }
 $customer = $_SESSION['date'];
