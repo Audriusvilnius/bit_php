@@ -1,30 +1,35 @@
 <?php
 session_start();
-if (!file_exists(__DIR__ . '/data')) {
-    $data = [];
+if (!file_exists(__DIR__ . '/data.txt')) {
+    $data_ba = [];
 } else {
-    $data = unserialize(file_get_contents(__DIR__ . '/data'));
+    $data_ba = unserialize(file_get_contents(__DIR__ . '/data.txt'));
 }
 
 $data = $_SESSION['data'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
-    $surname = $_POST['surname'];
-    $id = $_POST['personal_id'];
-    $balance = 0;
-    $account = 'LT63000000' . rand(1000000, 10000000);
-    $data = [$account, $balance, $name, $surname, $id];
+    $name['name'] = $_POST['name'];
+    $surname['surname'] = $_POST['surname'];
+    $id['personal_id'] = $_POST['personal_id'];
+    $balance['balance'] = 0;
+    $account['accaount'] = 'LT63000000' . rand(1000000, 10000000);
+    print_r($data_ba);
+    $data[] = [$account, $balance, $name, $surname, $id];
     $_SESSION['date'] = $data;
+    $newData = [$data_ba, $data];
+    echo '<pre>';
+    print_r($newData);
     header('Location: http://localhost/bit_php/bankas_ver_1/new.php');
-
-    file_put_contents(__DIR__ . '/data', serialize($data));
-
-
-
+    file_put_contents(__DIR__ . '/data.txt', serialize($newData));
     die;
 }
+
 $customer = $_SESSION['date'];
 unset($_SESSION['date']);
+
+if (isset($_GET['read'])) {
+    $newData = unserialize(file_get_contents(__DIR__ . '/data.txt'));
+}
 
 ?>
 <!DOCTYPE html>
@@ -63,15 +68,29 @@ unset($_SESSION['date']);
                     </form>
                 </div>
             </div>
-            <div><?php
-
-                    foreach ($customer as $i => $user) {
-                        echo $customer[$i];
-                    }
-
-
-                    ?></div>
+            <div>
+                <?php
+                foreach ($customer as $user) {
+                    echo $cus = '<p>Saskaitos Nr: ' . $user['accaount'] . ' Balansas: ' . $user['balance'] . $user['name'] . $user['surname'] . $user['personal_id'] . '</p>';
+                }
+                ?>
+            </div>
         </div>
+        <div class="container">
+            <div class="text-begin">
+                <div>
+                    <a class="btn btn-outline-light " href="http://localhost/bit_php/bankas_ver_1/new.php?read">Customers data</a>
+                </div>
+            </div>
+            <div>
+                <?php
+                foreach ($newData as $user) {
+                    echo $data_ba = '<p>Saskaitos Nr: ' . $user['accaount'] . ' Balansas: ' . $user['balance'] . $user['name'] . $user['surname'] . $user['personal_id'] . '</p>';
+                }
+                ?>
+            </div>
+        </div>
+
     </body>
 
     <!-- <footer>
