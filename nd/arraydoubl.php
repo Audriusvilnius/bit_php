@@ -204,7 +204,7 @@ c)	Suskaičiuokite kiekvieno antro lygio masyvų su vienodais indeksais sumas (t
     5.	Sukurkite masyvą iš 30 elementų. Kiekvienas masyvo elementas yra masyvas [user_id => xxx, place_in_row => xxx] user_id atsitiktinis unikalus skaičius nuo 1 iki 1000000, place_in_row atsitiktinis skaičius nuo 0 iki 100. 
     6.	Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka.  
     7.	Prie 6 uždavinio masyvo antro lygio masyvų pridėkite dar du elementus: name ir surname. Elementus užpildykite stringais iš atsitiktinai sugeneruotų lotyniškų raidžių, kurių ilgiai nuo 5 iki 15.</p>';
-    
+
     //Funkcija id generavimui
     function id(int $id, int $id_qty): array
     {
@@ -261,7 +261,7 @@ c)	Suskaičiuokite kiekvieno antro lygio masyvų su vienodais indeksais sumas (t
     $id_name_surname_place_arr = [];
     $id_qty = 30;
     $id_nr_lenth = 1000000;
-  
+
 
     $user_id = id($id_nr_lenth, $id_qty);
     //print_r($user_id);

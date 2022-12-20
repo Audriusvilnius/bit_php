@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$rnd = [rand(1, 100)];
+$rnd = rand(1, 100);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['rand'] = $rnd;
@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     die;
 }
 
-$rand[] = $_SESSION['rand'];
+$rand = $_SESSION['rand'];
 unset($_SESSION['rand']);
 
 $a = serialize($rand);
