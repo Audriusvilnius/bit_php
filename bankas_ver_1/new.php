@@ -42,59 +42,71 @@ if (isset($_GET['read'])) {
     <link rel="stylesheet" href="style.css">
     <title>BANKAS RAGAI IR KANOPOS</title>
 </head>
-<header>
-    <header class="p-3 bg-dark text-white">
-        <div class="container">
-            <img style="filter: invert(100%);" src="./img_464486.png" alt="pig" height="157">
+
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+        <img style="filter: invert(100%);" src="./img_464486.png" alt="pig" height="157">
+        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+
+            <button type="button" class="btn btn-outline-light me-12 mt-5">Log out</button>
+
+        </form> -->
+        <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
+    </div>
+</header>
+
+<body class="p-3 bg-dark text-white">
+    <div class="container">
+        <div class="text-begin">
+            <div>
+                <form action="http://localhost/bit_php/bankas_ver_1/new.php?id" method="post">
+                    <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="name" class="form-control" placeholder="Name">
+                    <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="surname" class="form-control" placeholder="Surname">
+                    <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="personal_id" class="form-control" placeholder="Personal ID">
+                    <button type="submit" class="btn btn-outline-light ">Add account</button>
+                </form>
+            </div>
+        </div>
+        <div>
+            <?php
+            foreach ($customer as $user) {
+                echo $cus = '<p>Saskaitos Nr: ' . $user['accaount'] . ' Balansas: ' . $user['balance'] . $user['name'] . $user['surname'] . $user['personal_id'] . '</p>';
+            }
+            ?>
+        </div>
+    </div>
+    <div class="container">
+        <div class="text-begin">
+            <div>
+                <a class="btn btn-outline-light " href="http://localhost/bit_php/bankas_ver_1/new.php?read">Customers data</a>
+            </div>
+        </div>
+        <div>
+            <?php
+            foreach ($newData as $user) {
+                echo '<p>Saskaitos Nr: ' . $user['accaount'] . '    Balansas: ' . $user['balance'] . '    Kliento vardas:' . $user['name'] . '     Klento pavarde: ' . $user['surname'] . '   Asmens kodas:  ' . $user['personal_id'] . '</p>';
+            }
+            ?>
+        </div>
+    </div>
+
+</body>
+
+
+<footer>
+    <div class="container">
+        <div class="row align-items-end">
+
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
 
                 <button type="button" class="btn btn-outline-light me-12 mt-5">Log out</button>
 
             </form>
-            <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
-        </div>
-        </div>
-    </header>
-
-    <body class="p-3 bg-dark text-white">
-        <div class="container">
-            <div class="text-begin">
-                <div>
-                    <form action="http://localhost/bit_php/bankas_ver_1/new.php?id" method="post">
-                        <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="name" class="form-control" placeholder="Name">
-                        <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="surname" class="form-control" placeholder="Surname">
-                        <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="personal_id" class="form-control" placeholder="Personal ID">
-                        <button type="submit" class="btn btn-outline-light ">Add account</button>
-                    </form>
-                </div>
-            </div>
-            <div>
-                <?php
-                foreach ($customer as $user) {
-                    echo $cus = '<p>Saskaitos Nr: ' . $user['accaount'] . ' Balansas: ' . $user['balance'] . $user['name'] . $user['surname'] . $user['personal_id'] . '</p>';
-                }
-                ?>
-            </div>
-        </div>
-        <div class="container">
-            <div class="text-begin">
-                <div>
-                    <a class="btn btn-outline-light " href="http://localhost/bit_php/bankas_ver_1/new.php?read">Customers data</a>
-                </div>
-            </div>
-            <div>
-                <?php
-                foreach ($newData as $user) {
-                    echo '<p>Saskaitos Nr: ' . $user['accaount'] . '    Balansas: ' . $user['balance'] . '    Kliento vardas:' . $user['name'] . '     Klento pavarde: ' . $user['surname'] . '   Asmens kodas:  ' . $user['personal_id'] . '</p>';
-                }
-                ?>
-            </div>
         </div>
 
-    </body>
-
-    <!-- <footer>
-        <h3 class="pb-4 border-bottom">Kontaktai</h3>
+        <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
+    </div>
+    <!--   <h3 class="pb-4 border-bottom">Kontaktai</h3>
         </h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
             <div class="col d-flex align-items-start">
@@ -138,7 +150,7 @@ if (isset($_GET['read'])) {
                     <p>ragai.ir.kanopos@bit.lt.</p>
                 </div>
             </div>
-        </div>
-    </footer> -->
+        </div>-->
+</footer>
 
 </html>
