@@ -13,12 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id['personal_id'] = $_POST['personal_id'];
     $balance['balance'] = 0;
     $account['accaount'] = 'LT63000000' . rand(1000000, 10000000);
-    print_r($data_ba);
-    $data[] = [$account, $balance, $name, $surname, $id];
-    $_SESSION['date'] = $data;
-    $newData = [$data_ba, $data];
-    echo '<pre>';
-    print_r($newData);
+    //print_r($data_ba);
+    $data[] = [...$account, ...$balance, ...$name, ...$surname, ...$id];
+    $_SESSION['date'] = [...$data];
+    $newData = [...$data_ba, ...$data];
     header('Location: http://localhost/bit_php/bankas_ver_1/new.php');
     file_put_contents(__DIR__ . '/data.txt', serialize($newData));
     die;
@@ -29,6 +27,8 @@ unset($_SESSION['date']);
 
 if (isset($_GET['read'])) {
     $newData = unserialize(file_get_contents(__DIR__ . '/data.txt'));
+    // echo '<pre>';
+    // print_r($newData);
 }
 
 ?>
@@ -85,7 +85,7 @@ if (isset($_GET['read'])) {
             <div>
                 <?php
                 foreach ($newData as $user) {
-                    echo $data_ba = '<p>Saskaitos Nr: ' . $user['accaount'] . ' Balansas: ' . $user['balance'] . $user['name'] . $user['surname'] . $user['personal_id'] . '</p>';
+                    echo '<p>Saskaitos Nr: ' . $user['accaount'] . '    Balansas: ' . $user['balance'] . '    Kliento vardas:' . $user['name'] . '     Klento pavarde: ' . $user['surname'] . '   Asmens kodas:  ' . $user['personal_id'] . '</p>';
                 }
                 ?>
             </div>
