@@ -34,7 +34,7 @@
 
                 <div class="text-end">
                     <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+                    <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                     reprehenderit assumenda repellat molestias quo voluptatum fuga voluptas. Ipsa vel possimus tempora
                     fugit delectus amet tempore sint enim ratione sed!</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Nespaust</button>
+                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Tapt klientu</button>
                     <!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> -->
                 </div>
             </div>
