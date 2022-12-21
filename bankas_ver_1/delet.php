@@ -1,32 +1,12 @@
 <?php
 session_start();
-if (!file_exists(__DIR__ . '/data.txt')) {
-    $data_ba = [];
-} else {
-    $data_ba = unserialize(file_get_contents(__DIR__ . '/data.txt'));
+
+
+if (isset($_GET['read'])) {
+    $newData = unserialize(file_get_contents(__DIR__ . '/data.txt'));
+    echo '<pre>';
+    print_r($newData);
 }
-
-$data = $_SESSION['data'];
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['name'] != '' && $_POST['personal_id']) {
-    $name['name'] = $_POST['name'];
-    $surname['surname'] = $_POST['surname'];
-    $id['personal_id'] = $_POST['personal_id'];
-    $balance['balance'] = 0;
-    $account['accaount'] = 'LT63000000' . rand(1000000, 10000000);
-    $code['code'] = rand(1000000, 10000000);
-    //print_r($data_ba);
-    $data[] = [...$code, ...$account, ...$balance, ...$name, ...$surname, ...$id];
-    $_SESSION['date'] = [...$data];
-    $newData = [...$data_ba, ...$data];
-    header('Location: http://localhost/bit_php/bankas_ver_1/new.php');
-    file_put_contents(__DIR__ . '/data.txt', serialize($newData));
-    die;
-}
-
-$customer = $_SESSION['date'];
-unset($_SESSION['date']);
-
-
 
 ?>
 <!DOCTYPE html>
@@ -52,10 +32,10 @@ unset($_SESSION['date']);
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white">Home</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/new.php" class="nav-link px-2 text-secondary">Add Account</a></li>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/new.php" class="nav-link px-2 text-white">Add Account</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/transfer.php" class="nav-link px-2 text-white">Transfer</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/allcustomers.php" class="nav-link px-2 text-white">All Customers</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/delet.php" class="nav-link px-2 text-white">Delet Account</a></li>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/delet.php" class="nav-link px-2 text-secondary">Delet Account</a></li>
             </ul>
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
@@ -102,6 +82,28 @@ unset($_SESSION['date']);
             ?>
         </div>
     </div>
+    <div class="container">
+        <h2 class="pb-4 border-bottom"></h2>
+        <div class="text-begin">
+            <div>
+                <a class="btn btn-outline-light " href="http://localhost/bit_php/bankas_ver_1/new.php?read">Customers data</a>
+            </div>
+        </div>
+        <div>
+            <h4>Klientu saras:</h4>
+            <?php
+            foreach ($newData as $user) {
+                echo '<p>Saskaitos Nr:  ' . $user['accaount'] . '</p>';
+                echo '<p>Balansas:   ' . $user['balance'] . '</p>';
+                echo '<p> Kliento vardas: ' . $user['name'] . '</p>';
+                echo '<p> Klento pavarde: ' . $user['surname'] . '</p>';
+                echo '<p>  Asmens kodas:   ' . $user['personal_id'] . '</p>';
+                echo '<h4 class="pb-4 border-bottom"></h4>';
+            }
+            ?>
+        </div>
+    </div>
+
 </body>
 
 

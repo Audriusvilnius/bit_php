@@ -7,8 +7,8 @@ require __DIR__ . '/Briedis.php';
 
 
 
-$briedis1 = new Briedis('crimson');
-$briedis2 = new Briedis('green');
+// $briedis1 = new Briedis('crimson');
+// $briedis2 = new Briedis('green');
 
 echo $briedis1->color = 'yellow';
 
