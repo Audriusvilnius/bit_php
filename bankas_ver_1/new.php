@@ -13,8 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['name
     $id['personal_id'] = $_POST['personal_id'];
     $balance['balance'] = 0;
     $account['accaount'] = 'LT63000000' . rand(1000000, 10000000);
+    $cus_kod['code'] = rand(1000000, 10000000);
     //print_r($data_ba);
-    $data[] = [...$account, ...$balance, ...$name, ...$surname, ...$id];
+    $data[] = [...$cus_kod, ...$account, ...$balance, ...$name, ...$surname, ...$id];
     $_SESSION['date'] = [...$data];
     $newData = [...$data_ba, ...$data];
     header('Location: http://localhost/bit_php/bankas_ver_1/new.php');
@@ -46,6 +47,25 @@ if (isset($_GET['read'])) {
 <header class="p-3 bg-dark text-white">
     <div class="container">
         <img class="pb-4 border-bottom" style="filter: invert(100%);" src="./img_464486.png" alt="pig" height="157">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="http://localhost/bit_php/bankas_ver_1/index.php?" class="nav-link px-2 text-secondary">Home</a></li>
+            <li><a href="http://localhost/bit_php/bankas_ver_1/new.php" class="nav-link px-2 text-white">Add Account</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+        </ul>
+
+
+
+
+
+
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 float-end">
             <button type="button" class="btn btn-outline-light me-12 mt-5">Log out</button>
         </form>
@@ -59,7 +79,7 @@ if (isset($_GET['read'])) {
             <h4>Naujo kliento saskaitos atidarymas:</h4>
             <form class="text-begin p-5" action="http://localhost/bit_php/bankas_ver_1/new.php?id" method="post">
                 <p class="pt-2">Kliento Vardas:</p>
-                <input class="col-5 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="name" class="form-control" placeholder="Name">
+                <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="name" class="form-control" placeholder="Name">
                 <p class="pt-2">Kliento Pavarde:</p>
                 <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="surname" class="form-control" placeholder="Surname">
                 <p class="pt-2">Kliento ID kodas:</p>
@@ -70,11 +90,17 @@ if (isset($_GET['read'])) {
             </form>
         </div>
         <h2 class="pb-4 border-bottom"></h2>
-
         <div>
+            <h4>Sasakita sukurta, kliento duomenys:</h4>
             <?php
             foreach ($customer as $user) {
-                echo $cus = '<p>Saskaitos Nr: ' . $user['accaount'] . ' Balansas: ' . $user['balance'] . $user['name'] . $user['surname'] . $user['personal_id'] . '</p>';
+                echo '<h4>Kliento kodas:  ' . $user['code'] . '</h4>';
+                echo '<p>Saskaitos Nr:  ' . $user['accaount'] . '</p>';
+                echo '<p>Balansas:   ' . $user['balance'] . '</p>';
+                echo '<p> Kliento vardas: ' . $user['name'] . '</p>';
+                echo '<p> Klento pavarde: ' . $user['surname'] . '</p>';
+                echo '<p>  Asmens kodas:   ' . $user['personal_id'] . '</p>';
+                echo '<h4 class="pb-4 border-bottom"></h4>';
             }
             ?>
         </div>
@@ -87,9 +113,15 @@ if (isset($_GET['read'])) {
             </div>
         </div>
         <div>
+            <h4>Klientu saras:</h4>
             <?php
             foreach ($newData as $user) {
-                echo '<p>Saskaitos Nr: ' . $user['accaount'] . '    Balansas: ' . $user['balance'] . '    Kliento vardas:' . $user['name'] . '     Klento pavarde: ' . $user['surname'] . '   Asmens kodas:  ' . $user['personal_id'] . '</p>';
+                echo '<p>Saskaitos Nr:  ' . $user['accaount'] . '</p>';
+                echo '<p>Balansas:   ' . $user['balance'] . '</p>';
+                echo '<p> Kliento vardas: ' . $user['name'] . '</p>';
+                echo '<p> Klento pavarde: ' . $user['surname'] . '</p>';
+                echo '<p>  Asmens kodas:   ' . $user['personal_id'] . '</p>';
+                echo '<h4 class="pb-4 border-bottom"></h4>';
             }
             ?>
         </div>
