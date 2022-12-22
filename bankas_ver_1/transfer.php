@@ -85,7 +85,7 @@ if (isset($_GET['code'])) {
             if (isset($_GET['code'])) {
                 foreach ($tranz as $custom) {
                     if ($custom['code'] == $code) {
-                        echo '<h4>Kliento kodas:  ' . $custom['code'] . '</h4>';
+                        echo '<h4>Sąskaitos kodas:  ' . $custom['code'] . '</h4>';
                         echo '<p>Saskaitos Nr:  ' . $custom['accaount'] . '</p>';
                         echo '<p>Balansas:   ' . $custom['balance'] . '</p>';
                         echo '<p> Kliento vardas: ' . $custom['name'] . '</p>';

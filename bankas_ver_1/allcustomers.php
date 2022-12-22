@@ -4,8 +4,9 @@ if (isset($_GET['name'])) {
     $search = unserialize(file_get_contents(__DIR__ . '/data.txt'));
     $name = $_GET['name'];
 }
-
+echo $name;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,10 +27,12 @@ if (isset($_GET['name'])) {
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white"><img style="filter: invert(100%);" class="d-block  pb-6" src="./home.png" alt="pig" height="45"></a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/new.php" class="nav-link px-2 text-white p-4">Add Account</a></li>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/new.php" class="nav-link px-2 text-white p-4">Add
+                        Account</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/transfer.php" class="nav-link px-2 text-white p-4">Transfer</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/allcustomers.php" class="nav-link px-2 text-secondary p-4">All Customers</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/delet.php" class="nav-link px-2 text-white p-4">Delet Account</a></li>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/delet.php" class="nav-link px-2 text-white p-4">Delet
+                        Account</a></li>
             </ul>
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
@@ -45,61 +48,73 @@ if (isset($_GET['name'])) {
 </header>
 
 <body class="p-2 bg-dark text-white">
-    <div class="container">
-        <div class="text-begin p-2">
-            <h4>Kliento identifikavimas pagal varda:</h4>
-            <form class="text-begin p-5" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?name" method="get">
-                <p class="pt-2">Kliento Vardas:</p>
-                <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="name" class="form-control" placeholder="Name">
-                <div class="text-begin pt-5 ">
-                    <button type="submit" class="btn btn-outline-light ">Search...</button>
-                </div>
-            </form>
-            <!-- <form class="text-begin p-5" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?scode" method="post">
-                <p class="pt-2">Kliento kodas:</p>
-                <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3 form-control " type="text" name="surname" placeholder="Customer code"> -->
-            <!-- <div class="text-begin pt-5 ">
-                <button type="submit" class="btn btn-outline-light ">Search...</button>
-            </div> -->
-            <!-- </form> -->
-        </div>
+    <div class="container text-left">
+        <div class="row">
+            <div class="col-12 col-sm-6 p-3 ">
+                <h4>Kliento identifikavimas:</h4>
+                <form class="text-begin" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?name" method="get">
+                    <p class="pt-2">Paieška:</p>
+                    <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="name" class="form-control" placeholder="Name">
+                    <div class="col-12 col-sm-6 pt-3 ">
+                        <button type="submit" class="btn btn-outline-light ">Search...</button>
 
-        </form>
-        <div>
+                    </div>
+                </form>
+                <div class="col-12 col-sm-6 pt-3 ">
+
+                    <button type="submit" class="btn btn-outline-light ">Sort A-Z</button>
+                </div>
+
+
+
+
+            </div>
+            <div class="col-12 col-sm-6 p-3 ">
+                <h4>Kliento identifikavimas:</h4>
+                <!-- <form class="text-begin" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?name" method="get">
+                    <p class="pt-2">Paieška:</p>
+                    <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="surname" class="form-control" placeholder="Account">
+                    <div class="col-12 col-sm-6 pt-3 ">
+                        <button type="submit" class="btn btn-outline-light ">Clouse account</button>
+                    </div>
+                </form> -->
+            </div>
+        </div>
+    </div>
+
+
+    </form>
+    <div class="container text-left">
+        <h2 class="pb-4 border-bottom"></h2>
+        <div class="row">
             <?php
             if ($search != []) {
                 foreach ($search as $custom) {
                     if ($custom['name'] == $name) {
-                        echo '<h4>Kliento kodas:  ' . $custom['code'] . '</h4>';
-                        echo '<p>Saskaitos Nr:  ' . $custom['accaount'] . '</p>';
-                        echo '<p>Balansas:   ' . $custom['balance'] . '</p>';
-                        echo '<p> Kliento vardas: ' . $custom['name'] . '</p>';
+
+                        echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">
+                            <h4 class="pb-1">Sąskaitos kodas:' . $custom['code'] . '</h4>';
+                        echo '<p>Saskaitos Nr:' . $custom['accaount'] . '</p>';
+                        echo '<p>Balansas:   ' . $custom['balance'] . ' pinigu</p>';
+                        echo '<b><p style="color: skyblue;"> Kliento vardas: ' . $custom['name'] . '</p></b>';
                         echo '<p> Klento pavarde: ' . $custom['surname'] . '</p>';
-                        echo '<p>  Asmens kodas:   ' . $custom['personal_id'] . '</p>';
-                        echo '<h4 class="pb-4 border-bottom"></h4>';
+                        echo '<p>  Asmens kodas:   ' . $custom['personal_id'] . '</span></p></div>';
                     }
                 }
-                asort($search);
-                print_r($search);
-
                 if ($name == '') {
-
                     foreach ($search as $custom) {
-
-
-                        echo '<h4>Kliento kodas:  ' . $custom['code'] . '</h4>';
-                        echo '<p>Saskaitos Nr:  ' . $custom['accaount'] . '</p>';
+                        echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">
+                            <h4 class="pb-1">Sąskaitos kodas:' . $custom['code'] . '</h4>';
+                        echo '<p>Saskaitos Nr:' . $custom['accaount'] . '</p>';
                         echo '<p>Balansas:   ' . $custom['balance'] . '</p>';
                         echo '<p> Kliento vardas: ' . $custom['name'] . '</p>';
                         echo '<p> Klento pavarde: ' . $custom['surname'] . '</p>';
-                        echo '<p>  Asmens kodas:   ' . $custom['personal_id'] . '</p>';
-                        echo '<h4 class="pb-4 border-bottom"></h4>';
+                        echo '<p>  Asmens kodas:   ' . $custom['personal_id'] . '</p></div>';
                     }
                 }
-            }
-            ?>
-
+            } ?>
         </div>
+    </div>
     </div>
 </body>
 

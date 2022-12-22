@@ -13,13 +13,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['surn
     $id['personal_id'] = $_POST['personal_id'];
     $balance['balance'] = 0;
     $account['accaount'] = 'LT63000000' . rand(1000000, 10000000);
-    $code['code'] = rand(1000000, 10000000);
-    //print_r($data_ba);
+    $temp['code'] = rand(1000000, 10000000);
+    foreach ($data_ba as $i => $new) {
+        $temp['code'] = rand(1000000, 10000000);
+        if ($data_ba[$i]['personal_id'] == $_POST['personal_id']) {
+            $code['code'] = $new['code'];
+            $temp['code'] = $code['code'];
+            print_r($code);
+            print_r($new);
+            //break;
+        }
+    }
+    $code['code'] = $temp['code'];
+    print_r($code);
+
+
+    // echo '<pre>';print_r($data_ba);
     $data[] = [...$code, ...$account, ...$balance, ...$name, ...$surname, ...$id];
     $_SESSION['date'] = [...$data];
     $newData = [...$data_ba, ...$data];
+    // print_r($newData);
 
-    header('Location: http://localhost/bit_php/bankas_ver_1/new.php');
+    //header('Location: http://localhost/bit_php/bankas_ver_1/new.php');
     file_put_contents(__DIR__ . '/data.txt', serialize($newData));
     die;
 }
@@ -96,7 +111,7 @@ echo $massage;
             }
 
             foreach ($customer as $user) {
-                echo '<h4>Kliento kodas:  ' . $user['code'] . '</h4>';
+                echo '<h4>Sąskaitos kodas:  ' . $user['code'] . '</h4>';
                 echo '<p>Saskaitos Nr:  ' . $user['accaount'] . '</p>';
                 echo '<p>Balansas:   ' . $user['balance'] . '</p>';
                 echo '<p> Kliento vardas: ' . $user['name'] . '</p>';
