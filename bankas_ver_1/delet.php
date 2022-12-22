@@ -31,11 +31,11 @@ if (isset($_GET['read'])) {
                 </svg>
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white">Home</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/new.php" class="nav-link px-2 text-white">Add Account</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/transfer.php" class="nav-link px-2 text-white">Transfer</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/allcustomers.php" class="nav-link px-2 text-white">All Customers</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/delet.php" class="nav-link px-2 text-secondary">Delet Account</a></li>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white"><img style="filter: invert(100%);" class="d-block  pb-6" src="./img_464486.png" alt="pig" height="40"></a></li>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/new.php" class="nav-link px-2 text-white p-4">Add Account</a></li>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/transfer.php" class="nav-link px-2 text-white p-4">Transfer</a></li>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/allcustomers.php" class="nav-link px-2 text-white p-4">All Customers</a></li>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/delet.php" class="nav-link px-2 text-secondary p-4">Delet Account</a></li>
             </ul>
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
