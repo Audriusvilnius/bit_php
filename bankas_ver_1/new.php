@@ -5,9 +5,9 @@ if (!file_exists(__DIR__ . '/data.txt')) {
 } else {
     $data_ba = unserialize(file_get_contents(__DIR__ . '/data.txt'));
 }
-
 $data = $_SESSION['data'];
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['name'] != '' && $_POST['personal_id']) {
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['surname'] != '' && $_POST['personal_id']) {
     $name['name'] = $_POST['name'];
     $surname['surname'] = $_POST['surname'];
     $id['personal_id'] = $_POST['personal_id'];
@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['name
     $data[] = [...$code, ...$account, ...$balance, ...$name, ...$surname, ...$id];
     $_SESSION['date'] = [...$data];
     $newData = [...$data_ba, ...$data];
+
     header('Location: http://localhost/bit_php/bankas_ver_1/new.php');
     file_put_contents(__DIR__ . '/data.txt', serialize($newData));
     die;
@@ -25,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['name
 
 $customer = $_SESSION['date'];
 unset($_SESSION['date']);
+echo $massage;
 
 
 
@@ -51,7 +53,7 @@ unset($_SESSION['date']);
                 </svg>
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white"><img style="filter: invert(100%);" class="d-block  pb-6" src="./img_464486.png" alt="pig" height="40"></a></li>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white"><img style="filter: invert(100%);" class="d-block  pb-6" src="./home.png" alt="pig" height="45"></a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/new.php" class="nav-link px-2 text-secondary p-4">Add Account</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/transfer.php" class="nav-link px-2 text-white p-4">Transfer</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/allcustomers.php" class="nav-link px-2 text-white p-4">All Customers</a></li>
@@ -88,8 +90,11 @@ unset($_SESSION['date']);
         </div>
         <h2 class="pb-4 border-bottom"></h2>
         <div>
-            <h4>Sasakita sukurta, kliento duomenys:</h4>
             <?php
+            if (isset($customer)) {
+                echo '<h4>Sasakita sukurta, kliento duomenys:</h4>';
+            }
+
             foreach ($customer as $user) {
                 echo '<h4>Kliento kodas:  ' . $user['code'] . '</h4>';
                 echo '<p>Saskaitos Nr:  ' . $user['accaount'] . '</p>';
@@ -98,6 +103,8 @@ unset($_SESSION['date']);
                 echo '<p> Klento pavarde: ' . $user['surname'] . '</p>';
                 echo '<p>  Asmens kodas:   ' . $user['personal_id'] . '</p>';
                 echo '<h4 class="pb-4 border-bottom"></h4>';
+                $masabe = $user['code'];
+                break;
             }
             ?>
         </div>
