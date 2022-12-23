@@ -1,10 +1,36 @@
 <?php
 $r = 0;
 if (isset($_GET['name'])) {
-    $search = unserialize(file_get_contents(__DIR__ . '/data.txt'));
+    $search = unserialize(file_get_contents(__DIR__ . '/data'));
     $name = $_GET['name'];
+    echo '<pre>';
+    print_r($search);
 }
-echo $name;
+// echo '<pre>';
+// print_r($search);
+// if (isset($_GET['accaount'])) {
+//     $search = unserialize(file_get_contents(__DIR__ . '/data'));
+//     $account = $_GET['accaount'];
+//     // foreach ($search as $i => $users) {
+
+//     //     if ($users['accaount'] == $account) {
+//     //         if ($users['balance'][$account] == 0) {
+//     //             unset($users[$i]);
+
+//     //             file_put_contents(__DIR__ . '/data', serialize([$users]));
+//     //             $delet_conf = 1;
+//     //         }
+//     //     }
+//     //     if ($users['accaount'] == $account) {
+//     //         if ($users['balance'] != 0) {
+//     //             unset($users[$i]);
+//     //             $delet_conf = 0;
+//     //             break;
+//     //         }
+//     //     }
+//     // }
+// }
+//echo $account;
 ?>
 
 <!DOCTYPE html>
@@ -51,39 +77,31 @@ echo $name;
     <div class="container text-left">
         <div class="row">
             <div class="col-12 col-sm-6 p-3 ">
-                <h4>Kliento identifikavimas:</h4>
+                <h4>Kliento paieska:</h4>
                 <form class="text-begin" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?name" method="get">
-                    <p class="pt-2">Paieška:</p>
+                    <p class="pt-2">Kliento vardas:</p>
                     <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="name" class="form-control" placeholder="Name">
                     <div class="col-12 col-sm-6 pt-3 ">
-                        <button type="submit" class="btn btn-outline-light ">Search...</button>
+                        <button type="submit" class="btn btn-outline-info ">Search...</button>
 
                     </div>
                 </form>
                 <div class="col-12 col-sm-6 pt-3 ">
-
-                    <button type="submit" class="btn btn-outline-light ">Sort A-Z</button>
+                    <button type="submit" class="btn btn-outline-info ">Sort A-Z</button>
                 </div>
-
-
-
-
             </div>
             <div class="col-12 col-sm-6 p-3 ">
-                <h4>Kliento identifikavimas:</h4>
-                <!-- <form class="text-begin" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?name" method="get">
-                    <p class="pt-2">Paieška:</p>
-                    <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="surname" class="form-control" placeholder="Account">
+                <h4>Saskaitos uzdarimas</h4>
+                <form class="text-begin" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?accaount" method="get">
+                    <p>Saskaitos numeris:</p>
+                    <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="accaount" class="form-control" placeholder="Account">
                     <div class="col-12 col-sm-6 pt-3 ">
-                        <button type="submit" class="btn btn-outline-light ">Clouse account</button>
+                        <button type="submit" class="btn btn-outline-danger ">Trinti</button>
                     </div>
-                </form> -->
+                </form>
             </div>
         </div>
     </div>
-
-
-    </form>
     <div class="container text-left">
         <h2 class="pb-4 border-bottom"></h2>
         <div class="row">

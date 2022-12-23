@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_GET['code'])) {
-    $tranz = unserialize(file_get_contents(__DIR__ . '/data.txt'));
+    $tranz = unserialize(file_get_contents(__DIR__ . '/data'));
 }
 
 if (isset($_GET['code'])) {
@@ -56,7 +56,7 @@ if (isset($_GET['code'])) {
                 <p class="pt-2">Kliento unikalus kodas:</p>
                 <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="code" class="form-control" placeholder="Name">
                 <div class="text-begin pt-5 ">
-                    <button type="submit" class="btn btn-outline-light ">Search...</button>
+                    <button type="submit" class="btn btn-outline-info ">Search...</button>
                 </div>
             </form>
 
@@ -68,7 +68,7 @@ if (isset($_GET['code'])) {
             } ?>
             <form action="http://localhost/bit_php/bankas_ver_1/addpinigu.php?code=<?= $add['code'] ?>" method="post">
                 <input type="text" name="pinigu">
-                <button type="submit" class="btn btn-danger">Transfer</button>
+                <button type="submit" class="btn btn-outline-danger ">Transfer</button>
             </form>
 
             <!-- <form class="text-begin p-5" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?scode" method="post">

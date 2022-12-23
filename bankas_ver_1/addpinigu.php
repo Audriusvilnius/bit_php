@@ -1,6 +1,6 @@
 <?php
 
-$users = unserialize(file_get_contents(__DIR__ . '/data.txt'));
+$users = unserialize(file_get_contents(__DIR__ . '/data'));
 
 $code = (float) $_GET['code'];
 $pinigu = (float) $_POST['pinigu'];

@@ -1,11 +1,9 @@
 <?php
-$users = [
-    ['name' => 'Bebras', 'psw' => md5('123'), 'color' => 'crimson'],
-    ['name' => 'Briedis', 'psw' => md5('123'), 'color' => 'pink'],
-    ['name' => 'Paršas', 'psw' => md5('123'), 'color' => 'skyblue'],
-    ['name' => 'Ona', 'psw' => md5('123'), 'color' => 'yellow'],
-    ['name' => 'Admin', 'psw' => md5('123'), 'color' => 'green']
+
+$data = [
+    ['code' => 123, 'accaount' => 'LT63000000' . rand(1000000, 10000000), 'balance' => 0, 'name' => 'Vardas', 'surname' => 'Pavarde', 'personal_id' => 12345],
+    ['code' => 123, 'accaount' => 'LT63000000' . rand(1000000, 10000000), 'balance' => 0, 'name' => 'Vardas1', 'surname' => 'Pavarde1', 'personal_id' => 12345],
+    ['code' => 123, 'accaount' => 'LT63000000' . rand(1000000, 10000000), 'balance' => 0, 'name' => 'Vardas2', 'surname' => 'Pavarde2', 'personal_id' => 12345]
 ];
 
-
-file_put_contents(__DIR__ . '/users', serialize($users));
+file_put_contents(__DIR__ . '/data', serialize($data));

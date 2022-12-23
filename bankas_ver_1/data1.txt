@@ -1,0 +1,1 @@
+a:6:{s:4:"code";a:1:{s:4:"code";i:4044785;}s:8:"accaount";a:1:{s:8:"accaount";s:17:"LT630000009808707";}s:7:"balance";a:1:{s:7:"balance";i:0;}s:4:"name";a:1:{s:4:"name";s:3:"aaa";}s:7:"surname";a:1:{s:7:"surname";s:6:"aaaaaa";}s:11:"personal_id";a:1:{s:11:"personal_id";s:3:"aaa";}}
