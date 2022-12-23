@@ -91,7 +91,6 @@ file_put_contents(__DIR__ . '/data.txt', serialize($users));
                         <h5 style="color:' . $color . '">' . $pinigu . '</h5>';
                     }
                     ?>
-
                     <form action="http://localhost/bit_php/bankas_ver_1/transfer.php?code=<?= $code ?>" method="post">
                         <div class="col-12 col-sm-6 pt-3 ">
                             <button type="submit" class="btn btn-warning">Go back</button>
@@ -108,7 +107,7 @@ file_put_contents(__DIR__ . '/data.txt', serialize($users));
                     echo '<b><p style="color:' . $color . '">Balansas:   ' . $custom['balance'] . ' pinigu</p></b>';
                     echo '<p> Kliento vardas: ' . $custom['name'] . '</p>';
                     echo '<p> Klento pavarde: ' . $custom['surname'] . '</p>';
-                    echo '<p>  Asmens kodas:   ' . $custom['personal_id'] . '</span></p></div>';
+                    echo '<p>  Asmens kodas:   ' . $custom['personal_id'] . '</p></div>';
                     break;
                 }
             }
