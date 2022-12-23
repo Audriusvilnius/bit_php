@@ -32,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['surn
     $data[] = ['code' => $code, 'accaount' => $account, 'balance' => $balance, 'name' => $name, 'surname' => $surname, 'personal_id' => $id];
     $_SESSION['date'] = $data;
     $newData = [...$data_ba, ...$data];
-    //echo '<pre>';
-    //print_r($newData);
+
+    print_r($newData);
 
     file_put_contents(__DIR__ . '/data', serialize($newData));
     header('Location: http://localhost/bit_php/bankas_ver_1/new.php');
