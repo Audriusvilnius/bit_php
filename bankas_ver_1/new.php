@@ -29,11 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['surn
 
 
     // echo '<pre>';print_r($data_ba);
-    $data[] = ['code' => $code, 'accaount' => $account, 'balance' => $balance, 'name' => $name, 'surname' => $surname, 'personal_id' => $id];
+    $data[] = ['code' => $code, 'account' => $account, 'balance' => $balance, 'name' => $name, 'surname' => $surname, 'personal_id' => $id];
     $_SESSION['date'] = $data;
     $newData = [...$data_ba, ...$data];
-
-    print_r($newData);
 
     file_put_contents(__DIR__ . '/data', serialize($newData));
     header('Location: http://localhost/bit_php/bankas_ver_1/new.php');
@@ -74,7 +72,7 @@ echo $massage;
                 <li><a href="http://localhost/bit_php/bankas_ver_1/new.php" class="nav-link px-2 text-secondary p-4">Add Account</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/transfer.php" class="nav-link px-2 text-white p-4">Transfer</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/allcustomers.php" class="nav-link px-2 text-white p-4">All Customers</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/delet.php" class="nav-link px-2 text-white p-4">Delet Account</a></li>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white p-4"><img src="./sprite2022.png" height="10"></li></a>
             </ul>
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
@@ -90,7 +88,7 @@ echo $massage;
 </header>
 
 <body class="p-2 bg-dark text-white">
-    <div class="container text-left">
+    <div class="container">
         <div class="row">
             <div class="col-12 col-sm-6 p-3 ">
                 <div class="text-begin p-2 align-self-start">
@@ -109,23 +107,24 @@ echo $massage;
                 </div>
             </div>
             <?php
-            echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
+            echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px; " >';
             if (isset($customer)) {
                 '<div class="col-12 col-sm-6 pt-3 >';
                 echo '<h3>Sasakita sukurta, kliento duomenys:</h3>';
                 '</div>';
             }
             foreach ($customer as $user) {
-                echo '<h4>Sąskaitos kodas:  ' . $user['code'] . '</h4>';
-                echo '<p>Saskaitos Nr:  ' . $user['accaount'] . '</p>';
-                echo '<p>Balansas:   ' . $user['balance'] . '</p>';
-                echo '<p> Kliento vardas: ' . $user['name'] . '</p>';
-                echo '<p> Klento pavarde: ' . $user['surname'] . '</p>';
-                echo '<p>  Asmens kodas:   ' . $user['personal_id'] . '</p>';
-                echo '</p></div>';
+                echo '<h4>Customer id:  ' . "\t" . $custom['code'] . '</h4>';
+                echo '<p>Account Nr:  </p>' . '<h4>'  . $custom['account'] . '</h4>';
+                echo '<p>Balace:   </p>' . '<h4>' . $custom['balance'] .
+                    '</h4>';
+                echo '<p> Name: ' . "\t\t" . $custom['name'] . '</p>';
+                echo '<p> Surname: ' . $custom['surname'] . '</p>';
+                echo '<p>  Personal id:   ' . "\n" . $custom['personal_id'] . '</p></div>';
                 $masabe = $user['code'];
                 break;
             }
+            echo '</div>';
             ?>
         </div>
     </div>

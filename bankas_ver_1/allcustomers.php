@@ -1,36 +1,27 @@
 <?php
-$r = 0;
 if (isset($_GET['name'])) {
     $search = unserialize(file_get_contents(__DIR__ . '/data'));
     $name = $_GET['name'];
-    echo '<pre>';
-    print_r($search);
 }
-// echo '<pre>';
-// print_r($search);
-// if (isset($_GET['accaount'])) {
-//     $search = unserialize(file_get_contents(__DIR__ . '/data'));
-//     $account = $_GET['accaount'];
-//     // foreach ($search as $i => $users) {
 
-//     //     if ($users['accaount'] == $account) {
-//     //         if ($users['balance'][$account] == 0) {
-//     //             unset($users[$i]);
+if (isset($_GET['account'])) {
+    $search = unserialize(file_get_contents(__DIR__ . '/data'));
+    $account = $_GET['account'];
+    foreach ($search as $i => $users) {
+        if ($users['account'] == $account && $users['balance'] == 0) {
+            unset($search[$i]);
+            $delet_conf = 1;
+            file_put_contents(__DIR__ . '/data', serialize($search));
+        }
+        if ($users['account'] == $account) {
+            if ($users['balance'] != 0) {
+                $delet_conf = 0;
+                break;
+            }
+        }
+    }
+}
 
-//     //             file_put_contents(__DIR__ . '/data', serialize([$users]));
-//     //             $delet_conf = 1;
-//     //         }
-//     //     }
-//     //     if ($users['accaount'] == $account) {
-//     //         if ($users['balance'] != 0) {
-//     //             unset($users[$i]);
-//     //             $delet_conf = 0;
-//     //             break;
-//     //         }
-//     //     }
-//     // }
-// }
-//echo $account;
 ?>
 
 <!DOCTYPE html>
@@ -57,8 +48,7 @@ if (isset($_GET['name'])) {
                         Account</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/transfer.php" class="nav-link px-2 text-white p-4">Transfer</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/allcustomers.php" class="nav-link px-2 text-secondary p-4">All Customers</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/delet.php" class="nav-link px-2 text-white p-4">Delet
-                        Account</a></li>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white p-4"><img src="./EA-logo_2019.svg" height="9"></li></a>
             </ul>
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
@@ -83,21 +73,42 @@ if (isset($_GET['name'])) {
                     <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="name" class="form-control" placeholder="Name">
                     <div class="col-12 col-sm-6 pt-3 ">
                         <button type="submit" class="btn btn-outline-info ">Search...</button>
-
+                    </div>
+                    <div class="col-12 col-sm-6 pt-3 ">
+                        <a href="http://localhost/bit_php/bankas_ver_1/sort.php?sort">
+                            <button type="submit" class="btn btn-outline-info ">Sort A-Z</button>
+                        </a>
                     </div>
                 </form>
-                <div class="col-12 col-sm-6 pt-3 ">
-                    <button type="submit" class="btn btn-outline-info ">Sort A-Z</button>
-                </div>
+
             </div>
+            <!-- <?php
+                    if ($search != []) {
+                        foreach ($search as $custom) {
+                            if ($custom['name'] == $name) {
+
+                                echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">
+                            <h4 class="pb-1">Sąskaitos kodas:' . $custom['code'] . '</h4>';
+                                echo '<p>Saskaitos Nr:' . $custom['account'] . '</p>';
+                                echo '<p>Balansas:   ' . $custom['balance'] . ' pinigu</p>';
+                                echo '<b><p style="color: skyblue;"> Kliento vardas: ' . $custom['name'] . '</p></b>';
+                                echo '<p> Klento pavarde: ' . $custom['surname'] . '</p>';
+                                echo '<p>  Asmens kodas:   ' . $custom['personal_id'] . '</span></p></div>';
+                            }
+                        }
+                    } ?> -->
             <div class="col-12 col-sm-6 p-3 ">
                 <h4>Saskaitos uzdarimas</h4>
-                <form class="text-begin" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?accaount" method="get">
+                <p></p>
+                <form class="text-begin" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?account" method="get">
                     <p>Saskaitos numeris:</p>
-                    <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="accaount" class="form-control" placeholder="Account">
+                    <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="account" class="form-control" placeholder="Account">
                     <div class="col-12 col-sm-6 pt-3 ">
-                        <button type="submit" class="btn btn-outline-danger ">Trinti</button>
+                        <button type="submit" class="btn btn-outline-danger ">Delet</button>
                     </div>
+                    <?php if ($delet_conf == 0) {
+                        echo '<h4>Sasakaitoje yra pinigu negalima istrint</h4>';
+                    } ?>
                 </form>
             </div>
         </div>
@@ -109,25 +120,27 @@ if (isset($_GET['name'])) {
             if ($search != []) {
                 foreach ($search as $custom) {
                     if ($custom['name'] == $name) {
-
-                        echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">
-                            <h4 class="pb-1">Sąskaitos kodas:' . $custom['code'] . '</h4>';
-                        echo '<p>Saskaitos Nr:' . $custom['accaount'] . '</p>';
-                        echo '<p>Balansas:   ' . $custom['balance'] . ' pinigu</p>';
-                        echo '<b><p style="color: skyblue;"> Kliento vardas: ' . $custom['name'] . '</p></b>';
-                        echo '<p> Klento pavarde: ' . $custom['surname'] . '</p>';
-                        echo '<p>  Asmens kodas:   ' . $custom['personal_id'] . '</span></p></div>';
+                        echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
+                        echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['code'] . '</h4>';
+                        echo '<p>Account Nr:  </p>' . '<h4>'  . $custom['account'] . '</h4>';
+                        echo '<p>Balace:   </p>' . '<h4>' . $custom['balance'] .
+                            '</h4>';
+                        echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $custom['name'] . '</span></h3>';
+                        echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $custom['surname'] . '</p>';
+                        echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $custom['personal_id'] . '</p></div>';
                     }
-                }
+                } ?>
+            <?php
                 if ($name == '') {
                     foreach ($search as $custom) {
-                        echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">
-                            <h4 class="pb-1">Sąskaitos kodas:' . $custom['code'] . '</h4>';
-                        echo '<p>Saskaitos Nr:' . $custom['accaount'] . '</p>';
-                        echo '<p>Balansas:   ' . $custom['balance'] . '</p>';
-                        echo '<p> Kliento vardas: ' . $custom['name'] . '</p>';
-                        echo '<p> Klento pavarde: ' . $custom['surname'] . '</p>';
-                        echo '<p>  Asmens kodas:   ' . $custom['personal_id'] . '</p></div>';
+                        echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
+                        echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['code'] . '</h4>';
+                        echo '<p>Account Nr:  </p>' . '<h4>'  . $custom['account'] . '</h4>';
+                        echo '<p>Balace:   </p>' . '<h4>' . $custom['balance'] .
+                            '</h4>';
+                        echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $custom['name'] . '</span></h3>';
+                        echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $custom['surname'] . '</p>';
+                        echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $custom['personal_id'] . '</p></div>';
                     }
                 }
             } ?>

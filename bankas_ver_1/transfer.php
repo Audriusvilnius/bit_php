@@ -1,12 +1,12 @@
 <?php
 
-if (isset($_GET['code'])) {
+if (isset($_GET['account'])) {
     $tranz = unserialize(file_get_contents(__DIR__ . '/data'));
+    $account = $_GET['account'];
 }
 
-if (isset($_GET['code'])) {
-    $code = $_GET['code'];
-}
+//  if (isset($_GET['account'])) {
+// }
 
 
 
@@ -34,7 +34,7 @@ if (isset($_GET['code'])) {
                 <li><a href="http://localhost/bit_php/bankas_ver_1/new.php" class="nav-link px-2 text-white p-4">Add Account</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/transfer.php" class="nav-link px-2 text-secondary p-4">Transfer</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/allcustomers.php" class="nav-link px-2 text-white p-4">All Customers</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/delet.php" class="nav-link px-2 text-white p-4">Delet Account</a></li>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white p-4"><img src="./5f1b1271a1e429.16105348.png" height="9"></li></a>
             </ul>
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
@@ -49,50 +49,56 @@ if (isset($_GET['code'])) {
 </header>
 
 <body class="p-2 bg-dark text-white">
-    <div class="container">
-        <div class="text-begin p-2 align-self-start">
-            <h4>Operacijos su pinigais:</h4>
-            <form class="text-begin p-5" action="http://localhost/bit_php/bankas_ver_1/transfer.php?code" method="get">
-                <p class="pt-2">Kliento unikalus kodas:</p>
-                <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3" type="text" name="code" class="form-control" placeholder="Name">
-                <div class="text-begin pt-5 ">
-                    <button type="submit" class="btn btn-outline-info ">Search...</button>
-                </div>
-            </form>
-
-            <?php foreach ($tranz as $user) {
-                if ($code == $user['code']) {
-                    $add['code'] = $user['code'];
-                    //print_r($add['code']);
-                }
-            } ?>
-            <form action="http://localhost/bit_php/bankas_ver_1/addpinigu.php?code=<?= $add['code'] ?>" method="post">
-                <input type="text" name="pinigu">
-                <button type="submit" class="btn btn-outline-danger ">Transfer</button>
-            </form>
-
-            <!-- <form class="text-begin p-5" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?scode" method="post">
-                <p class="pt-2">Kliento kodas:</p>
-                <input class="col-2 col-lg-auto mb-3 mb-lg-0 me-lg-3 form-control " type="text" name="surname" placeholder="Customer code"> -->
-            <!-- <div class="text-begin pt-5 ">
-                <button type="submit" class="btn btn-outline-light ">Search...</button>
-            </div> -->
-            <!-- </form> -->
-        </div>
-        </form>
-        <div>
-            <?php
-            if (isset($_GET['code'])) {
-                foreach ($tranz as $custom) {
-                    if ($custom['code'] == $code) {
-                        echo '<h4>Sąskaitos kodas:  ' . $custom['code'] . '</h4>';
-                        echo '<p>Saskaitos Nr:  ' . $custom['accaount'] . '</p>';
-                        echo '<p>Balansas:   ' . $custom['balance'] . '</p>';
-                        echo '<p> Kliento vardas: ' . $custom['name'] . '</p>';
-                        echo '<p> Klento pavarde: ' . $custom['surname'] . '</p>';
-                        echo '<p>  Asmens kodas:   ' . $custom['personal_id'] . '</p>';
-                        echo '<h4 class="pb-4 border-bottom"></h4>';
+    <div class="container text-left">
+        <div class="row">
+            <div class="col-12 col-sm-6 p-3 ">
+                <h4>Transfer operation:</h4>
+                <p class="pt-2">Acccount number:</p>
+                <form class="text-begin p-2" action="http://localhost/bit_php/bankas_ver_1/transfer.php?account" method="get">
+                    <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="account" class="form-control" placeholder="Account">
+                    <div class="text-begin pt-2 ">
+                        <button type="submit" class="btn btn-outline-info ">Search...</button>
+                    </div>
+                </form>
+                <?php foreach ($tranz as $user) {
+                    if ($account == $user['account']) {
+                        $add['account'] = $user['account'];
                     }
+                } ?>
+                <p class="pt-2">Tramsaction:</p>
+                <form class="text-begin p-2" action="http://localhost/bit_php/bankas_ver_1/addpinigu.php?account=<?= $add['account'] ?>" method="post">
+                    <input class="ccol-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="pinigu" class="form-control" placeholder="Transfer sum">
+                    <div class="text-begin pt-2 ">
+                        <button type="submit" class="btn btn-outline-danger ">Transfer</button>
+                    </div>
+                </form>
+            </div>
+
+            <?php
+            if (isset($_GET['account'])) {
+                foreach ($tranz as $custom) {
+                    if ($custom['account'] == $account) {
+                        echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
+                        echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['code'] . '</h4>';
+                        echo '<p>Account date:  </p>' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . '<h4>'  . $custom['account'] . '</h4></span>';
+                        echo '<p>Balace:   </p>' . '<h4>' . $custom['balance'] .
+                            '</h4>';
+                        echo '<h3> Name:' . "&nbsp;&nbsp;&nbsp;"   . $custom['name'] . '</h3>';
+                        echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $custom['surname'] . '</p>';
+                        echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $custom['personal_id'] . '</p></div>';
+                    }
+                }
+            }
+            if ($account == '') {
+                foreach ($tranz as $custom) {
+                    echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
+                    echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['code'] . '</h4>';
+                    echo '<p>Account date:  </p>' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . '<h4>'  . $custom['account'] . '</h4></span>';
+                    echo '<p>Balace:   </p>' . '<h4>' . $custom['balance'] .
+                        '</h4>';
+                    echo '<h3> Name:' . "&nbsp;&nbsp;&nbsp;"   . $custom['name'] . '</h3>';
+                    echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $custom['surname'] . '</p>';
+                    echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $custom['personal_id'] . '</p></div>';
                 }
             }
             ?>

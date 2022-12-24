@@ -2,35 +2,25 @@
 
 $users = unserialize(file_get_contents(__DIR__ . '/data'));
 
-$code = (float) $_GET['code'];
+$account = (string) $_GET['account'];
 $pinigu = (float) $_POST['pinigu'];
 
-
 foreach ($users as $i => $user) {
-    if ($users[$i]['code'] == $code) {
-        // print_r($users[$i]['code']);
-        // echo '<br>';
-        // print_r($users[$i]['balance']);
-        // echo '<br>';
+    if ($users[$i]['account'] == $account) {
         if (($users[$i]['balance'] + $pinigu) >= 0) {
             $users[$i]['balance'] += $pinigu;
             $balansas = $users[$i]['balance'] + $pinigu;
+            $color = 'yellow';
             //header('Location: http://localhost/bit_php/bankas_ver_1/transfer.php?code=' . $code);
             break;
         } elseif (($users[$i]['balance'] + $pinigu) <= 0) {
             $balansas = $users[$i]['balance'] + $pinigu;
+            $color = 'crimson';
         }
     }
 }
 
-file_put_contents(__DIR__ . '/data.txt', serialize($users));
-
-//break;
-//echo $users[$i]['balance'] += $pinigu;
-// echo $code;
-// echo '<br>';
-//print_r($_POST);
-
+file_put_contents(__DIR__ . '/data', serialize($users));
 
 ?>
 <!DOCTYPE html>
@@ -78,20 +68,15 @@ file_put_contents(__DIR__ . '/data.txt', serialize($users));
             <div class="col-12 col-sm-6 p-3 ">
                 <div class="text-begin p-2 align-self-start">
                     <?php
-                    if ($balanas >= 0) {
-                        $color = 'green';
-                    } elseif ($balanas < 0) {
-                        $color = 'crimson';
-                    }
                     if ($balansas < 0) {
                         echo '<h5>Nepakanka lėšų, operacijai atlikt:</h5>
-                        <h5 style="color:' . $color . '">' . $balansas . '</h5>';
+                        <h3 style="color:' . $color . '">' . $balansas . '</h3>';
                     } elseif ($balansas >= 0) {
                         echo '<h5>Operacija atlikta, saskaita papildyta:</h5>
-                        <h5 style="color:' . $color . '">' . $pinigu . '</h5>';
+                        <h3 style="color:' . $color . '">' . $pinigu . '</h3>';
                     }
                     ?>
-                    <form action="http://localhost/bit_php/bankas_ver_1/transfer.php?code=<?= $code ?>" method="post">
+                    <form action="http://localhost/bit_php/bankas_ver_1/transfer.php?account=<?= $account ?>" method="post">
                         <div class="col-12 col-sm-6 pt-3 ">
                             <button type="submit" class="btn btn-warning">Go back</button>
                         </div>
@@ -100,18 +85,17 @@ file_put_contents(__DIR__ . '/data.txt', serialize($users));
             </div>
             <?php
             foreach ($users as $custom) {
-                if ($custom['code'] == $code) {
-                    echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">
-                            <h4 class="pb-1">Sąskaitos kodas:' . $custom['code'] . '</h4>';
-                    echo '<p class="pt-3">Saskaitos Nr:&nbsp' . $custom['accaount'] . '</p>';
-                    echo '<b><p style="color:' . $color . '">Balansas:   ' . $custom['balance'] . ' pinigu</p></b>';
-                    echo '<p> Kliento vardas: ' . $custom['name'] . '</p>';
-                    echo '<p> Klento pavarde: ' . $custom['surname'] . '</p>';
-                    echo '<p>  Asmens kodas:   ' . $custom['personal_id'] . '</p></div>';
+                if ($custom['account'] == $account) {
+                    echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
+                    echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['code'] . '</h4>';
+                    echo '<p>Account Nr:  </p>' . '<h4>'  . $custom['account'] . '</h4>';
+                    echo '<h3> Balace:  ' . '<span style="color: ' . $color . ';">&nbsp;&nbsp;&nbsp;' . $custom['balance'] . '</span></h3>';
+                    echo '<h3> Name:' . "&nbsp;&nbsp;&nbsp;"   . $custom['name'] . '</h3>';
+                    echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $custom['surname'] . '</p>';
+                    echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $custom['personal_id'] . '</p></div>';
                     break;
                 }
             }
-
             ?>
 
 

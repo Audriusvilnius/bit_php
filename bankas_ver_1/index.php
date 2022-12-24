@@ -21,11 +21,11 @@
                 <li><a href="http://localhost/bit_php/bankas_ver_1/new.php" class="nav-link px-2 text-white p-4">Add Account</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/transfer.php" class="nav-link px-2 text-white p-4">Transfer</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/allcustomers.php" class="nav-link px-2 text-white p-4">All Customers</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/delet.php" class="nav-link px-2 text-white p-4">Delet Account</a></li>
+                <li><a href="https://www.youtube.com/watch?v=OfqVGcBeqyQ" class="nav-link px-2 text-white p-4"><img src="./pornhub_logo_straight.svg" height="18"></li></a>
             </ul>
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+            <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-            </form>
+            </form> -->
 
             <div class="text-end">
                 <button type="button" class="btn btn-outline-light me-2">Log in </button>
