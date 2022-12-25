@@ -13,21 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['surn
     $id = $_POST['personal_id'];
     $balance = 0;
     $account = 'LT63000000' . rand(1000000, 10000000);
-    $code = rand(1000000, 10000000);
     foreach ($data_ba as $i => $new) {
         $temp['code'] = rand(1000000, 10000000);
         if ($data_ba[$i]['personal_id'] == $_POST['personal_id']) {
             $new = $data_ba[$i]['code'];
-            echo $new;
-            // $temp['code'] = $code['code'];
-            // print_r($code);
-            // print_r($new);
+            $code = $new;
             break;
+        } else {
+            $code = $temp;
         }
     }
     //$code['code'] = $temp['code'];
     //print_r($code);
-
 
     // echo '<pre>';print_r($data_ba);
     $data[] = ['code' => $code, 'account' => $account, 'balance' => $balance, 'name' => $name, 'surname' => $surname, 'personal_id' => $id];
@@ -40,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['surn
 }
 
 $customer = $_SESSION['date'];
-//print_r($customer);
 unset($_SESSION['date']);
 echo $massage;
 
