@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['surn
     $id = $_POST['personal_id'];
     $balance = 0;
     $account = 'LT63000000' . rand(1000000, 10000000);
+    //$temp = rand(1000000, 10000000);
     foreach ($data_ba as $i => $new) {
         $temp['code'] = rand(1000000, 10000000);
         if ($data_ba[$i]['personal_id'] == $_POST['personal_id']) {
@@ -25,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['surn
     }
     //$code['code'] = $temp['code'];
     //print_r($code);
-
     // echo '<pre>';print_r($data_ba);
     $data[] = ['code' => $code, 'account' => $account, 'balance' => $balance, 'name' => $name, 'surname' => $surname, 'personal_id' => $id];
     $_SESSION['date'] = $data;
