@@ -14,16 +14,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['surn
     $balance = 0;
     $account = 'LT63000000' . rand(1000000, 10000000);
     $code = rand(1000000, 10000000);
-    // foreach ($data_ba as $i => $new) {
-    //     $temp['code'] = rand(1000000, 10000000);
-    //     if ($data_ba[$i]['personal_id'] == $_POST['personal_id']) {
-    //         $code['code'] = $new['code'];
-    //         $temp['code'] = $code['code'];
-    //         print_r($code);
-    //         print_r($new);
-    //         //break;
-    //     }
-    // }
+    foreach ($data_ba as $i => $new) {
+        $temp['code'] = rand(1000000, 10000000);
+        if ($data_ba[$i]['personal_id'] == $_POST['personal_id']) {
+            $new = $data_ba[$i]['code'];
+            echo $new;
+            // $temp['code'] = $code['code'];
+            // print_r($code);
+            // print_r($new);
+            break;
+        }
+    }
     //$code['code'] = $temp['code'];
     //print_r($code);
 
@@ -71,8 +72,8 @@ echo $massage;
                 <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white"><img style="filter: invert(100%);" class="d-block  pb-6" src="./home.png" alt="pig" height="45"></a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/new.php" class="nav-link px-2 text-secondary p-4">Add Account</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/transfer.php" class="nav-link px-2 text-white p-4">Transfer</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/allcustomers.php" class="nav-link px-2 text-white p-4">All Customers</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white p-4"><img src="./sprite2022.png" height="10"></li></a>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/allcustomers.php" class="nav-link px-2 text-white p-4">Customers</a></li>
+                <!-- <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white p-4"><img src="./sprite2022.png" height="10"></li></a> -->
             </ul>
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
@@ -88,39 +89,38 @@ echo $massage;
 </header>
 
 <body class="p-2 bg-dark text-white">
-    <div class="container">
+    <div class="container text-left">
         <div class="row">
             <div class="col-12 col-sm-6 p-3 ">
-                <div class="text-begin p-2 align-self-start">
-                    <h4>Naujo kliento saskaitos atidarymas:</h4>
-                    <form class="text-begin p-5" action="http://localhost/bit_php/bankas_ver_1/new.php?id" method="post">
-                        <p class="pt-2">Kliento Vardas:</p>
-                        <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="name" class="form-control" placeholder="Name">
-                        <p class="pt-2">Kliento Pavarde:</p>
-                        <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="surname" class="form-control" placeholder="Surname">
-                        <p class="pt-2">Kliento ID kodas:</p>
-                        <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="personal_id" class="form-control" placeholder="Personal ID">
-                        <div class="col-12 col-sm-6 pt-3 ">
-                            <button type="submit" class="btn btn-outline-light ">Add</button>
-                        </div>
-                    </form>
-                </div>
+                <h4>Create new account:</h4>
+                <form class="text-begin p-2" action="http://localhost/bit_php/bankas_ver_1/new.php?id" method="post">
+                    <p class="pt-2">Name:</p>
+                    <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="name" class="form-control" placeholder="Name">
+                    <p class="pt-2">Surname:</p>
+                    <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="surname" class="form-control" placeholder="Surname">
+                    <p class="pt-2">Personal ID:</p>
+                    <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="personal_id" class="form-control" placeholder="Personal ID">
+                    <div class="col-12 col-sm-6 pt-3 ">
+                        <button type="submit" class="btn btn-outline-light ">Add Account</button>
+                    </div>
+                </form>
             </div>
             <?php
             echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px; " >';
             if (isset($customer)) {
                 '<div class="col-12 col-sm-6 pt-3 >';
-                echo '<h3>Sasakita sukurta, kliento duomenys:</h3>';
+                echo '<h3>New account:</h3>';
                 '</div>';
             }
             foreach ($customer as $user) {
-                echo '<h4>Customer id:  ' . "\t" . $custom['code'] . '</h4>';
-                echo '<p>Account Nr:  </p>' . '<h4>'  . $custom['account'] . '</h4>';
-                echo '<p>Balace:   </p>' . '<h4>' . $custom['balance'] .
+
+                echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $user['code'] . '</h4>';
+                echo '<p>Account date:  </p>' . '<span;">&nbsp;&nbsp;&nbsp;' . '<h4>'  . $user['account'] . '</h4></span>';
+                echo '<p>Balace:   </p>' . '<h4>' . $user['balance'] .
                     '</h4>';
-                echo '<p> Name: ' . "\t\t" . $custom['name'] . '</p>';
-                echo '<p> Surname: ' . $custom['surname'] . '</p>';
-                echo '<p>  Personal id:   ' . "\n" . $custom['personal_id'] . '</p></div>';
+                echo '<h3> Name:' . "&nbsp;&nbsp;&nbsp;"   . $user['name'] . '</h3>';
+                echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $user['surname'] . '</p>';
+                echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $user['personal_id'] . '</p></div>';
                 $masabe = $user['code'];
                 break;
             }

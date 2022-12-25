@@ -2,6 +2,7 @@
 if (isset($_GET['name'])) {
     $search = unserialize(file_get_contents(__DIR__ . '/data'));
     $name = $_GET['name'];
+    $delet_conf = 2;
 }
 
 if (isset($_GET['account'])) {
@@ -47,8 +48,8 @@ if (isset($_GET['account'])) {
                 <li><a href="http://localhost/bit_php/bankas_ver_1/new.php" class="nav-link px-2 text-white p-4">Add
                         Account</a></li>
                 <li><a href="http://localhost/bit_php/bankas_ver_1/transfer.php" class="nav-link px-2 text-white p-4">Transfer</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/allcustomers.php" class="nav-link px-2 text-secondary p-4">All Customers</a></li>
-                <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white p-4"><img src="./EA-logo_2019.svg" height="9"></li></a>
+                <li><a href="http://localhost/bit_php/bankas_ver_1/allcustomers.php" class="nav-link px-2 text-secondary p-4">Customers</a></li>
+                <!-- <li><a href="http://localhost/bit_php/bankas_ver_1/index.php" class="nav-link px-2 text-white p-4"><img src="./EA-logo_2019.svg" height="9"></li></a> -->
             </ul>
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
@@ -67,9 +68,9 @@ if (isset($_GET['account'])) {
     <div class="container text-left">
         <div class="row">
             <div class="col-12 col-sm-6 p-3 ">
-                <h4>Kliento paieska:</h4>
+                <h4>Find customer:</h4>
                 <form class="text-begin" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?name" method="get">
-                    <p class="pt-2">Kliento vardas:</p>
+                    <p class="pt-2">Customer name:</p>
                     <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="name" class="form-control" placeholder="Name">
                     <div class="col-12 col-sm-6 pt-3 ">
                         <button type="submit" class="btn btn-outline-info ">Search...</button>
@@ -98,18 +99,17 @@ if (isset($_GET['account'])) {
                         }
                     } ?> -->
             <div class="col-12 col-sm-6 p-3 ">
-                <h4>Saskaitos uzdarimas</h4>
+                <h4>Close account</h4>
                 <p></p>
                 <form class="text-begin" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?account" method="get">
-                    <p>Saskaitos numeris:</p>
+                    <p>Account number:</p>
                     <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="account" class="form-control" placeholder="Account">
                     <div class="col-12 col-sm-6 pt-3 ">
                         <button type="submit" class="btn btn-outline-danger ">Delet</button>
                     </div>
-                    <?php if ($delet_conf == 0) {
-                        echo '<h4>Sasakaitoje yra pinigu negalima istrint</h4>';
-                    } ?>
                 </form>
+                <div class="col-12 col-sm-6 pt-3 ">
+                </div>
             </div>
         </div>
     </div>
