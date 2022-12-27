@@ -1,5 +1,7 @@
 <?php
 session_start();
+//id - /^([1-6]{1})([0-9]{2})([0-1]{1})([1-2]{1})([0-3]{1})([0-9]{1})([0-9999]{4})$/
+
 if (!file_exists(__DIR__ . '/data')) {
     $data_ba = [];
 } else {
@@ -8,33 +10,49 @@ if (!file_exists(__DIR__ . '/data')) {
 $data = $_SESSION['data'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['surname'] != '' && $_POST['personal_id']) {
-    $name = $_POST['name'];
-    $surname = $_POST['surname'];
-    $id = $_POST['personal_id'];
-    $balance = 0;
-    $account = 'LT63000000' . rand(1000000, 10000000);
-    //$temp = rand(1000000, 10000000);
-    foreach ($data_ba as $i => $new) {
-        $temp['code'] = rand(1000000, 10000000);
-        if ($data_ba[$i]['personal_id'] == $_POST['personal_id']) {
-            $new = $data_ba[$i]['code'];
-            $code = $new;
-            break;
+    if (!preg_match('/\D([A-Za-z]{2})/', $_POST['name']) && !preg_match('/[1-9]/', $_POST['name'])) {
+        header('Location: http://localhost/bit_php/bankas_ver_1/userdatach.php?name=' . $_POST['name']);
+        //echo '<h1>Pertrumpas Vardas</h1>' . $_POST['name'];
+    } else {
+        $name = $_POST['name'];
+        if (!preg_match('/\D([A-Za-z]{2})/', $_POST['surname'])) {
+            header('Location: http://localhost/bit_php/bankas_ver_1/userdatach.php?surname=' . $_POST['surname']);
+            //echo '<h1>Pertumpa pavarde</h1>' . $_POST['surname'];
         } else {
-            $code = $temp;
+            $surname = $_POST['surname'];
+            if (!preg_match('/^([1-6]{1})([0-9]{2})([0-1]{1})([0-2]{1})([0-3]{1})([0-9]{1})([0-9999]{4})$/', $_POST['personal_id'])) {
+                header('Location: http://localhost/bit_php/bankas_ver_1/userdatach.php?id=' . $_POST['personal_id']);
+                // echo '<h1>Neteisingas kodas</h1>' . $_POST['personal_id'];
+            } else {
+                $id = $_POST['personal_id'];
+                //echo '<h1>Id kodas</h1>' . $id;
+                $balance = 0;
+                $account = 'LT' . rand(10, 99) . '6300' . rand(10000000000, 99999999999);
+                foreach ($data_ba as $i => $new) {
+                    if ($data_ba[$i]['personal_id'] == $_POST['personal_id']) {
+                        $new = $data_ba[$i]['code'];
+                        $code = $new;
+                        break;
+                    } else {
+                        $temp = rand(1000000, 10000000);
+                        $code = $temp;
+                    }
+                }
+                //$code['code'] = $temp['code'];
+                //print_r($code);
+                // echo '<pre>';print_r($data_ba);
+                $data[] = ['code' => $code, 'account' => $account, 'balance' => $balance, 'name' => $name, 'surname' => $surname, 'personal_id' => $id];
+                $_SESSION['date'] = $data;
+                $newData = [...$data_ba, ...$data];
+
+                file_put_contents(__DIR__ . '/data', serialize($newData));
+                header('Location: http://localhost/bit_php/bankas_ver_1/new.php');
+                die;
+            }
         }
     }
-    //$code['code'] = $temp['code'];
-    //print_r($code);
-    // echo '<pre>';print_r($data_ba);
-    $data[] = ['code' => $code, 'account' => $account, 'balance' => $balance, 'name' => $name, 'surname' => $surname, 'personal_id' => $id];
-    $_SESSION['date'] = $data;
-    $newData = [...$data_ba, ...$data];
-
-    file_put_contents(__DIR__ . '/data', serialize($newData));
-    header('Location: http://localhost/bit_php/bankas_ver_1/new.php');
-    die;
 }
+
 
 $customer = $_SESSION['date'];
 unset($_SESSION['date']);
@@ -111,8 +129,8 @@ echo $massage;
             foreach ($customer as $user) {
 
                 echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $user['code'] . '</h4>';
-                echo '<p>Account date:  </p>' . '<span;">&nbsp;&nbsp;&nbsp;' . '<h4>'  . $user['account'] . '</h4></span>';
-                echo '<p>Balace:   </p>' . '<h4>' . $user['balance'] .
+                echo '<p>Account date:  </p>' . '<span;">&nbsp;&nbsp;&nbsp;' . '<h5>'  . $user['account'] . '</h4></span>';
+                echo '<p>Balace:   </p>' . '<h5>' . $user['balance'] .
                     '</h4>';
                 echo '<h3> Name:' . "&nbsp;&nbsp;&nbsp;"   . $user['name'] . '</h3>';
                 echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $user['surname'] . '</p>';

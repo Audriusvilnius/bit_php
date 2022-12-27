@@ -1,26 +1,12 @@
 <?php
 
-$users = unserialize(file_get_contents(__DIR__ . '/data'));
+echo $nameerr = (string) $_GET['name'];
+echo $surnameerr = (string) $_GET['surname'];
+echo $ideerr = (string) $_GET['id'];
 
-$account = (string) $_GET['account'];
-$pinigu = (float) $_POST['pinigu'];
 
-foreach ($users as $i => $user) {
-    if ($users[$i]['account'] == $account) {
-        if (($users[$i]['balance'] + $pinigu) >= 0) {
-            $users[$i]['balance'] += $pinigu;
-            $balansas = $users[$i]['balance'] + $pinigu;
-            $color = 'yellow';
-            //header('Location: http://localhost/bit_php/bankas_ver_1/transfer.php?code=' . $code);
-            break;
-        } elseif (($users[$i]['balance'] + $pinigu) <= 0) {
-            $balansas = $users[$i]['balance'] + $pinigu;
-            $color = 'crimson';
-        }
-    }
-}
 
-file_put_contents(__DIR__ . '/data', serialize($users));
+
 
 ?>
 <!DOCTYPE html>
@@ -68,19 +54,22 @@ file_put_contents(__DIR__ . '/data', serialize($users));
             <div class="col-12 col-sm-6 p-3 ">
                 <div class="text-begin p-2 align-self-start">
                     <?php
-                    if ($balansas < 0 && $account != '') {
-                        echo '<h5>Nepakanka lėšų, operacijai atlikt:</h5>
-                        <h3 style="color:' . $color . '">' . $balansas . '</h3>';
+                    if (!$nameerr == '') {
+                        echo '<h4>Minimalus simboliu kiekis varde turi buti tris:</h4>
+                        <h5 style="color:crimson">Vardas neatitika formato.</h5>';
                     }
-                    if ($balansas >= 0 && $account != '') {
-                        echo '<h5>Operacija atlikta, saskaita papildyta:</h5>
-                        <h3 style="color:' . $color . '">' . $pinigu . '</h3>';
+                    if (!$surnameerr == '') {
+                        echo
+                        '<h4>Minimalus simboliu kiekis pavardeje turi buti tris:</h4>
+                        <h5 style="color:crimson">Pavarde neatitika formato.</h5>';
                     }
-                    if ($account == '') {
-                        echo '<h5>Nenurodyta gavejo saskaita.</h5>';
+                    if (!$ideerr == '') {
+                        echo
+                        '<h4>Id kodas neatitiko formato:</h4>
+                        <h5 style="color:crimson">Tikrinkite id koda.</h5>';
                     }
                     ?>
-                    <form action="http://localhost/bit_php/bankas_ver_1/transfer.php?account=<?= $account ?>" method="post">
+                    <form action="http://localhost/bit_php/bankas_ver_1/new.php">
                         <div class="col-12 col-sm-6 pt-3 ">
                             <button type="submit" class="btn btn-warning">Go back</button>
                         </div>

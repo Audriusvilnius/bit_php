@@ -55,7 +55,7 @@ if (isset($_GET['account'])) {
                 <h4>Transfer operation:</h4>
                 <p class="pt-2">Acccount number:</p>
                 <form class="text-begin p-2" action="http://localhost/bit_php/bankas_ver_1/transfer.php?account" method="get">
-                    <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="account" class="form-control" placeholder="Account">
+                    <input class="col-8 col-sm-11 col-lg-6 mb-1 mb-lg-12 me-lg-10" type="text" name="account" class="form-control" placeholder="Account">
                     <div class="text-begin pt-2 ">
                         <button type="submit" class="btn btn-outline-info ">Search...</button>
                     </div>
@@ -80,9 +80,9 @@ if (isset($_GET['account'])) {
                     if ($custom['account'] == $account) {
                         echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
                         echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['code'] . '</h4>';
-                        echo '<p>Account date:  </p>' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . '<h4>'  . $custom['account'] . '</h4></span>';
-                        echo '<p>Balace:   </p>' . '<h4>' . $custom['balance'] .
-                            '</h4>';
+                        echo '<p>Account date:  </p>' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . '<h5>'  . $custom['account'] . '</h5></span>';
+                        echo '<p>Balace:   </p>' . '<h5>' . $custom['balance'] .
+                            '</h5>';
                         echo '<h3> Name:' . "&nbsp;&nbsp;&nbsp;"   . $custom['name'] . '</h3>';
                         echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $custom['surname'] . '</p>';
                         echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $custom['personal_id'] . '</p></div>';
@@ -93,7 +93,7 @@ if (isset($_GET['account'])) {
                 foreach ($tranz as $custom) {
                     echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
                     echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['code'] . '</h4>';
-                    echo '<p>Account date:  </p>' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . '<h4>'  . $custom['account'] . '</h4></span>';
+                    echo '<p>Account date:  </p>' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . '<h5>'  . $custom['account'] . '</h5></span>';
                     echo '<p>Balace:   </p>' . '<h4>' . $custom['balance'] .
                         '</h4>';
                     echo '<h3> Name:' . "&nbsp;&nbsp;&nbsp;"   . $custom['name'] . '</h3>';

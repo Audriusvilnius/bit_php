@@ -77,6 +77,7 @@ if (isset($_GET['account'])) {
                     </div>
                     <div class="col-12 col-sm-6 pt-3 ">
                         <a href="http://localhost/bit_php/bankas_ver_1/sort.php?sort">
+                            <input type="hidden" name="sort" value="sort">
                             <button type="submit" class="btn btn-outline-info ">Sort A-Z</button>
                         </a>
                     </div>
@@ -103,7 +104,7 @@ if (isset($_GET['account'])) {
                 <p></p>
                 <form class="text-begin" action="http://localhost/bit_php/bankas_ver_1/allcustomers.php?account" method="get">
                     <p>Account number:</p>
-                    <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="account" class="form-control" placeholder="Account">
+                    <input class="col-8 col-sm-11 col-lg-5 mb-1 mb-lg-12 me-lg-10" type="text" name="account" class="form-control" placeholder="Account">
                     <div class="col-12 col-sm-6 pt-3 ">
                         <button type="submit" class="btn btn-outline-danger ">Delet</button>
                     </div>
@@ -122,7 +123,7 @@ if (isset($_GET['account'])) {
                     if ($custom['name'] == $name) {
                         echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
                         echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['code'] . '</h4>';
-                        echo '<p>Account Nr:  </p>' . '<h4>'  . $custom['account'] . '</h4>';
+                        echo '<p>Account Nr:  </p>' . '<h5>'  . $custom['account'] . '</h5>';
                         echo '<p>Balace:   </p>' . '<h4>' . $custom['balance'] .
                             '</h4>';
                         echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $custom['name'] . '</span></h3>';
@@ -135,7 +136,7 @@ if (isset($_GET['account'])) {
                     foreach ($search as $custom) {
                         echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
                         echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['code'] . '</h4>';
-                        echo '<p>Account Nr:  </p>' . '<h4>'  . $custom['account'] . '</h4>';
+                        echo '<p>Account Nr:  </p>' . '<h5>'  . $custom['account'] . '</h5>';
                         echo '<p>Balace:   </p>' . '<h4>' . $custom['balance'] .
                             '</h4>';
                         echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $custom['name'] . '</span></h3>';

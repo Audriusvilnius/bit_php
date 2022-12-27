@@ -1,15 +1,19 @@
 <?php
 
+/**
+ * @param mixed $a 
+ * @param mixed $b 
+ * @return string 
+ */
 function sortas($a, $b): string
 {
-    return $a['surname'] > $b['surname'];
+    return $a['surname'] <=> $b['surname'];
 };
 if (isset($_GET['sort'])) {
     $search = unserialize(file_get_contents(__DIR__ . '/data'));
-    $sort = $_GET['sort'];
-    usort($search, 'sortas');
 }
-// echo $_GET;
+usort($search, 'sortas');
+// echo $_GET;z
 // print_r($_GET);
 //echo $sort;
 
