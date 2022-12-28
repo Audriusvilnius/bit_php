@@ -1,0 +1,15 @@
+{
+    "name": "audriusmacbook/022",
+    "autoload": {
+        "psr-4": {
+            "Audriusmacbook\\022\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "audriusmacbook",
+            "email": "audrius.ivko@gmail.com"
+        }
+    ],
+    "require": {}
+}
