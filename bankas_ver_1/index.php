@@ -48,7 +48,7 @@
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                 <form action=" http://localhost/bit_php/bankas_ver_1/new.php" method="GET">
 
-                    <button type="submit" class="btn btn-warning btn-lg px-4 gap-3">Tapt klientu</button>
+                    <button type="submit" class="btn btn-warning btn-lg px-4 gap-3">Pradet</button>
                 </form> <!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> -->
             </div>
         </div>

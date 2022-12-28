@@ -10,27 +10,25 @@ if (!file_exists(__DIR__ . '/data')) {
 $data = $_SESSION['data'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['surname'] != '' && $_POST['personal_id']) {
-    if (!preg_match('/\D([A-Za-z]{2})/', $_POST['name']) && !preg_match('/[1-9]/', $_POST['name'])) {
+    if (!preg_match('/\D([A-Za-z]{2})/', $_POST['name']) || preg_match('/\d/', $_POST['name'])) {
         header('Location: http://localhost/bit_php/bankas_ver_1/userdatach.php?name=' . $_POST['name']);
-        //echo '<h1>Pertrumpas Vardas</h1>' . $_POST['name'];
     } else {
         $name = $_POST['name'];
-        if (!preg_match('/\D([A-Za-z]{2})/', $_POST['surname'])) {
+        if (!preg_match('/\D([A-Za-z]{2})/', $_POST['surname']) || preg_match('/\d/', $_POST['surname'])) {
             header('Location: http://localhost/bit_php/bankas_ver_1/userdatach.php?surname=' . $_POST['surname']);
-            //echo '<h1>Pertumpa pavarde</h1>' . $_POST['surname'];
         } else {
             $surname = $_POST['surname'];
             if (!preg_match('/^([1-6]{1})([0-9]{2})([0-1]{1})([0-2]{1})([0-3]{1})([0-9]{1})([0-9999]{4})$/', $_POST['personal_id'])) {
                 header('Location: http://localhost/bit_php/bankas_ver_1/userdatach.php?id=' . $_POST['personal_id']);
-                // echo '<h1>Neteisingas kodas</h1>' . $_POST['personal_id'];
             } else {
                 $id = $_POST['personal_id'];
-                //echo '<h1>Id kodas</h1>' . $id;
                 $balance = 0;
                 $account = 'LT' . rand(10, 99) . '6300' . rand(10000000000, 99999999999);
                 foreach ($data_ba as $i => $new) {
                     if ($data_ba[$i]['personal_id'] == $_POST['personal_id']) {
                         $new = $data_ba[$i]['code'];
+                        $surname = $data_ba[$i]['surname'];
+                        $name = $data_ba[$i]['name'];
                         $code = $new;
                         break;
                     } else {
@@ -38,13 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '' && $_POST['surn
                         $code = $temp;
                     }
                 }
-                //$code['code'] = $temp['code'];
-                //print_r($code);
-                // echo '<pre>';print_r($data_ba);
                 $data[] = ['code' => $code, 'account' => $account, 'balance' => $balance, 'name' => $name, 'surname' => $surname, 'personal_id' => $id];
                 $_SESSION['date'] = $data;
                 $newData = [...$data_ba, ...$data];
-
+                //$users['balance'] = number_format($number, 2, '.', '');
                 file_put_contents(__DIR__ . '/data', serialize($newData));
                 header('Location: http://localhost/bit_php/bankas_ver_1/new.php');
                 die;

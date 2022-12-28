@@ -5,9 +5,6 @@ echo $surnameerr = (string) $_GET['surname'];
 echo $ideerr = (string) $_GET['id'];
 
 
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,12 +52,12 @@ echo $ideerr = (string) $_GET['id'];
                 <div class="text-begin p-2 align-self-start">
                     <?php
                     if (!$nameerr == '') {
-                        echo '<h4>Minimalus simboliu kiekis varde turi buti tris:</h4>
+                        echo '<h4>Minimalus simboliu kiekis varde turi buti tris. Varde naudojamos tik raides:</h4>
                         <h5 style="color:crimson">Vardas neatitika formato.</h5>';
                     }
                     if (!$surnameerr == '') {
                         echo
-                        '<h4>Minimalus simboliu kiekis pavardeje turi buti tris:</h4>
+                        '<h4>Minimalus simboliu kiekis pavardeje turi buti tris. Pavardeje naudojamos tik raides:</h4>
                         <h5 style="color:crimson">Pavarde neatitika formato.</h5>';
                     }
                     if (!$ideerr == '') {
