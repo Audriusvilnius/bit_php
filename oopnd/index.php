@@ -1,6 +1,7 @@
 <?php
 
 require __DIR__ . '/Kibiras.php';
+require __DIR__ . '/KibirasDu.php';
 require __DIR__ . '/Pinigine.php';
 
 echo '<h2>1.	Sukurti klasę Kibiras1. Sukurti protected savybę akmenuKiekis. Parašyti šiai savybei metodus prideti1Akmeni() pridetiDaugAkmenu($kiekis) ir metodą kiekPririnktaAkmenu(). Sukurti kibiro objektą ir pademonstruoti akmenų rinkimą į kibirą ir rezultatų išvedimą.
