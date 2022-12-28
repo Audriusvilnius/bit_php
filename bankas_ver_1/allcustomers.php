@@ -75,30 +75,16 @@ if (isset($_GET['account'])) {
                     <div class="col-12 col-sm-6 pt-3 ">
                         <button type="submit" class="btn btn-outline-info ">Search...</button>
                     </div>
-                    <div class="col-12 col-sm-6 pt-3 ">
-                        <a href="http://localhost/bit_php/bankas_ver_1/sort.php?sort">
-                            <input type="hidden" name="sort" value="sort">
-                            <button type="submit" class="btn btn-outline-info ">Sort A-Z</button>
-                        </a>
-                    </div>
                 </form>
+                <div class="col-12 col-sm-6 pt-3 ">
+                    <a href="http://localhost/bit_php/bankas_ver_1/sort.php?sort='.<?= $_GET['sort'] ?>.'">
+                        <!-- <input type="hidden" name="sort" value="sort"> -->
+                        <button class="btn btn-outline-info ">Sort A-Z</button>
+                    </a>
+                </div>
+
 
             </div>
-            <!-- <?php
-                    if ($search != []) {
-                        foreach ($search as $custom) {
-                            if ($custom['name'] == $name) {
-
-                                echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">
-                            <h4 class="pb-1">Sąskaitos kodas:' . $custom['code'] . '</h4>';
-                                echo '<p>Saskaitos Nr:' . $custom['account'] . '</p>';
-                                echo '<p>Balansas:   ' . $custom['balance'] . ' pinigu</p>';
-                                echo '<b><p style="color: skyblue;"> Kliento vardas: ' . $custom['name'] . '</p></b>';
-                                echo '<p> Klento pavarde: ' . $custom['surname'] . '</p>';
-                                echo '<p>  Asmens kodas:   ' . $custom['personal_id'] . '</span></p></div>';
-                            }
-                        }
-                    } ?> -->
             <div class="col-12 col-sm-6 p-3 ">
                 <h4>Close account</h4>
                 <p></p>
