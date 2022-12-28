@@ -2,7 +2,8 @@
     "name": "audriusmacbook/022",
     "autoload": {
         "psr-4": {
-            "Audriusmacbook\\022\\": "src/"
+            "": "",
+            "Gilus\\Miskas\\Paupy\\": "src/"
         }
     },
     "authors": [
