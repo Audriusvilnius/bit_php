@@ -38,3 +38,17 @@ $pin1->skaiciuoti();
 echo '<hr>';
 echo '<h2>3.	(STATIC) Sukurkite klasę kaip pirmame uždavinyje ir pavadinkite Kibiras2. Patobulinkite pridėdami statinę privačią savybę akmenuKiekisVisuoseKibiruose. Ši savybė turi rodyti kiek akmenų surinkta visuose Kibiras2 objektuose. Sukurkite geterį objekte, ir statinį geterį klasėje, kuris išvestų akmenuKiekisVisuoseKibiruose reikšmę. Sukurkite tris kibirus ir pademonstruokite veikimą.
 </h2>';
+
+KibirasDu::akmenusuma();
+
+$akmuo2 = new KibirasDu();
+$akmuo3 = new KibirasDu();
+
+$akmuo2->pridetakmeni();
+$akmuo2->pridetakmenu(8);
+
+KibirasDu::akmenusuma();
+
+$akmuo3->pridetakmenu(21);
+
+KibirasDu::akmenusuma();

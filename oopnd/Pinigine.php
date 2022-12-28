@@ -3,13 +3,12 @@ class Pinigine
 {
     private $popieriniaiPinigai;
     private $metaliniaiPinigai;
-    public static $suma;
+    private static $suma = 0;
 
     public function __construct()
     {
         $popieriniaiPinigai = 0;
         $metaliniaiPinigai = 0;
-        $suma = 0;
     }
     public function ideti($kiekis)
     {
