@@ -1,0 +1,15 @@
+{
+    "name": "audriusmacbook/front",
+    "autoload": {
+        "psr-4": {
+            "Front\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "audriusmacbook",
+            "email": "audrius.ivko@gmail.com"
+        }
+    ],
+    "require": {}
+}
