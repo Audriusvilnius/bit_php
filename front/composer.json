@@ -1,6 +1,5 @@
 {
     "name": "audriusmacbook/front",
-    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Front\\": "app/"
