@@ -3,7 +3,7 @@
         'name' => 'audriusmacbook/022',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '04d4463eef0a0bc9e3e4e8bd1f903da86e606a00',
+        'reference' => 'fab493512b43c76d20a60693f05e0114b627c58b',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'audriusmacbook/022' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '04d4463eef0a0bc9e3e4e8bd1f903da86e606a00',
+            'reference' => 'fab493512b43c76d20a60693f05e0114b627c58b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
