@@ -6,5 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Audriusmacbook\\022\\' => array($baseDir . '/src'),
+    'Gilus\\Miskas\\Paupy\\' => array($baseDir . '/src'),
+    '' => array($baseDir . '/'),
 );
