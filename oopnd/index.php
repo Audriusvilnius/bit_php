@@ -82,5 +82,17 @@ $pilam = new Stikline();
 $pilam->ipilti(549);
 $pilam->ipilti(700);
 
-echo '<pre>';
-var_dump($pilam);
+
+
+echo '<hr>';
+echo '<h2>8.	Patobulinti 2 uždavinio piniginę taip, kad būtų galima skaičiuoti kiek piniginėje yra monetų ir kiek banknotų. Parašyti metodą monetos(), kuris skaičiuotų kiek yra piniginėje monetų ir metoda banknotai() - popierinių pinigų skaičiavimui.
+</h2>';
+$newpin = new Pinigine();
+
+$newpin->ideti(2);
+$newpin->ideti(6);
+$newpin->skaiciuoti();
+
+echo '<hr>';
+echo '<h2>9.	(STATIC) Sukurkite klasę MarsoPalydovas.  Kontroliuokite objekto kūrimą iš klasės naudodami statinį metodą. Padarykite taip, kad iš viso būtų galima sukurti tik du objektus iš šitos klasės. Pirmam sukuriamam objektui įrašykite privačią savybę title lygią stringui “Deimas”, o antram tokią pat savybę tik lygią stringui “Fobas”. Bandant sukurti trečią objektą, turėtų būti grąžinamas vienas iš anksčiau sukurtų objektų parinktas atsitiktine tvarka.
+</h2>';
