@@ -1,11 +1,9 @@
 <?php
 
-class Kibiras
+
+class Kibiras3 extends KibirasNePo1
 {
-
-    private $akmuo;
-
-
+    protected $akmuo;
 
     public function __construct()
     {

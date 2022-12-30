@@ -1,5 +1,8 @@
 <?php
 
+require __DIR__ . '/Stikline.php';
+require __DIR__ . '/KibirasNepo1.php';
+require __DIR__ . '/Kibiras3.php';
 require __DIR__ . '/Kibiras.php';
 require __DIR__ . '/KibirasDu.php';
 require __DIR__ . '/Pinigine.php';
@@ -52,3 +55,32 @@ KibirasDu::akmenusuma();
 $akmuo3->pridetakmenu(21);
 
 KibirasDu::akmenusuma();
+
+echo '<hr>';
+echo '<h2>4.	(EXTENDS) Sukurkite klasę kaip pirmame uždavinyje ir pavadinkite Kibiras3. Sukurkite dar vieną klasę KibirasNePo1, kuri extendina klasę Kibiras3. KibirasNePo1 turi naudoti visus tėvinius metodus, bet metodas Prideti1Akmeni() turi pridėti ne vieną o atsitiktinį akmenų kiekį nuo 2 iki 5. Sukurkite KibirasNePo1 objektą ir pademonstruokite veikimą.
+</h2>';
+
+$paveld = new KibirasNePo1();
+$ispirmomet = new kibiras3();
+
+$paveld->Prideti1Akmeni();
+$paveld->Prideti1Akmeni();
+$paveld->Prideti1Akmeni();
+
+$ispirmomet->pridetiDaugAkmenu(8);
+$ispirmomet->Prideti1Akmeni();
+$paveld->Prideti1Akmeni();
+
+echo '<hr>';
+echo '<h2>6.	Sukurti klasę Stikline. Sukurti privačią savybę turis ir kiekis. Parašyti metodą ipilti($kiekis), kuris keistų savybę kiekis. Jeigu stiklinės tūris yra mažesnis nei pilamas kiekis- kiekis netelpa ir būna lygus tūriui. Parašyti metodą ispilti(), kuris grąžiną kiekį. Pilant išpilamas visas kiekis, tas kas netelpa, nuteka per stalo viršų. Sukurti tris stiklinės objektus su tūriais: 200, 150, 100. Didžiausią pripilti pilną ir tada ją ispilti į mažesnę stiklinę, o mažesnę į dar mažesnę.
+</h2>';
+
+
+$pilam = new Stikline();
+
+
+$pilam->ipilti(549);
+$pilam->ipilti(700);
+
+echo '<pre>';
+var_dump($pilam);

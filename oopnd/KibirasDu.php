@@ -3,7 +3,7 @@ class KibirasDu
 {
     private $akmuo;
 
-    public static $akmenusuma = 0;
+    private static $akmenusuma = 0;
 
     public static function akmenusuma(): void
     {
