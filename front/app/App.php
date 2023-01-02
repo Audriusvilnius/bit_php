@@ -19,6 +19,7 @@ class App
     private static function router(array $url)
     {
         $method = $_SERVER['REQUEST_METHOD'];
+        print_r($url);
 
         if ($url[0] == 'calculator' && in_array($url[1], ['sum', 'diff', 'mult', 'div']) && count($url) == 4) {
             return (new Calculator)->{$url[1]}($url[2], $url[3]);
