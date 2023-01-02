@@ -2,7 +2,8 @@
     "name": "audriusmacbook/front",
     "autoload": {
         "psr-4": {
-            "Front\\": "app/"
+            "Front\\": "app/",
+            "App\\DB\\": "app/"
         }
     },
     "authors": [
