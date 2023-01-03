@@ -19,32 +19,32 @@ class Customer
 
     public function create()
     {
-        $pageTitle = 'Grybai | Naujas';
-        return App::view('grybas-create', compact('pageTitle'));
+        $pageTitle = 'customer | Naujas';
+        return App::view('customer-create', compact('pageTitle'));
     }
 
     public function save()
     {
-        (new FR('grybai'))->create($_POST);
+        (new FR('customer'))->create($_POST);
         return App::redirect('grybai');
     }
 
     public function edit($id)
     {
-        $pageTitle = 'Grybai | Redaguoti';
-        $grybas = (new FR('grybai'))->show($id);
-        return App::view('grybas-edit', compact('pageTitle', 'grybas'));
+        $pageTitle = 'customer | Redaguoti';
+        $grybas = (new FR('customer'))->show($id);
+        return App::view('customer-edit', compact('pageTitle', 'grybas'));
     }
 
     public function update($id)
     {
-        (new FR('grybai'))->update($id, $_POST);
-        return App::redirect('grybai');
+        (new FR('customer'))->update($id, $_POST);
+        return App::redirect('customer');
     }
 
     public function delete($id)
     {
-        (new FR('grybai'))->delete($id);
-        return App::redirect('grybai');
+        (new FR('customer'))->delete($id);
+        return App::redirect('customer');
     }
 }

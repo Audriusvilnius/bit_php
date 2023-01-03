@@ -18,30 +18,30 @@ class App
     private static function router(array $url)
     {
         $method = $_SERVER['REQUEST_METHOD'];
-        print_r($url);
+        //print_r($url);
 
         if ($url[0] == 'customers' && count($url) == 1 && $method == 'GET') {
             return (new Customer)->index();
         }
 
-        if ($url[0] == 'grybai' && $url[1] == 'create' && count($url) == 2 && $method == 'GET') {
-            return (new Bankas)->create();
+        if ($url[0] == 'customers' && $url[1] == 'create' && count($url) == 2 && $method == 'GET') {
+            return (new Customer)->create();
         }
 
-        if ($url[0] == 'grybai' && $url[1] == 'save' && count($url) == 2 && $method == 'POST') {
-            return (new Bankas)->save();
+        if ($url[0] == 'customers' && $url[1] == 'save' && count($url) == 2 && $method == 'POST') {
+            return (new Customer)->save();
         }
 
-        if ($url[0] == 'grybai' && $url[1] == 'edit' && count($url) == 3 && $method == 'GET') {
-            return (new Bankas)->edit($url[2]);
+        if ($url[0] == 'customers' && $url[1] == 'edit' && count($url) == 3 && $method == 'GET') {
+            return (new Customer)->edit($url[2]);
         }
 
-        if ($url[0] == 'grybai' && $url[1] == 'update' && count($url) == 3 && $method == 'POST') {
-            return (new Bankas)->update($url[2]);
+        if ($url[0] == 'customers' && $url[1] == 'update' && count($url) == 3 && $method == 'POST') {
+            return (new Customer)->update($url[2]);
         }
 
-        if ($url[0] == 'grybai' && $url[1] == 'delete' && count($url) == 3 && $method == 'POST') {
-            return (new Bankas)->delete($url[2]);
+        if ($url[0] == 'customers' && $url[1] == 'delete' && count($url) == 3 && $method == 'POST') {
+            return (new Customer)->delete($url[2]);
         }
 
         return '404 NOT FOUND';
