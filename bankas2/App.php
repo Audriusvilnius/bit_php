@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Bankas2;
-
 use Bankas2\Controllers\Customer;
 
 class App
@@ -13,6 +11,8 @@ class App
         $url = explode('/', $_SERVER['REQUEST_URI']);
         array_shift($url);
         return self::router($url);
+    
+
     }
 
     private static function router(array $url)

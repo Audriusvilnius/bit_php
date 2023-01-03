@@ -1,5 +1,5 @@
 <?php
-
+        
 namespace Bankas2\DB;
 
 use App\DB\DataBase;
