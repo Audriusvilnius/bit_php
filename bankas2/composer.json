@@ -1,0 +1,16 @@
+{
+    "name": "audriusmacbook/bankas2",
+    "autoload": {
+        "psr-4": {
+            "Front\\": "app/",
+            "App\\DB\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "audriusmacbook",
+            "email": "audrius.ivko@gmail.com"
+        }
+    ],
+    "require": {}
+}
