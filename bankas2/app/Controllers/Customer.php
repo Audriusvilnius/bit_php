@@ -25,26 +25,26 @@ class Customer
 
     public function save()
     {
-        (new FR('customer'))->create($_POST);
-        return App::redirect('grybai');
+        (new FR('customers'))->create($_POST);
+        return App::redirect('customers');
     }
 
     public function edit($id)
     {
         $pageTitle = 'customer | Redaguoti';
-        $grybas = (new FR('customer'))->show($id);
-        return App::view('customer-edit', compact('pageTitle', 'grybas'));
+        $grybas = (new FR('customers'))->show($id);
+        return App::view('customer-edit', compact('pageTitle', 'customer'));
     }
 
     public function update($id)
     {
-        (new FR('customer'))->update($id, $_POST);
+        (new FR('customers'))->update($id, $_POST);
         return App::redirect('customer');
     }
 
     public function delete($id)
     {
-        (new FR('customer'))->delete($id);
+        (new FR('customers'))->delete($id);
         return App::redirect('customer');
     }
 }
