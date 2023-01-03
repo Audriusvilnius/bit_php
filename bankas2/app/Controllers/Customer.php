@@ -5,14 +5,14 @@ namespace Bankas2\Controllers;
 use Bankas2\App;
 use Bankas2\DB\FileReader as FR;
 
-class Bankas
+class Customer
 {
 
     public function index()
     {
-        $grybai = (new FR('grybai'))->showAll();
-        $pageTitle = 'Klientu | Sąrašas';
-        return App::view('grybas-list', compact('grybai', 'pageTitle'));
+        $customers = (new FR('customers'))->showAll();
+        $pageTitle = 'Customers | List';
+        return App::view('customer-list', compact('customers', 'pageTitle'));
     }
 
     public function create()

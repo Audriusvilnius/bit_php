@@ -3,14 +3,13 @@
 
 namespace Bankas2;
 
-use Bankas2\Controllers\Bankas;
+use Bankas2\Controllers\Customer;
 
 class App
 {
 
     public static function start()
     {
-
         $url = explode('/', $_SERVER['REQUEST_URI']);
         array_shift($url);
         return self::router($url);
@@ -21,8 +20,8 @@ class App
         $method = $_SERVER['REQUEST_METHOD'];
         print_r($url);
 
-        if ($url[0] == 'grybai' && count($url) == 1 && $method == 'GET') {
-            return (new Bankas)->index();
+        if ($url[0] == 'customers' && count($url) == 1 && $method == 'GET') {
+            return (new Customer)->index();
         }
 
         if ($url[0] == 'grybai' && $url[1] == 'create' && count($url) == 2 && $method == 'GET') {
