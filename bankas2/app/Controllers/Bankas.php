@@ -1,9 +1,9 @@
 <?php
 
-namespace Bankas\Controllers;
+namespace Bankas2\Controllers;
 
-use Bankas\App;
-use Bankas\DB\FileReader as FR;
+use Bankas2\App;
+use Bankas2\DB\FileReader as FR;
 
 class Bankas
 {

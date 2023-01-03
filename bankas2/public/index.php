@@ -1,6 +1,6 @@
 <?php
 
-use Bankas\App;
+use Bankas2\App;
 
 define('URL', 'http://bankasdu.lt.lt/');
 

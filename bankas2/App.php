@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Bankas;
+namespace Bankas2;
 
-use Front\Controllers\Bankas;
+use Bankas2\Controllers\Bankas;
 
 class App
 {
@@ -21,33 +21,28 @@ class App
         $method = $_SERVER['REQUEST_METHOD'];
         print_r($url);
 
-        if ($url[0] == 'calculator' && in_array($url[1], ['sum', 'diff', 'mult', 'div']) && count($url) == 4) {
-            return (new Calculator)->{$url[1]}($url[2], $url[3]);
-        }
-
-
         if ($url[0] == 'grybai' && count($url) == 1 && $method == 'GET') {
-            return (new Grybas)->index();
+            return (new Bankas)->index();
         }
 
         if ($url[0] == 'grybai' && $url[1] == 'create' && count($url) == 2 && $method == 'GET') {
-            return (new Grybas)->create();
+            return (new Bankas)->create();
         }
 
         if ($url[0] == 'grybai' && $url[1] == 'save' && count($url) == 2 && $method == 'POST') {
-            return (new Grybas)->save();
+            return (new Bankas)->save();
         }
 
         if ($url[0] == 'grybai' && $url[1] == 'edit' && count($url) == 3 && $method == 'GET') {
-            return (new Grybas)->edit($url[2]);
+            return (new Bankas)->edit($url[2]);
         }
 
         if ($url[0] == 'grybai' && $url[1] == 'update' && count($url) == 3 && $method == 'POST') {
-            return (new Grybas)->update($url[2]);
+            return (new Bankas)->update($url[2]);
         }
 
         if ($url[0] == 'grybai' && $url[1] == 'delete' && count($url) == 3 && $method == 'POST') {
-            return (new Grybas)->delete($url[2]);
+            return (new Bankas)->delete($url[2]);
         }
 
         return '404 NOT FOUND';
@@ -60,6 +55,7 @@ class App
         extract($data);
 
         require __DIR__ . '/../view/top.php';
+        require __DIR__ . '/../view/header.php';
 
         require __DIR__ . '/../view/' . $__name . '.php';
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bankas\DB;
+namespace Bankas2\DB;
 
 use App\DB\DataBase;
 
