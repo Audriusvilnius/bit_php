@@ -11,7 +11,7 @@ class Grybas
     public function index()
     {
         $grybai = (new FR('grybai'))->showAll();
-        $pageTitle = 'Grybai | Sąrašas';
+        $pageTitle = 'Klientu | Sąrašas';
         return App::view('grybas-list', compact('grybai', 'pageTitle'));
     }
 
