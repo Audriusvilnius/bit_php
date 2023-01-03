@@ -9,5 +9,3 @@
     <script src="<?= URL . 'app.js' ?>"></script>
     <link rel="stylesheet" href="<?= URL . 'app.scss' ?>">
 </head>
-
-<body>

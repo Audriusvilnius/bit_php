@@ -5,7 +5,7 @@ namespace Bankas\Controllers;
 use Bankas\App;
 use Bankas\DB\FileReader as FR;
 
-class Grybas
+class Bankas
 {
 
     public function index()
