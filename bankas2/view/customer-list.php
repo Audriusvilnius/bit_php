@@ -77,8 +77,8 @@ if (isset($_GET['account'])) {
         <h2 class="pb-4 border-bottom"></h2>
         <div class="row">
             <!-- <?php
-            if ($search != []) {
-                foreach ($search as $custom) {
+            if ($customers != []) {
+                foreach ($customers as $custom) {
                     if ($custom['name'] == $name) {
                         echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
                         echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['code'] . '</h4>';
@@ -92,7 +92,7 @@ if (isset($_GET['account'])) {
                 } ?> -->
             <!-- <?php
                 if ($name == '') {
-                    foreach ($search as $custom) {
+                    foreach ($customers as $custom) {
                         echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
                         echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['code'] . '</h4>';
                         echo '<p>Account Nr:  </p>' . '<h5>'  . $custom['account'] . '</h5>';

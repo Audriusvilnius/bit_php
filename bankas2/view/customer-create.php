@@ -27,27 +27,11 @@ if (isset($_GET['account'])) {
 
 
 <body class="p-2 bg-dark text-white">
-
-
-    <h1>Naujas Grybas</h1>
-
-    <form action="<?= URL ?>customers/save" method="post">
-
-        <div>Pavadinimas<input type="text" name="title"></div>
-        <div>Spalva<input type="text" name="color"></div>
-        <div>Svoris<input type="text" name="weight"></div>
-
-        <button type="submit">Taip</button>
-
-    </form>
-
-
-
     <div class="container text-left">
         <div class="row">
             <div class="col-12 col-sm-6 p-3 ">
                 <h4>Create new account:</h4>
-                <form class="text-begin p-2" action="http://localhost/bit_php/bankas_ver_1/new.php?id" method="post">
+                <form class="text-begin p-2" action="<?= URL ?>customers/save" method="post">
                     <p class="pt-2">Name:</p>
                     <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="name" class="form-control" placeholder="Name">
                     <p class="pt-2">Surname:</p>

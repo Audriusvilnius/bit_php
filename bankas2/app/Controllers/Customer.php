@@ -32,7 +32,7 @@ class Customer
     public function edit($id)
     {
         $pageTitle = 'customer | Redaguoti';
-        $grybas = (new FR('customers'))->show($id);
+        $customers = (new FR('customers'))->show($id);
         return App::view('customer-edit', compact('pageTitle', 'customer'));
     }
 
