@@ -29,26 +29,26 @@ if (isset($_GET['account'])) {
 
 
 
-<?php foreach ($customers as $customer) : ?>
 
 
-<li>
-    <b>id: <?= $customer['id'] ?></b>
-    <?= $customer['name'] ?>
-    <?= $customer['surname'] ?>
-    <?= $customer['account'] ?>
+<!-- <?php foreach ($customers as $customer) : ?>
+<?=print_r($customer);?>
+<ul>
 
 
-
-    $userData
-    <a href="<?= URL . 'grybai/edit/' . $customer['id'] ?>">Redaguoti</a>
+    <li> <b>id: <?= $customer['id'] ?></b> </li>
+    <li> <?= $customer['name'] ?></li>
+    <li> <?= $customer['surname'] ?></li>
+    <li> <?= $customer['account'] ?></li>
+    <li> <?= $customer['balance'] ?></li>
+    <a href="<?= URL . 'customers/edit/' . $customer['id'] ?>">Redaguoti</a>
     <form action="<?= URL . 'customers/delete/' . $customer['id'] ?>" method="post">
         <button type="submit">Trinti</button>
     </form>
-</li>
+    </li>
+</ul>
 
-
-<?php endforeach ?>
+<?php endforeach ?> -->
 
 
 <div class="container text-left">
@@ -68,8 +68,6 @@ if (isset($_GET['account'])) {
                     <button class="btn btn-outline-info ">Sort A-Z</button>
                 </a>
             </div>
-
-
         </div>
         <div class="col-12 col-sm-6 p-3 ">
             <h4>Close account</h4>
@@ -89,7 +87,7 @@ if (isset($_GET['account'])) {
 <div class="container text-left">
     <h2 class="pb-4 border-bottom"></h2>
     <div class="row">
-        <?php var_dump($customer);
+        <?php 
             if ($customers != []) {
                 foreach ($customers as $custom) {
                     if ($custom['name'] == $name) {
@@ -101,9 +99,12 @@ if (isset($_GET['account'])) {
                         echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $custom['name'] . '</span></h3>';
                         echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $custom['surname'] . '</p>';
                         echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $custom['personal_id'] . '</p></div>';
-                    }
-                }
-                 ?>
+                        echo '<div class="btn-group me-2" role="group" ><a href="'.URL . 'customers/edit/' . $customer['id'].'">
+                        <button class="btn btn-outline-warning me-2">Edit</button></a>';
+                        echo '<form action="'.URL . 'customers/delete/' . $customer['id']. '" method="post"><button class="btn btn-outline-danger pr-2" type="submit">Delet</button></form></div></div>';
+    }
+    }
+    ?>
         <?php
                 if ($name == '') {
                     foreach ($customers as $custom) {
@@ -114,11 +115,14 @@ if (isset($_GET['account'])) {
                             '</h4>';
                         echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $custom['name'] . '</span></h3>';
                         echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $custom['surname'] . '</p>';
-                        echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $custom['personal_id'] . '</p></div>';
+                        echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $custom['personal_id'] . '</p>';
+                        echo '<div class="btn-group me-2" role="group" ><a href="'.URL . 'customers/edit/' . $customer['id'].'">
+                        <button class="btn btn-outline-warning me-2">Edit</button></a>';
+                        echo '<form action="'.URL . 'customers/delete/' . $customer['id']. '" method="post"><button class="btn btn-outline-danger pr-2" type="submit">Delet</button></form></div></div>';
                     }
                 }
             } 
-            print_r($customer);?>
+     ?>
     </div>
 
 </div>
