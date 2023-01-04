@@ -15,8 +15,11 @@ class App
     private static function router(array $url)
     {
         $method = $_SERVER['REQUEST_METHOD'];
-        //print_r($url);
-
+        echo'<pre>';
+        print_r($url);
+        print_r($method);
+        var_dump($method);
+ echo'</pre>';
         if ($url[0] == 'customers' && count($url) == 1 && $method == 'GET') {
             return (new Customer)->index();
         }
@@ -39,6 +42,9 @@ class App
 
         if ($url[0] == 'customers' && $url[1] == 'delete' && count($url) == 3 && $method == 'POST') {
             return (new Customer)->delete($url[2]);
+        }
+        if ($url[0] == 'customers' && $url[1] == 'add' && count($url) == 3 && $method == 'GET') {
+            return (new Customer)->add($url[2]);
         }
 
         return '404 NOT FOUND';

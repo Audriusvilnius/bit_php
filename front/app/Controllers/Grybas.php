@@ -1,12 +1,9 @@
-<?php
-
+<?php 
 namespace Front\Controllers;
-
 use Front\App;
 use Front\DB\FileReader as FR;
 
-class Grybas
-{
+class Grybas {
 
     public function index()
     {
@@ -45,4 +42,5 @@ class Grybas
         (new FR('grybai'))->delete($id);
         return App::redirect('grybai');
     }
+
 }

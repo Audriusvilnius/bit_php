@@ -53,7 +53,7 @@ class FileReader implements DataBase
     {
         $userData['id'] = $userId;
         $this->data = array_map(fn ($data) => $userId == $data['id'] ? $userData : $data, $this->data);
-       var_dump($userData);
+    
     }
 
     public function delete(int $userId): void

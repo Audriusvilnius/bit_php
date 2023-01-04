@@ -1,11 +1,8 @@
-<?php
-
+<?php 
 namespace Front\Controllers;
-
 use Front\App;
 
-class Calculator
-{
+class Calculator {
 
     public function sum($a, $b)
     {
@@ -36,4 +33,5 @@ class Calculator
         $pageTitle = 'Calculator | DIV';
         return App::view('calculator_div', compact('result', 'pageTitle'));
     }
+
 }

@@ -1,20 +1,16 @@
-<h1>Grybas Redagavimas</h1>
+<h1>Prideti</h1>
 
-<form action="<?= URL ?>customers/update/<?= $customers['id'] ?>" method="post">
+<form action="<?= URL ?>customers/update/<?= $customer['id'] ?>" method="post">
 
-    <div>Name<input type="text" name="name" value="<?= $customers['name'] ?>"></div>
-    <div>Surname<input type="text" name="name" value="<?= $customers['name'] ?>"></div>
-    <div>id<input type="text" name="id" value="<?= $customers['id'] ?>"></div>
+    <div>Pavadinimas<input type="text" name="title" value="<?= $customer['name'] ?>"></div>
+    <div>Spalva<input type="text" name="color" value="<?= $customer['surname'] ?>"></div>
+    <div>Svoris<input type="text" name="weight" value="<?= $customer['weight'] ?>"></div>
 
     <button type="submit">Taip</button>
 
 </form>
-<?php
-foreach ($customers as $value) {
-  echo $value;
-}
-
-?>
+<?=print_r($custome);?>
+<?= $id = $_GET['id'];?>
 
 <?php foreach ($customers as $customer) : ?>
 
@@ -38,7 +34,7 @@ foreach ($customers as $value) {
 
 
 
-<?=print_r($customer);?>
+<?=print_r($url);?>
 
 <body class="p-2 bg-dark text-white">
 

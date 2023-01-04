@@ -47,4 +47,9 @@ class Customer
         (new FR('customers'))->delete($id);
         return App::redirect('customer');
     }
+    public function add($id)
+    {
+        (new FR('customers'))->add($id);
+        return App::view('customer-add', compact('pageTitle', 'customer'));
+    }
 }
