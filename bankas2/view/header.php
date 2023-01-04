@@ -25,3 +25,5 @@
         <h2 class="pb-4 border-bottom"></h2>
     </div>
 </header>
+
+<body class="p-2 bg-dark text-white">
