@@ -15,11 +15,7 @@ class App
     private static function router(array $url)
     {
         $method = $_SERVER['REQUEST_METHOD'];
-        echo'<pre>';
-        print_r($url);
-        print_r($method);
-        var_dump($method);
- echo'</pre>';
+        
         if ($url[0] == 'customers' && count($url) == 1 && $method == 'GET') {
             return (new Customer)->index();
         }
@@ -33,7 +29,13 @@ class App
         }
 
         if ($url[0] == 'customers' && $url[1] == 'edit' && count($url) == 3 && $method == 'GET') {
+        // echo'<pre>';
+        // print_r($url);
+        // print_r($method);
+        // var_dump($method);
+        // echo'</pre>';
             return (new Customer)->edit($url[2]);
+
         }
 
         if ($url[0] == 'customers' && $url[1] == 'update' && count($url) == 3 && $method == 'POST') {

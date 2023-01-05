@@ -1,36 +1,3 @@
-<!-- <?php
-if (isset($_GET['name'])) {
-    $search = unserialize(file_get_contents(__DIR__ . '/data'));
-    $name = $_GET['name'];
-    $delet_conf = 2;
-}
-
-if (isset($_GET['account'])) {
-    $search = unserialize(file_get_contents(__DIR__ . '/data'));
-    $account = $_GET['account'];
-    foreach ($search as $i => $users) {
-        if ($users['account'] == $account && $users['balance'] == 0) {
-            unset($search[$i]);
-            $delet_conf = 1;
-            file_put_contents(__DIR__ . '/data', serialize($search));
-        }
-        if ($users['account'] == $account) {
-            if ($users['balance'] != 0) {
-                $delet_conf = 0;
-                break;
-            }
-        }
-    }
-}
-
-?> -->
-
-
-
-
-
-
-
 <?php foreach ($customers as $customer) : ?>
 <?=print_r($customer);?>
 <ul>
@@ -106,15 +73,15 @@ if (isset($_GET['account'])) {
     ?>
         <?php
                 if ($name == '') {
-                    foreach ($customers as $customer) {
+                    foreach ($customers as $custom) {
                         echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
-                        echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $customer['id'] . '</h4>';
-                        echo '<p>Account Nr:  </p>' . '<h5>'  . $customer['account'] . '</h5>';
-                        echo '<p>Balace:   </p>' . '<h4>' . $customer['balance'] .
+                        echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['id'] . '</h4>';
+                        echo '<p>Account Nr:  </p>' . '<h5>'  . $custom['account'] . '</h5>';
+                        echo '<p>Balace:   </p>' . '<h4>' . $custom['balance'] .
                             '</h4>';
-                        echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $customer['name'] . '</span></h3>';
-                        echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $customer['surname'] . '</p>';
-                        echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $customer['personal_id'] . '</p>';
+                        echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $custom['name'] . '</span></h3>';
+                        echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $custom['surname'] . '</p>';
+                        echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $custom['personal_id'] . '</p>';
                         echo '<div class="btn-group me-2" role="group" ><a href="'.URL . 'customers/edit/' . $customer['id'].'">
                         <button class="btn btn-outline-warning me-2">Edit</button></a>';
                         echo '<form action="'.URL . 'customers/delete/' . $customer['id']. '" method="post"><button class="btn btn-outline-danger pr-2" type="submit">Delet</button></form></div></div>';

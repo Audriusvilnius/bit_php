@@ -13,6 +13,7 @@ class App {
         $url = explode('/', $_SERVER['REQUEST_URI']);
         array_shift($url);
         return self::router($url);
+
     }
 
     public function cors() {

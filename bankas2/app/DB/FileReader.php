@@ -7,7 +7,7 @@ use App\DB\DataBase;
 class FileReader implements DataBase
 {
 
-    private $data, $name;
+    private $data, $name, $balance;
 
 
     public function __construct($name)
@@ -23,6 +23,9 @@ class FileReader implements DataBase
     public function __destruct()
     {
         file_put_contents(__DIR__ . '/' . $this->name, serialize($this->data));
+    }
+    public function __get($get){
+        return $this->get;
     }
 
 

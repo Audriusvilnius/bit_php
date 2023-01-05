@@ -1,31 +1,3 @@
-<!-- <?php
-if (isset($_GET['name'])) {
-    $search = unserialize(file_get_contents(__DIR__ . '/data'));
-    $name = $_GET['name'];
-    $delet_conf = 2;
-}
-
-if (isset($_GET['account'])) {
-    $search = unserialize(file_get_contents(__DIR__ . '/data'));
-    $account = $_GET['account'];
-    foreach ($search as $i => $users) {
-        if ($users['account'] == $account && $users['balance'] == 0) {
-            unset($search[$i]);
-            $delet_conf = 1;
-            file_put_contents(__DIR__ . '/data', serialize($search));
-        }
-        if ($users['account'] == $account) {
-            if ($users['balance'] != 0) {
-                $delet_conf = 0;
-                break;
-            }
-        }
-    }
-}
-
-?> -->
-
-
 <body class="p-2 bg-dark text-white">
     <div class="container text-left">
         <div class="row">

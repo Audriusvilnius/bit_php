@@ -45,7 +45,7 @@ class Customer
     public function delete($id)
     {
         (new FR('customers'))->delete($id);
-        return App::redirect('customer');
+        return App::redirect('customers');
     }
     public function add($id)
     {
