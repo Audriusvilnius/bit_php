@@ -33,13 +33,13 @@ class Customer
     {
         $pageTitle = 'customer | Redaguoti';
         $customers = (new FR('customers'))->show($id);
-        return App::view('customer-edit', compact('pageTitle', 'customer'));
+        return App::view('customer-edit', compact('pageTitle', 'customers'));
     }
 
     public function update($id)
     {
         (new FR('customers'))->update($id, $_POST);
-        return App::redirect('customer');
+        return App::redirect('customers');
     }
 
     public function delete($id)

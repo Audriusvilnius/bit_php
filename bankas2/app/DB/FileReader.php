@@ -7,7 +7,7 @@ use App\DB\DataBase;
 class FileReader implements DataBase
 {
 
-    private $data, $name, $balance;
+    private $data, $name;
 
 
     public function __construct($name)
@@ -56,7 +56,7 @@ class FileReader implements DataBase
     {
         $userData['id'] = $userId;
         $this->data = array_map(fn ($data) => $userId == $data['id'] ? $userData : $data, $this->data);
-    
+        var_dump($userData);
     }
 
     public function delete(int $userId): void
