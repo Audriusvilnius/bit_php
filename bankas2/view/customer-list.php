@@ -54,34 +54,35 @@
 <div class="container text-left">
     <h2 class="pb-4 border-bottom"></h2>
     <div class="row">
-        <?php 
+        <!-- <?php 
             if ($customers != []) {
-                foreach ($customers as $custom) {
+                foreach ($customers as $customer) {
                     if ($custom['name'] == $name) {
                         echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
-                        echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['id'] . '</h4>';
-                        echo '<p>Account Nr:  </p>' . '<h5>'  . $custom['account'] . '</h5>';
-                        echo '<p>Balace:   </p>' . '<h4>' . $custom['balance'] .
+                        echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $customer['id'] . '</h4>';
+                        echo '<p>Account Nr:  </p>' . '<h5>'  . $customer['account'] . '</h5>';
+                        echo '<p>Balace:   </p>' . '<h4>' . $customer['balance'] .
                             '</h4>';
-                        echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $custom['name'] . '</span></h3>';
-                        echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $custom['surname'] . '</p>';
-                        echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $custom['personal_id'] . '</p></div>';
-                        echo '<div><a href="'.URL . 'customers/edit/' . $customer['id'].'">Redaguoti</a>';
-                        echo '<form action="'.URL . 'customers/delete/' . $customer['id']. '" method="post"><button class="btn btn-outline-danger " type="submit">Trinti</button></form></div></div>';
+                        echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $customer['name'] . '</span></h3>';
+                        echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $customer['surname'] . '</p>';
+                        echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $customer['personal_id'] . '</p>';
+                        echo '<div class="btn-group me-2" role="group" ><a href="'.URL . 'customers/edit/' . $customer['id'].'">
+                        <button class="btn btn-outline-warning me-2">Edit</button></a>';
+                        echo '<form action="'.URL . 'customers/delete/' . $customer['id']. '" method="post"><button class="btn btn-outline-danger pr-2" type="submit">Delet</button></form></div></div>';
     }
     }
-    ?>
+    ?> -->
         <?php
                 if ($name == '') {
-                    foreach ($customers as $custom) {
+                    foreach ($customers as $customer) {
                         echo '<div class ="col-12 col-sm-6 p-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
-                        echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $custom['id'] . '</h4>';
-                        echo '<p>Account Nr:  </p>' . '<h5>'  . $custom['account'] . '</h5>';
-                        echo '<p>Balace:   </p>' . '<h4>' . $custom['balance'] .
+                        echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $customer['id'] . '</h4>';
+                        echo '<p>Account Nr:  </p>' . '<h5>'  . $customer['account'] . '</h5>';
+                        echo '<p>Balace:   </p>' . '<h4>' . $customer['balance'] .
                             '</h4>';
-                        echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $custom['name'] . '</span></h3>';
-                        echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $custom['surname'] . '</p>';
-                        echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $custom['personal_id'] . '</p>';
+                        echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $customer['name'] . '</span></h3>';
+                        echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $customer['surname'] . '</p>';
+                        echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $customer['personal_id'] . '</p>';
                         echo '<div class="btn-group me-2" role="group" ><a href="'.URL . 'customers/edit/' . $customer['id'].'">
                         <button class="btn btn-outline-warning me-2">Edit</button></a>';
                         echo '<form action="'.URL . 'customers/delete/' . $customer['id']. '" method="post"><button class="btn btn-outline-danger pr-2" type="submit">Delet</button></form></div></div>';
