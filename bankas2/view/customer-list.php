@@ -1,4 +1,4 @@
-<?php foreach ($customers as $customer) : ?>
+<!-- <?php foreach ($customers as $customer) : ?>
 <?=print_r($customer);?>
 <ul>
 
@@ -15,7 +15,7 @@
     </li>
 </ul>
 
-<?php endforeach ?>
+<?php endforeach ?> -->
 
 
 <div class="container text-left">
@@ -62,7 +62,7 @@
                         echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $customer['id'] . '</h4>';
                         echo '<p>Account Nr:  </p>' . '<h5>'  . $customer['account'] . '</h5>';
                         echo '<p>Balace:   </p>' . '<h4>' . $customer['balance'] .
-                            '</h4>';
+                            ' Eur.</h4>';
                         echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $customer['name'] . '</span></h3>';
                         echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $customer['surname'] . '</p>';
                         echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $customer['personal_id'] . '</p>';
@@ -79,7 +79,7 @@
                         echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $customer['id'] . '</h4>';
                         echo '<p>Account Nr:  </p>' . '<h5>'  . $customer['account'] . '</h5>';
                         echo '<p>Balace:   </p>' . '<h4>' . $customer['balance'] .
-                            '</h4>';
+                            ' Eur.</h4>';
                         echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $customer['name'] . '</span></h3>';
                         echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $customer['surname'] . '</p>';
                         echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $customer['personal_id'] . '</p>';

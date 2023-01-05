@@ -1,20 +1,3 @@
-<h1>Redagavimas</h1>
-<?=print_r($userData)?>
-<?=print_r($data)?>
-
-
-<form action="<?= URL ?>customers/update/<?= $customers['id'] ?>" method="post">
-    <div>Name<input type="text" name="name" value="<?= $customers['name'] ?>"></div>
-    <div>Surname<input type="text" name="name" value="<?= $customers['surname'] ?>"></div>
-    <div>id<input type="text" name="id" value="<?= $customers['id'] ?>"></div>
-    <div>personal_id<input type="text" name="personal_id" value="<?= $customers['personal_id'] ?>"></div>
-    <div>account<input type="text" name="account" value="<?= $customers['account'] ?>"></div>
-
-    <button type="submit">Save edit</button>
-</form>
-
-
-
 <body class="p-2 bg-dark text-white">
     <div class="container text-left">
         <div class="row">
@@ -28,6 +11,8 @@
                     <p class="pt-2">Personal ID:</p>
                     <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" value="<?= $customers['personal_id'] ?>" name="personal_id" class="form-control" placeholder="Personal id">
                     <div class="col-12 col-sm-6 pt-3 ">
+                        <input type="hidden" name="account" value="<?= $customers['account'] ?>">
+                        <input type="hidden" name="balance" value="<?= $customers['balance'] ?>">
                         <button type="submit" class="btn btn-outline-success ">Save edit</button>
                     </div>
                 </form>
@@ -44,7 +29,7 @@
                         echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $customers['id'] . '</h4>';
                         echo '<p>Account Nr:  </p>' . '<h5>'  . $customers['account'] . '</h5>';
                         echo '<p>Balace:   </p>' . '<h4>' . $customers['balance'] .
-                            '</h4>';
+                            ' Eur. </h4>';
                         echo '<h3> Name:' . '<span style="color: skyblue;">&nbsp;&nbsp;&nbsp;' . $customers['name'] . '</span></h3>';
                         echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $customers['surname'] . '</p>';
                         echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $customers['personal_id'] . '</p>';
