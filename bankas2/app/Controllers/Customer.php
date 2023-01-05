@@ -13,13 +13,13 @@ class Customer
     public function index()
     {
         $customers = (new FR('customers'))->showAll();
-        $pageTitle = 'Customers | List';
+        $pageTitle = 'R&K | Customers List';
         return App::view('customer-list', compact('customers', 'pageTitle'));
     }
 
     public function create()
     {
-        $pageTitle = 'customer | Naujas';
+        $pageTitle = 'R&K | New Account';
         return App::view('customer-create', compact('pageTitle'));
     }
 
@@ -31,15 +31,27 @@ class Customer
 
     public function edit($id)
     {
-        $pageTitle = 'customer | Redaguoti';
+        $pageTitle = 'R&K | Edit';
         $customers = (new FR('customers'))->show($id);
         return App::view('customer-edit', compact('pageTitle', 'customers'));
+    }
+    public function transfer($id)
+    {
+        $pageTitle = 'R&K | Transfer';
+        $customers = (new FR('customers'))->show($id);
+        return App::view('customer-transfer', compact('pageTitle', 'customers'));
     }
 
     public function update($id)
     {
         (new FR('customers'))->update($id, $_POST);
         return App::redirect('customers');
+    }
+    public function plius($id)
+    {
+
+        (new FR('customers'))->plius($id, $_POST);
+    return App::redirect('customers/transfer/' . $id);
     }
 
     public function delete($id)
@@ -51,5 +63,10 @@ class Customer
     {
         (new FR('customers'))->add($id);
         return App::view('customer-add', compact('pageTitle', 'customer'));
+    }
+       public function home()
+    {
+        $pageTitle = 'R&K | Home';
+        return App::view('customer-home', compact('pageTitle', 'customer'));
     }
 }

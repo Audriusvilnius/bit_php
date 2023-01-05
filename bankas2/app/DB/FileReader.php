@@ -46,7 +46,7 @@ class FileReader implements DataBase
     {
         $userData['id'] = $this->getId();
         $balance = 0;
-        $account = 'LT' . rand(10, 99) . '6300' . rand(10000000000, 99999999999);
+        $account = 'LT ' . rand(10, 99) . ' 6300 ' . rand(1000, 9999).' '. rand(1000, 9999).' '. rand(1000, 9999);
         $userData['account']=$account;
         $userData['balance']=$balance;
         $this->data[] = $userData;
@@ -56,7 +56,22 @@ class FileReader implements DataBase
     {
         $userData['id'] = $userId;
         $this->data = array_map(fn ($data) => $userId == $data['id'] ? $userData : $data, $this->data);
-        var_dump($userData);
+
+    }
+    public function plius(int $id, array $userData): void
+    {
+    //  print_r($this->data);
+    // print_r($userData);
+
+    //   echo('fsfs');
+        foreach ($this->data as $index => $us_data) {
+            if($id == $us_data['id']){
+                // print_r($this->data[$index]['balance']);
+                // echo('dsff');
+                //    print_r($this->data);
+                 $this->data[$index]['balance']+=$userData['pinigai'];
+            }
+        }
     }
 
     public function delete(int $userId): void
@@ -68,6 +83,15 @@ class FileReader implements DataBase
     {
         foreach ($this->data as $data) {
             if ($userId == $data['id']) {
+                return $data;
+            }
+        }
+        return [];
+    }
+    public function search(string $name): array
+    {
+        foreach ($this->data as $data) {
+            if ($name == $data['name']) {
                 return $data;
             }
         }

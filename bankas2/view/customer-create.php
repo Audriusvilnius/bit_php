@@ -24,14 +24,15 @@
             }
             foreach ($customer as $user) {
 
-                echo '<h4>Customer id:  ' . "&nbsp;&nbsp;&nbsp;" . $user['code'] . '</h4>';
-                echo '<p>Account date:  </p>' . '<span;">&nbsp;&nbsp;&nbsp;' . '<h5>'  . $user['account'] . '</h4></span>';
-                echo '<p>Balace:   </p>' . '<h5>' . $user['balance'] .
-                    '</h4>';
-                echo '<h3> Name:' . "&nbsp;&nbsp;&nbsp;"   . $user['name'] . '</h3>';
-                echo '<p> Surname: ' . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $user['surname'] . '</p>';
-                echo '<p>  Personal id:' . "&nbsp;&nbsp;&nbsp;" . "\n" . $user['personal_id'] . '</p></div>';
-                $masabe = $user['code'];
+                        echo '<div class ="col-12 col-sm-6 p-3 mt-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
+                        echo '<h4 class="fs-5 fw-lighter m-3">Customer id:<span class="fs-4 fw-light"> &nbsp;' . $customer['id'] . '</span></h4>';
+                        echo'<h2 class="border-bottom m-3"></h2>';
+                        echo '<h5 class="fs-6 fw-lighter m-3">Name:<span class="fs-5 fw-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $customer['name'] . '</span></h5>';
+                        echo '<h5 class="fs-6 fw-lighter m-3">Surname:<span class="fs-5 fw-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $customer['surname'] .'</span></h5>';
+                        echo '<h5 class="fs-6 fw-lighter m-3">Personal ID:<span class="fs-5 fw-light">&nbsp;&nbsp;&nbsp;'. $customer['personal_id'] . '</span></h5>';
+                        echo'<h2 class="m-3 border-bottom"></h2>';
+                        echo '<h5 class="fs-6 fw-lighter m-3">Account No.:<span class="fs-5 fw-light float-end">&nbsp;&nbsp;'. $customer['account'] . '</span></h5>';
+                        echo '<h5 class="fs-6 fw-lighter m-3">Balance:<span class="fs-5 fw-light float-end">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $customer['balance'] . '&nbsp;&nbsp;Eur. </span></h5>';
                 break;
             }
             echo '</div>';
