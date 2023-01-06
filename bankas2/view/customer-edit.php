@@ -13,26 +13,29 @@
                     <div class="col-12 col-sm-6 pt-3 ">
                         <input type="hidden" name="account" value="<?= $customers['account'] ?>">
                         <input type="hidden" name="balance" value="<?= $customers['balance'] ?>">
-                        <button type="submit" class="btn btn-outline-success ">Save edit</button>
+                        <button type="submit" class="btn btn-success">Save edit</button>
                     </div>
                 </form>
             </div>
             <div class="col-12 col-sm-6 p-3 mt-3" style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px; ">
-                <h4 class="fs-5 fw-lighter m-3">Customer id:<span class="fs-4 fw-light"> &nbsp;<?= $customers['id'] ?> </span></h4>
+                <h4 class="fs-5 fw-lighter m-3">Customer id:<span class="fs-4 fw-light"> &nbsp;<?= $customers['id'] ?>
+                    </span></h4>
                 <h2 class="border-bottom m-3"></h2>
-                <h5 class="fs-6 fw-lighter m-3">Name:<span class="fs-5 fw-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$customers['name'] ?></span></h5>
+                <h5 class="fs-6 fw-lighter m-3">Name:<span class="fs-5 fw-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$customers['name'] ?></span>
+                </h5>
                 <h5 class="fs-6 fw-lighter m-3">Surname:<span class="fs-5 fw-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$customers['surname']?></span></h5>
                 <h5 class="fs-6 fw-lighter m-3">Personal ID:<span class="fs-5 fw-light">&nbsp;&nbsp;&nbsp;<?=$customers['personal_id'] ?></span></h5>
                 <h2 class="m-3 border-bottom"></h2>
                 <h5 class="fs-6 fw-lighter m-3">Account No.:<span class="fs-5 fw-light float-end">&nbsp;&nbsp;<?=$customers['account'] ?></span></h5>
-                <h5 class="fs-6 fw-lighter m-3">Balance:<span class="fs-5 fw-light float-end">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$customers['balance']?>&nbsp;&nbsp;Eur. </span></h5>
+                <h5 class="fs-6 fw-lighter m-3">Balance:<span class="fs-5 fw-light float-end">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$customers['balance']?>&nbsp;&nbsp;&euro;
+                    </span></h5>
                 <div class="btn-group me-2 m-3" role="group">
-                    <div class="btn-group me-2" role="group"><a href="<?=URL . 'customers/edit/' . $customers['id']?>">
-                            <button class="btn btn-outline-warning me-2">Edit</button></a>
-                        <form action="<?=URL . 'customers/delete/' . $customers['id']?>" method="post"><button class="btn btn-outline-danger pr-2" type="submit">Delet</button></form>
-                    </div>
+                    <form action="<?=URL . 'customers/delete/' . $customers['id']?>" method="post">
+                        <button class="btn btn-outline-danger pr-2" type="submit">&nbsp&nbsp;&nbsp;Delet&nbsp;&nbsp;&nbsp;</button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>

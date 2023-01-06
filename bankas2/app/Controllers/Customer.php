@@ -34,6 +34,7 @@ class Customer
         $pageTitle = 'R&K | Edit';
         $customers = (new FR('customers'))->show($id);
         return App::view('customer-edit', compact('pageTitle', 'customers'));
+        
     }
     public function transfer($id)
     {
@@ -51,7 +52,7 @@ class Customer
     {
 
         (new FR('customers'))->plius($id, $_POST);
-    return App::redirect('customers/transfer/' . $id);
+        return App::redirect('customers/transfer/' . $id);
     }
 
     public function delete($id)

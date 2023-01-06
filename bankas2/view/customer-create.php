@@ -32,7 +32,7 @@
                         echo '<h5 class="fs-6 fw-lighter m-3">Personal ID:<span class="fs-5 fw-light">&nbsp;&nbsp;&nbsp;'. $customer['personal_id'] . '</span></h5>';
                         echo'<h2 class="m-3 border-bottom"></h2>';
                         echo '<h5 class="fs-6 fw-lighter m-3">Account No.:<span class="fs-5 fw-light float-end">&nbsp;&nbsp;'. $customer['account'] . '</span></h5>';
-                        echo '<h5 class="fs-6 fw-lighter m-3">Balance:<span class="fs-5 fw-light float-end">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $customer['balance'] . '&nbsp;&nbsp;Eur. </span></h5>';
+                        echo '<h5 class="fs-6 fw-lighter m-3">Balance:<span class="fs-5 fw-light float-end">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $customer['balance'] . '&nbsp;&nbsp;&euro;</span></h5>';
                 break;
             }
             echo '</div>';
