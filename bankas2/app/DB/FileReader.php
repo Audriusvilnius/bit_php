@@ -48,7 +48,7 @@ class FileReader implements DataBase
         $balance = 0;
         $account = 'LT ' . rand(10, 99) . ' 6300 ' . rand(1000, 9999).' '. rand(1000, 9999).' '. rand(1000, 9999);
         $userData['account']=$account;
-        $userData['balance']=$balance;
+        (float)$userData['balance']=$balance;
         $this->data[] = $userData;
     }
 
@@ -62,14 +62,25 @@ class FileReader implements DataBase
     {
     //  print_r($this->data);
     // print_r($userData);
-
     //   echo('fsfs');
-        foreach ($this->data as $index => $us_data) {
-            if($id == $us_data['id']){
+   
+        if ($userData['plius']){
+            foreach ($this->data as $index => $us_data) {
+                if($id == $us_data['id'] && is_numeric($userData['plius'] )&& $userData['plius'] > 0){                
                 // print_r($this->data[$index]['balance']);
                 // echo('dsff');
                 //    print_r($this->data);
-                 $this->data[$index]['balance']+=$userData['pinigai'];
+                $userData['plius'] = round($userData['plius'],2);
+                (float)$this->data[$index]['balance']+=$userData['plius'];
+                }
+            }
+        }
+        if ($userData['minus']){
+            foreach ($this->data as $index => $us_data) {
+                if($id == $us_data['id'] && is_numeric($userData['minus'] )&& $userData['minus'] > 0 && ($this->data[$index]['balance'] - $userData['minus'])>=0 ){                
+                $userData['minus'] = round($userData['minus'],2);
+                $this->data[$index]['balance']-=$userData['minus'];
+                }
             }
         }
     }

@@ -1,4 +1,3 @@
-</body>
 <footer class="pt-5">
     <div class="container ">
         <h4 class="pb-4 border-bottom"></h4>
@@ -43,5 +42,10 @@
         </div>
     </div>
 </footer>
+<script>
+function myFunction() {
+    alert("You can't delete an account with money!");
+}
+</script>
 
 </html>

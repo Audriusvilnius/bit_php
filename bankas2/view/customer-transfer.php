@@ -6,13 +6,13 @@
                 <nav class="navbar bg-body-tertiary">
                     <div class="container-fluid">
                         <form class="text-begin p-2 " action="<?= URL . 'customers/plius/' . $customers['id'] ?>" method="post">
-                            <input class="col-8 col-sm-11 col-lg-auto mb-2 mb-lg-12 me-lg-10 " type="text" name="pinigai" class="form-control" placeholder="0.00 &euro;">
+                            <input class="col-8 col-sm-11 col-lg-auto mb-2 mb-lg-12 me-lg-10 " type="text" name="plius" class="form-control" placeholder="0.00 &euro;">
                             <button type="submit" class="btn btn-outline-info" style="--bs-btn-padding-y: .30rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: .90rem;">Credit</button>
                         </form>
                     </div>
                     <div class="container-fluid">
                         <form class="text-begin p-2 " action="<?= URL . 'customers/plius/' . $customers['id'] ?>" method="post">
-                            <input class="col-8 col-sm-11 col-lg-auto mb-2 mb-lg-12 me-lg-10 " type="text" name="pinigai" class="form-control" placeholder="0.00 &euro;">
+                            <input class="col-8 col-sm-11 col-lg-auto mb-2 mb-lg-12 me-lg-10 " type="text" name="minus" class="form-control" placeholder="0.00 &euro;">
                             <button type="submit" class="btn btn-outline-warning" style="--bs-btn-padding-y: .30rem; --bs-btn-padding-x: .9rem; --bs-btn-font-size: .90rem;">Debit&nbsp; </button>
                         </form>
                     </div>
@@ -29,4 +29,5 @@
                 <h5 class="fs-6 fw-lighter m-3">Balance:<span class="fs-5 fw-light float-end">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$customers['balance']?>&nbsp;&nbsp;&euro;</span></h5>
             </div>
         </div>
+    </div>
 </body>

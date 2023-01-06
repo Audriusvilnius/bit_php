@@ -49,10 +49,9 @@ class Customer
         return App::redirect('customers');
     }
     public function plius($id)
-    {
-
+    {  
         (new FR('customers'))->plius($id, $_POST);
-        return App::redirect('customers/transfer/' . $id);
+        return App::redirect('customers/transfer/' . $id); 
     }
 
     public function delete($id)

@@ -17,8 +17,8 @@
 
 <?php endforeach ?> -->
 
-
-<!-- <div class="container text-left">
+<body class="p-2 bg-dark text-white">
+    <!-- <div class="container text-left">
     <div class="row">
         <div class="col-12 col-sm-6 p-3 ">
             <h4>Find customer:</h4>
@@ -51,10 +51,10 @@
 </div>
 </div>
 </div> -->
-<div class="container text-left ">
-    <!-- <h2 class="pb-4 border-bottom"></h2> -->
-    <div class="row">
-        <!-- <?php 
+    <div class="container text-left ">
+        <!-- <h2 class="pb-4 border-bottom"></h2> -->
+        <div class="row">
+            <!-- <?php 
             if ($customers != []) {
                 foreach ($customers as $customer) {
                     if ($customers['name'] == $name) {
@@ -72,7 +72,7 @@
     }
     }
     ?> -->
-        <?php
+            <?php
                 if ($name == '') {
                     foreach ($customers as $customer) {
                         echo '<div class ="col-12 col-sm-6 p-3 mt-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
@@ -93,14 +93,20 @@
                         // echo '<a href="'.URL . 'customers/edit/' . $customer['id'].'"> <button class="btn btn-outline-success me-2">- money</button></a>';       
                         
                         echo '<a href="'.URL . 'customers/transfer/' . $customer['id'].'"> <button type="button" class="btn btn-primary me-2">Transfer</button></a>';
-
+                        
                         echo '<a href="'.URL . 'customers/edit/' . $customer['id'].'"> <button class="btn btn-outline-warning me-2">&nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;&nbsp;</button></a>';
 
-                        echo '<form action="'.URL . 'customers/delete/' . $customer['id']. '" method="post"><button class="btn btn-outline-danger pr-2" type="submit">&nbsp&nbsp;&nbsp;Delet&nbsp;&nbsp;&nbsp;</button></form></div></div>';
+                        if($customer['balance']==0){
+                        echo '<form action="'.URL . 'customers/delete/' . $customer['id']. '" method="post"><button class="btn btn-outline-danger pr-2" type="submit">&nbsp&nbsp;&nbsp;Delet&nbsp;&nbsp;&nbsp;</button></form>';}
+                        else{
+                        echo '<button  class="btn btn-danger pr-2" onclick="myFunction()">&nbsp&nbsp;&nbsp;Close&nbsp;&nbsp;&nbsp;</button>'; 
+                        }
+    echo '</div></div>';
                     }
                 }
-            } 
-     ?>
-    </div>
+            }
+?>
 
-</div>
+        </div>
+    </div>
+</body>

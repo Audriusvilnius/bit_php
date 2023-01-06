@@ -33,9 +33,6 @@
 <?php endforeach ?>
 
 
-
-<?=print_r($url);?>
-
 <body class="p-2 bg-dark text-white">
     <div class="container text-left">
         <div class="row">
