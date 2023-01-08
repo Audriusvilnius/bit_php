@@ -9,15 +9,8 @@
     <button type="submit">Taip</button>
 
 </form>
-<?=print_r($custome);?>
-<?= $id = $_GET['id'];?>
-
 <?php foreach ($customers as $customer) : ?>
-
-
 <ul>
-
-
     <li> <b>id: <?= $customer['id'] ?></b> </li>
     <li> <?= $customer['name'] ?></li>
     <li> <?= $customer['surname'] ?></li>

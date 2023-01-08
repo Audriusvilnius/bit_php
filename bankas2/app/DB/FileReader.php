@@ -3,6 +3,8 @@
 namespace Bankas2\DB;
 
 use App\DB\DataBase;
+use Bankas2\Controllers;
+use Bankas2\App;
 
 class FileReader implements DataBase
 {
@@ -46,9 +48,18 @@ class FileReader implements DataBase
     {
         $userData['id'] = $this->getId();
         $balance = 0;
+        $error=0;
         $account = 'LT ' . rand(10, 99) . ' 6300 ' . rand(1000, 9999).' '. rand(1000, 9999).' '. rand(1000, 9999);
         $userData['account']=$account;
         (float)$userData['balance']=$balance;
+      
+
+        foreach ($this->data as $key => $value) {
+            if ($userData['personal_id'] == $value['personal_id']){
+                  $userData['error']=1;
+                App::redirect('customers/error/' .$userData['id']); 
+            }
+        }
         $this->data[] = $userData;
     }
 
@@ -60,16 +71,9 @@ class FileReader implements DataBase
     }
     public function plius(int $id, array $userData): void
     {
-    //  print_r($this->data);
-    // print_r($userData);
-    //   echo('fsfs');
-   
         if ($userData['plius']){
             foreach ($this->data as $index => $us_data) {
                 if($id == $us_data['id'] && is_numeric($userData['plius'] )&& $userData['plius'] > 0){                
-                // print_r($this->data[$index]['balance']);
-                // echo('dsff');
-                //    print_r($this->data);
                 $userData['plius'] = round($userData['plius'],2);
                 (float)$this->data[$index]['balance']+=$userData['plius'];
                 }
@@ -113,4 +117,10 @@ class FileReader implements DataBase
     {
         return $this->data;
     }
+
+    public function error($error){
+        echo'test';
+    }
+
+
 }

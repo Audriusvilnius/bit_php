@@ -97,11 +97,11 @@
                         echo '<a href="'.URL . 'customers/edit/' . $customer['id'].'"> <button class="btn btn-outline-warning me-2">&nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;&nbsp;</button></a>';
 
                         if($customer['balance']==0){
-                        echo '<form action="'.URL . 'customers/delete/' . $customer['id']. '" method="post"><button class="btn btn-outline-danger pr-2" type="submit">&nbsp&nbsp;&nbsp;Delet&nbsp;&nbsp;&nbsp;</button></form>';}
+                        echo '<form action="'.URL . 'customers/delete/' . $customer['id']. '" method="post"><button class="btn btn-outline-danger pr-2" type="submit">&nbsp&nbsp;&nbsp;Delet&nbsp;&nbsp;&nbsp;</button></form></div></div>';}
                         else{
-                        echo '<button  class="btn btn-danger pr-2" onclick="myFunction()">&nbsp&nbsp;&nbsp;Close&nbsp;&nbsp;&nbsp;</button>'; 
+                        echo '<button  class="btn btn-danger pr-2" onclick="myFunction()">&nbsp&nbsp;&nbsp;Close&nbsp;&nbsp;&nbsp;</button></div></div>'; 
                         }
-    echo '</div></div>';
+   
                     }
                 }
             }

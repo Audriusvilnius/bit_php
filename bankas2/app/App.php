@@ -43,7 +43,6 @@ class App
             return (new Customer)->delete($url[2]);
         }
         if ($url[0] == 'customers' && $url[1] == 'plius' && count($url) == 3 && $method == 'POST') {
-            //echo'Test';
             return (new Customer)->plius($url[2]);
         }
         if ($url[0] == 'customers' && $url[1] == 'home' && count($url) == 2) {
@@ -52,7 +51,9 @@ class App
         if ($url[0] == 'customers' && $url[1] == 'search' && count($url) == 3 &&  $method == 'POST') {
             return (new Customer)->search($url[2]);
         }
-
+        if ($url[0] == 'customers' && $url[1] == 'error' && count($url) == 3 && $method == 'GET') {
+            return (new Customer)->error($url[2]);
+        }
         return '404 NOT FOUND';
     }
 

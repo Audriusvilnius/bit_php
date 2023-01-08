@@ -25,8 +25,8 @@ class Customer
 
     public function save()
     {
-        (new FR('customers'))->create($_POST);
-        return App::redirect('customers');
+        $ss=(new FR('customers'))->create($_POST);
+        //return App::redirect('customers');
     }
 
     public function edit($id)
@@ -68,5 +68,12 @@ class Customer
     {
         $pageTitle = 'R&K | Home';
         return App::view('customer-home', compact('pageTitle', 'customer'));
+    }
+     public function error($id)
+    {
+        $pageTitle = 'R&K | error';
+        $customers = (new FR('customers'))->show($id);
+        return App::view('customer-error', compact('pageTitle', 'customers'));
+        
     }
 }
