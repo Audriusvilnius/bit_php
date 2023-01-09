@@ -7,12 +7,12 @@ class  Message
 {
     public static function add($text, $type){
 
-        $_SESION['message']=['text'=>$text, 'type'=>$type];
+        $_SESSION['message']=['text'=>$text, 'type'=>$type];
     }
 
     public static function get(){
-        $message =  $_SESION['message'] ?? null;
-        unset($_SESION['message']);
+        $message =  $_SESSION['message'] ?? null;
+        unset($_SESSION['message']);
         return $message;
     }
 

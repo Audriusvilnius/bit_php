@@ -24,8 +24,7 @@
 
 <body class="p-2 bg-dark text-white">
     <?php if(isset($message)) :?>
-    <div class="alert alert-danger">
+    <div class="alert alert-success">
         <strong><?=$message['text']?></strong> Indicates a dangerous or potentially negative action.
-        <?=print_r($message);?>
     </div>
     <?php endif ?>

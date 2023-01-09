@@ -27,7 +27,7 @@ class Customer
 
     public function save()
     {
-        $ss=(new FR('customers'))->create($_POST);
+        (new FR('customers'))->create($_POST);
         MS::add('Mesage','ok');
         return App::redirect('customers');
     }
@@ -37,7 +37,6 @@ class Customer
         $pageTitle = 'R&K | Edit';
         $customers = (new FR('customers'))->show($id);
         return App::view('customer-edit', compact('pageTitle', 'customers'));
-        
     }
     public function transfer($id)
     {

@@ -78,6 +78,7 @@
                         echo '<div class ="col-12 col-sm-6 p-3 mt-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
                         echo '<h4 class="fs-5 fw-lighter m-3">Customer id:<span class="fs-4 fw-light"> &nbsp;' . $customer['id'] . '</span></h4>';
                         echo'<h2 class="border-bottom m-3"></h2>';
+                        echo '<h5 class="fs-6 fw-lighter m-3">Customer No.:<span class="fs-5 fw-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$customer['cust_id'] .'</span></h5>';
                         echo '<h5 class="fs-6 fw-lighter m-3">Name:<span class="fs-5 fw-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $customer['name'] . '</span></h5>';
                         echo '<h5 class="fs-6 fw-lighter m-3">Surname:<span class="fs-5 fw-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $customer['surname'] .'</span></h5>';
                         echo '<h5 class="fs-6 fw-lighter m-3">Personal ID:<span class="fs-5 fw-light">&nbsp;&nbsp;&nbsp;'. $customer['personal_id'] . '</span></h5>';

@@ -5,6 +5,7 @@ namespace Bankas2\DB;
 use App\DB\DataBase;
 use Bankas2\Controllers;
 use Bankas2\App;
+use Bankas2\Valid as V;
 
 class FileReader implements DataBase
 {
@@ -49,20 +50,17 @@ class FileReader implements DataBase
         $userData['id'] = $this->getId();
         $balance = 0;
         $error=0;
-        $cust_id;
+        $cust_id =$userData['id'];
         $account = 'LT ' . rand(10, 99) . ' 6300 ' . rand(1000, 9999).' '. rand(1000, 9999).' '. rand(1000, 9999);
         $userData['account']=$account;
         (float)$userData['balance']=$balance;
         $userData['cust_id']=$userData['id'];
-
-      
-        
-        // foreach ($this->data as $key => $value) {
-        //     if ($userData['personal_id'] == $value['personal_id']){
-        //         $userData['error']=1;
-        //         App::redirect('customers/error/' .$userData['id']); 
-        //     }
-        // }
+        foreach ($this->data as $key => $value) {
+            if ($userData['personal_id'] == $value['personal_id']){
+                $userData['cust_id']=$value['cust_id'];
+            }
+        }
+        V::check_id($userData);
         $this->data[] = $userData;
    
     }
