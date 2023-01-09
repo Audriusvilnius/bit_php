@@ -21,3 +21,11 @@
         <h2 class="pb-4 border-bottom"></h2>
     </div>
 </header>
+
+<body class="p-2 bg-dark text-white">
+    <?php if(isset($message)) :?>
+    <div class="alert alert-danger">
+        <strong><?=$message['text']?></strong> Indicates a dangerous or potentially negative action.
+        <?=print_r($message);?>
+    </div>
+    <?php endif ?>

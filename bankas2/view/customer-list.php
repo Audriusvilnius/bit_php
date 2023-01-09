@@ -17,8 +17,8 @@
 
 <?php endforeach ?> -->
 
-<body class="p-2 bg-dark text-white">
-    <!-- <div class="container text-left">
+
+<!-- <div class="container text-left">
     <div class="row">
         <div class="col-12 col-sm-6 p-3 ">
             <h4>Find customer:</h4>
@@ -51,10 +51,10 @@
 </div>
 </div>
 </div> -->
-    <div class="container text-left ">
-        <!-- <h2 class="pb-4 border-bottom"></h2> -->
-        <div class="row">
-            <!-- <?php 
+<div class="container text-left ">
+    <!-- <h2 class="pb-4 border-bottom"></h2> -->
+    <div class="row">
+        <!-- <?php 
             if ($customers != []) {
                 foreach ($customers as $customer) {
                     if ($customers['name'] == $name) {
@@ -72,7 +72,7 @@
     }
     }
     ?> -->
-            <?php
+        <?php
                 if ($name == '') {
                     foreach ($customers as $customer) {
                         echo '<div class ="col-12 col-sm-6 p-3 mt-3 " style="background-color:rgba(72, 67, 67, 0.303);border: 2px solid black;border-radius: 30px;">';
@@ -107,6 +107,6 @@
             }
 ?>
 
-        </div>
     </div>
+</div>
 </body>

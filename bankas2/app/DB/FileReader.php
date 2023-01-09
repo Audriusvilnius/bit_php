@@ -49,18 +49,22 @@ class FileReader implements DataBase
         $userData['id'] = $this->getId();
         $balance = 0;
         $error=0;
+        $cust_id;
         $account = 'LT ' . rand(10, 99) . ' 6300 ' . rand(1000, 9999).' '. rand(1000, 9999).' '. rand(1000, 9999);
         $userData['account']=$account;
         (float)$userData['balance']=$balance;
-      
+        $userData['cust_id']=$userData['id'];
 
-        foreach ($this->data as $key => $value) {
-            if ($userData['personal_id'] == $value['personal_id']){
-                  $userData['error']=1;
-                App::redirect('customers/error/' .$userData['id']); 
-            }
-        }
+      
+        
+        // foreach ($this->data as $key => $value) {
+        //     if ($userData['personal_id'] == $value['personal_id']){
+        //         $userData['error']=1;
+        //         App::redirect('customers/error/' .$userData['id']); 
+        //     }
+        // }
         $this->data[] = $userData;
+   
     }
 
     public function update(int $userId, array $userData): void
@@ -117,10 +121,5 @@ class FileReader implements DataBase
     {
         return $this->data;
     }
-
-    public function error($error){
-        echo'test';
-    }
-
 
 }

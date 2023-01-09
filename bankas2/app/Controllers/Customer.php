@@ -4,6 +4,7 @@ namespace Bankas2\Controllers;
 
 use Bankas2\App;
 use Bankas2\DB\FileReader as FR;
+use Bankas2\Message as MS;
         
         
 
@@ -14,7 +15,8 @@ class Customer
     {
         $customers = (new FR('customers'))->showAll();
         $pageTitle = 'R&K | Customers List';
-        return App::view('customer-list', compact('customers', 'pageTitle'));
+        $message = MS::get();
+        return App::view('customer-list', compact('customers', 'pageTitle', 'message'));
     }
 
     public function create()
@@ -26,7 +28,8 @@ class Customer
     public function save()
     {
         $ss=(new FR('customers'))->create($_POST);
-        //return App::redirect('customers');
+        MS::add('Mesage','ok');
+        return App::redirect('customers');
     }
 
     public function edit($id)
@@ -57,6 +60,7 @@ class Customer
     public function delete($id)
     {
         (new FR('customers'))->delete($id);
+         MS::add('Mesage','ok');
         return App::redirect('customers');
     }
     public function add($id)
@@ -71,7 +75,7 @@ class Customer
     }
      public function error($id)
     {
-        $pageTitle = 'R&K | error';
+        $pageTitle = 'R&K | Error-ID';
         $customers = (new FR('customers'))->show($id);
         return App::view('customer-error', compact('pageTitle', 'customers'));
         

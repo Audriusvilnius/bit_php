@@ -1,4 +1,3 @@
-<body class="p-2 bg-dark text-white">
     <div class="container text-left">
         <div class="row">
             <div class="col-12 col-sm-6 p-3 ">
@@ -39,4 +38,4 @@
             ?>
         </div>
     </div>
-</body>
+    </body>
