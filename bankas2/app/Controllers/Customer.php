@@ -77,7 +77,7 @@ class Customer
     }
      public function error($error)
     {
-        $pageTitle = 'R&K | Error-ID';
+        $pageTitle = 'R&K | Error';
         // $customers = (new FR('customers'))->show($id);
         $customers['error']=$error;
         return App::view('customer-error', compact('pageTitle', 'customers'));

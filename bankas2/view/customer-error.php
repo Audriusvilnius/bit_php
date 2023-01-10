@@ -7,7 +7,7 @@
                 } ?>
             <form class="text-begin p-2" action="<?= URL ?>customers/save" method="post">
                 <p class="pt-2">Name:</p>
-                <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="name" class="form-control" placeholder="Name">
+                <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="name" class="form-control" placeholder="Name" value="<?= $customers['name'] ?>">
                 <p class="pt-2">Surname:</p>
                 <input class="col-8 col-sm-11 col-lg-auto mb-1 mb-lg-12 me-lg-10" type="text" name="surname" class="form-control" placeholder="Surname">
                 <p class="pt-2 ">Personal ID:</p>
