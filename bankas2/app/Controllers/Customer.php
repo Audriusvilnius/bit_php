@@ -75,10 +75,11 @@ class Customer
         $pageTitle = 'R&K | Home';
         return App::view('customer-home', compact('pageTitle', 'customer'));
     }
-     public function error($id)
+     public function error($error)
     {
         $pageTitle = 'R&K | Error-ID';
-        $customers = (new FR('customers'))->show($id);
+        // $customers = (new FR('customers'))->show($id);
+        $customers['error']=$error;
         return App::view('customer-error', compact('pageTitle', 'customers'));
         
     }
