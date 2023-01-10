@@ -5,7 +5,7 @@ namespace Bankas2\DB;
 use App\DB\DataBase;
 use Bankas2\Controllers;
 use Bankas2\App;
-use Bankas2\Valid as V;
+
 
 class FileReader implements DataBase
 {
@@ -44,23 +44,34 @@ class FileReader implements DataBase
             return $id;
         }
     }
+        private function getNo(): int
+    {
+        if (!file_exists(__DIR__ . '/' . $this->name . '_No')) {
+            file_put_contents(__DIR__ . '/' . $this->name . '_No', serialize(1));
+            return 1;
+        } else {
+            $No = unserialize(file_get_contents(__DIR__ . '/' . $this->name . '_No'));
+            $No++;
+            file_put_contents(__DIR__ . '/' . $this->name . '_No', serialize($No));
+            return $No;
+        }
+    }
 
     public function create(array $userData): void
-    {
+    {   $userData['cust_id'] = $this->getNo();
         $userData['id'] = $this->getId();
         $balance = 0;
         $error=0;
         $cust_id =$userData['id'];
         $account = 'LT ' . rand(10, 99) . ' 6300 ' . rand(1000, 9999).' '. rand(1000, 9999).' '. rand(1000, 9999);
         $userData['account']=$account;
-        (float)$userData['balance']=$balance;
-        $userData['cust_id']=$userData['id'];
+        (float)$userData['balance'] = $balance;
         foreach ($this->data as $key => $value) {
             if ($userData['personal_id'] == $value['personal_id']){
                 $userData['cust_id']=$value['cust_id'];
             }
         }
-        V::check_id($userData);
+        //print_r($userData);
         $this->data[] = $userData;
    
     }

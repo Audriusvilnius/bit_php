@@ -5,6 +5,7 @@ namespace Bankas2\Controllers;
 use Bankas2\App;
 use Bankas2\DB\FileReader as FR;
 use Bankas2\Message as MS;
+use Bankas2\Valid as V;
         
         
 
@@ -27,8 +28,10 @@ class Customer
 
     public function save()
     {
-        (new FR('customers'))->create($_POST);
+        $test = $_POST;
         MS::add('Mesage','ok');
+        $test = V::check_id($test);
+        (new FR('customers'))->create($test);
         return App::redirect('customers');
     }
 
