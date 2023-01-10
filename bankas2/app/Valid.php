@@ -9,7 +9,7 @@ class Valid
     public static function check_id($userData)
     {
    echo '<pre>';     
-  if ($userData['name'] == '' && $userData['surname'] == '' && $userData['personal_id']=='') {
+  if ($userData['name'] != '' && $userData['surname'] != '' && $userData['personal_id']!='') {
     $error = 1;
     return App::redirect('customers/error/' . $error);
     if (!preg_match('/\D([A-Za-z]{2})/', $userData['name']) || preg_match('/\d/', $userData['name'])) {
