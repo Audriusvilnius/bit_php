@@ -55,7 +55,7 @@ class App
         if ($url[0] == 'customers' && $url[1] == 'error' && count($url) == 3 && $method == 'GET') {
             return (new Customer)->error($url[2]);
         }
-        return '404 NOT FOUND';
+        return (new Customer)->home();
     }
 
     public static function view(string $__name, array $data)

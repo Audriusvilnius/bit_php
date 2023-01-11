@@ -20,6 +20,7 @@ class FileReader implements DataBase
             $this->data = [];
         } else {
             $this->data = unserialize(file_get_contents(__DIR__ . '/' . $this->name));
+            usort($this->data, fn($a, $b) => $a['surname'] <=> $b['surname']);
         }
     }
 

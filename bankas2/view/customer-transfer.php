@@ -27,6 +27,15 @@
                 <h2 class="m-3 border-bottom"></h2>
                 <h5 class="fs-6 fw-lighter m-3">Account No.:<span class="fs-5 fw-light float-end">&nbsp;&nbsp;<?=$customers['account'] ?></span></h5>
                 <h5 class="fs-6 fw-lighter m-3">Balance:<span class="fs-5 fw-light float-end">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$customers['balance']?>&nbsp;&nbsp;&euro;</span></h5>
+                <?php 
+                    if ($customers['balance']==0){
+                    
+                        echo'<form action="'.URL . 'customers/delete/'. $customers['id'].'" method="post">
+                            <button class="btn btn-outline-danger pr-2" type="submit">&nbsp&nbsp;&nbsp;Delet&nbsp;&nbsp;&nbsp;</button>
+                        </form>';
+                    }else 
+                    echo'<button  class="btn btn-danger pr-2" onclick="myFunction()">&nbsp&nbsp;&nbsp;Close&nbsp;&nbsp;&nbsp;</button>';
+                    ?>
             </div>
         </div>
     </div>

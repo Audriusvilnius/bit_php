@@ -12,6 +12,7 @@
                 <div class="col-12 col-sm-6 pt-3 ">
                     <input type="hidden" name="account" value="<?= $customers['account'] ?>">
                     <input type="hidden" name="balance" value="<?= $customers['balance'] ?>">
+                    <input type="hidden" name="cust_id" value="<?= $customers['cust_id'] ?>">
                     <button type="submit" class="btn btn-success">Save edit</button>
                 </div>
             </form>
@@ -30,7 +31,7 @@
             <h5 class="fs-6 fw-lighter m-3">Account No.:<span class="fs-5 fw-light float-end">&nbsp;&nbsp;<?=$customers['account'] ?></span></h5>
             <h5 class="fs-6 fw-lighter m-3">Balance:<span class="fs-5 fw-light float-end">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$customers['balance']?>&nbsp;&nbsp;&euro;
                 </span></h5>
-            <div class="btn-group me-2 m-3" role="group">
+            <div class="btn-group me-2 m-3">
                 <?php 
                     if ($customers['balance']==0){
                     

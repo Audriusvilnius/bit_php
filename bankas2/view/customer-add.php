@@ -1,4 +1,4 @@
-<h1>Prideti</h1>
+<!-- <h1>Prideti</h1>
 
 <form action="<?= URL ?>customers/update/<?= $customer['id'] ?>" method="post">
 
@@ -25,7 +25,7 @@
 
 <?php endforeach ?>
 
-
+ -->
 
 <div class="container text-left">
     <div class="row">

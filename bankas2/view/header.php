@@ -9,12 +9,13 @@
                 <li><a href="http://bankasdu.lt/customers" class="nav-link px-2 text-white p-4">Customers</a></li>
                 <!-- <li><a href="https://www.youtube.com/watch?v=OfqVGcBeqyQ" class="nav-link px-2 text-white p-4"><img src="./pornhub_logo_straight.svg" height="18"></li></a> -->
             </ul>
+
             <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
             </form> -->
 
             <div class="text-end">
-                <button type="button" class="btn btn-outline-light me-2">Log in </button>
+                <button type="submit" class="btn btn-outline-light me-2">Log in </button>
                 <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
             </div>
         </div>
