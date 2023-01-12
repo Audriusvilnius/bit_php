@@ -40,4 +40,11 @@ $_SESSION['esql'] = $sql;
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$_POST['height'], $_POST['id']]);
 
+$_SESSION['esql'] = $sql;
+
+
+// $pdo->query($sql);
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$_POST['height'], $_POST['id']]);
+
 header('Location: http://localhost/bit_php/028/');

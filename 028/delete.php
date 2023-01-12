@@ -40,4 +40,5 @@ $stmt->execute([$_POST['id']]);
 
 
 
+
 header('Location: http://localhost/bit_php/028/');
