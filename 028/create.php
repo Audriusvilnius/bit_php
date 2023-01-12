@@ -1,7 +1,7 @@
 <?php
 session_start();
 $host = '127.0.0.1';
-$db   = 'miskas';
+$db   = 'miskasdu';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';

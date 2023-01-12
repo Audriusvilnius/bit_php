@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+// Uzsi use controleri ZooController as Zoo - kad renderintu turini
 use App\Http\Controllers\ZooController as Zoo;
 
 
