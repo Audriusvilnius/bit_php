@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ZooController as Zoo;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/zoo/enter/{id}',[Zoo::class, 'enter']);
+Route::get('/zoo/exit',fn()=>'Ate');
