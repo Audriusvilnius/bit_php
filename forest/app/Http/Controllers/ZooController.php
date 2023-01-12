@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ZooController extends Controller
 {
-    public function enter(){
-        return 'Labas is kontrolerio';
+    public function enter($id){
+        return 'Labas is kontrolerio Nr.:'.$id;
     }
 }
